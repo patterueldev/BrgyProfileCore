@@ -14,7 +14,7 @@ namespace BrgyProfileCore.Migrations
                     HouseholdId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     HouseholdName = table.Column<string>(type: "TEXT", nullable: true),
-                    HeadResidentId = table.Column<int>(type: "INTEGER", nullable: false)
+                    HeadResidentId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {

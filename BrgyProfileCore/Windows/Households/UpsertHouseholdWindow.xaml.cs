@@ -41,7 +41,7 @@ namespace BrgyProfileCore.Windows.Households
             }
         }
 
-        int headResidentId
+        int? headResidentId
         {
             get
             {
@@ -50,7 +50,7 @@ namespace BrgyProfileCore.Windows.Households
                 {
                     return headResident.ResidentId;
                 }
-                return 0;
+                return null;
             }
         }
 

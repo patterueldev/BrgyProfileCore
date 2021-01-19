@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore;
+using Faker;
 
 namespace BrgyProfileCore.Windows.Residents
 {
@@ -20,14 +21,15 @@ namespace BrgyProfileCore.Windows.Residents
     public partial class UpsertResidentWindow : Window
     {
         public Resident resident;
-        public Household household;
+
+        BrgyContext db = new BrgyContext();
 
         public UpsertResidentWindow()
         {
             InitializeComponent();
 
-            var db = new BrgyContext();
-            HouseholdBox.ItemsSource = db.Households.ToList();
+            var households = db.Households.Include(h => h.Residents).ToList();
+            HouseholdBox.ItemsSource = households;
             UpdateView();
         }
 
@@ -35,9 +37,7 @@ namespace BrgyProfileCore.Windows.Residents
         {
             InitializeComponent();
 
-            var db = new BrgyContext();
-
-            this.resident = resident;
+            this.resident = db.Residents.First(r => r.ResidentId == resident.ResidentId);
 
             FirstNameField.Text = resident.FirstName;
             MiddleNameField.Text = resident.MiddleName;
@@ -48,8 +48,12 @@ namespace BrgyProfileCore.Windows.Residents
             ContactNumberField.Text = resident.ContactNumber;
             GuardianField.Text = resident.Guardian;
 
-            HouseholdBox.ItemsSource = db.Households.ToList();
-            this.household = resident.Household;
+            var households = db.Households.Include(h => h.Residents).ToList();
+            HouseholdBox.ItemsSource = households;
+            HouseholdBox.SelectedItem = households.FirstOrDefault(h =>
+            {
+                return h.HouseholdId == resident.HouseholdId;
+            });
 
             UpdateView();
         }
@@ -80,23 +84,31 @@ namespace BrgyProfileCore.Windows.Residents
                 return;
             }
 
-            var db = new BrgyContext();
+            var household = (Household)this.HouseholdBox.SelectedItem;
 
             if (resident == null)
             {
-                // Is Adding
-                db.Add(
-                    new Resident
-                    {
-                        FirstName = FirstNameField.Text.Trim(),
-                        MiddleName = MiddleNameField.Text.Trim(),
-                        LastName = LastNameField.Text.Trim(),
+                var resident = new Resident
+                {
+                    FirstName = FirstNameField.Text.Trim(),
+                    MiddleName = MiddleNameField.Text.Trim(),
+                    LastName = LastNameField.Text.Trim(),
 
-                        DateOfBirth = (DateTime)DateOfBirthPicker.SelectedDate,
-                        Address = AddressField.Text.Trim(),
-                        ContactNumber = ContactNumberField.Text.Trim(),
-                        Guardian = GuardianField.Text.Trim(),
-                    });
+                    DateOfBirth = (DateTime)DateOfBirthPicker.SelectedDate,
+                    Address = AddressField.Text.Trim(),
+                    ContactNumber = ContactNumberField.Text.Trim(),
+                    Guardian = GuardianField.Text.Trim(),
+                };
+
+                // Is Adding
+                if (household != null)
+                {
+                    household.Residents.Add(resident);
+                }
+                else
+                {
+                    db.Add(resident);
+                }
             }
             else
             {
@@ -109,6 +121,8 @@ namespace BrgyProfileCore.Windows.Residents
                 this.resident.Address = AddressField.Text.Trim();
                 this.resident.ContactNumber = ContactNumberField.Text.Trim();
                 this.resident.Guardian = GuardianField.Text.Trim();
+
+                this.resident.Household = household;
 
                 db.Update(this.resident);
             }
@@ -129,6 +143,14 @@ namespace BrgyProfileCore.Windows.Residents
             var title = resident == null ? "Add Resident" : "Edit Resident";
             GroupBox.Header = title;
             this.Title = title;
+        }
+
+        private void autofillbutton_click(object sender, RoutedEventArgs e)
+        {
+            FirstNameField.Text = NameFaker.FirstName();
+            LastNameField.Text = NameFaker.LastName();
+            DateOfBirthPicker.SelectedDate = DateTimeFaker.BirthDay(15);
+            AddressField.Text = LocationFaker.Street();
         }
     }
 }

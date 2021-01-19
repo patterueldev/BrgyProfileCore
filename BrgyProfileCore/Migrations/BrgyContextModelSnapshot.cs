@@ -22,7 +22,7 @@ namespace BrgyProfileCore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("HeadResidentId")
+                    b.Property<int?>("HeadResidentId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("HouseholdName")

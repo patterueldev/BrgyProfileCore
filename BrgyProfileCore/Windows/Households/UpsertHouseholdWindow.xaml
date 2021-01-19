@@ -24,8 +24,6 @@
                     <ComboBox x:Name="HeadResidentBox" DisplayMemberPath="FullName"/>
 
                     <!-- Sitio -->
-                    <Label Content="Sitio"/>
-                    <ComboBox x:Name="SitioBox"/>
                 </StackPanel>
 
                 <!-- Select Household Residents -->

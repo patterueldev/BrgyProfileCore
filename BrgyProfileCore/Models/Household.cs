@@ -9,7 +9,7 @@ namespace BrgyProfileCore
     {
         public int HouseholdId { get; set; }
         public string HouseholdName { get; set; }
-        public int HeadResidentId { get; set; }
+        public int? HeadResidentId { get; set; }
 
         public List<Resident> Residents { get; } = new List<Resident>();
 
@@ -21,12 +21,16 @@ namespace BrgyProfileCore
                 {
                     return "N/A";
                 }
-                if (HeadResidentId != 0 && Residents.Count > 0)
+                if (HeadResidentId != null && Residents.Count > 0)
                 {
                     var resident = Residents.First(res =>
                     {
                         return res.ResidentId == this.HeadResidentId;
                     });
+                    if (resident != null)
+                    {
+                        return resident.FullName;
+                    }
                 }
                 return "N/A";
             }
