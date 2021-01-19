@@ -68,8 +68,8 @@ namespace BrgyProfileCore.Windows
         /// <param name="e"></param>
         private void ViewAllResidentsButton_Click(object sender, RoutedEventArgs e)
         {
-            //ResidentListWindow resWin = new ResidentListWindow();
-            //resWin.ShowDialog();
+            ResidentListWindow resWin = new ResidentListWindow();
+            resWin.ShowDialog();
         }
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace BrgyProfileCore.Windows
                 return;
             }
 
-            //var window = new ViewResidentWindow(selectedResident);
-            //window.ShowDialog();
+            var window = new ViewResidentWindow(selectedResident);
+            window.ShowDialog();
         }
 
         private void AddResidentButton_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,29 @@
+﻿<Window x:Class="BrgyProfileCore.Windows.Residents.ViewResidentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BrgyProfileCore.Windows.Residents"
+        xmlns:CustomControls="clr-namespace:BrgyProfileCore.CustomControls" 
+        mc:Ignorable="d"
+        Title="View Resident" Height="450" Width="800">
+    <Grid Background="#FFD1D1D1">
+        <GroupBox Header="Resident Details" Margin="10">
+            <Grid Margin="0">
+                <StackPanel HorizontalAlignment="Left" Height="356" Margin="10,10,0,0" VerticalAlignment="Top" Width="299">
+                    <CustomControls:ResidentDetailView x:Name="FirstNameDetailView" FieldHeader="First Name:" FieldValue="John"/>
+                    <CustomControls:ResidentDetailView x:Name="MiddleNameDetailView" FieldHeader="Middle Name:" FieldValue="Land"/>
+                    <CustomControls:ResidentDetailView x:Name="LastNameDetailView" FieldHeader="Last Name:" FieldValue="Smith"/>
+                    <CustomControls:ResidentDetailView x:Name="DateOfBirthDetailView" FieldHeader="Date of Birth:" FieldValue="November 12, 1990"/>
+                    <CustomControls:ResidentDetailView x:Name="AddressDetailView" FieldHeader="Address:" FieldValue="Pototan, Iloilo"/>
+                    <CustomControls:ResidentDetailView x:Name="ContactNumberDetailView" FieldHeader="Contact Number:" FieldValue="09991431123"/>
+                    <CustomControls:ResidentDetailView x:Name="GuardianDetailView" FieldHeader="Guardian:" FieldValue="N/A"/>
+                    <Separator Margin="0"/>
+                    <CustomControls:ResidentDetailView x:Name="HouseholdDetailView" FieldHeader="Household:" FieldValue="N/A"/>
+                    <CustomControls:ResidentDetailView x:Name="SitioDetailView" FieldHeader="Sitio:" FieldValue="N/A"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Window>

@@ -62,7 +62,7 @@
                 <StackPanel HorizontalAlignment="Right" Height="148" Margin="0,10,10,0" VerticalAlignment="Top" Width="350">
                     <!-- Household -->
                     <Label Content="Household"/>
-                    <ComboBox x:Name="HouseholdBox"/>
+                    <ComboBox x:Name="HouseholdBox" DisplayMemberPath="HouseholdName"/>
 
                     <!-- Sitio -->
                     <Label Content="Sitio"/>

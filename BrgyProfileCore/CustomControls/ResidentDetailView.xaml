@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="BrgyProfileCore.CustomControls.ResidentDetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BrgyProfileCore.CustomControls"
+             mc:Ignorable="d">
+    <Grid>
+        <Label x:Name="FieldHeaderLabel" Content="First Name:" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Width="100"/>
+        <Label x:Name="FieldValueLabel" Content="John Dave" Margin="110,0,0,0" FontWeight="Bold"/>
+    </Grid>
+</UserControl>

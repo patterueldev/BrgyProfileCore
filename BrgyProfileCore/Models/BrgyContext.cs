@@ -38,11 +38,5 @@ namespace BrgyProfileCore
             optionsBuilder.UseSqlite(dataSource.GetConnectionString());
             base.OnConfiguring(optionsBuilder);
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Resident>()
-                .HasOne(r => r.Household)
-                .WithMany(h => h.Residents);
-        }
     }
 }

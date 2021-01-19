@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace BrgyProfileCore.Windows.Households
 {
@@ -133,8 +134,7 @@ namespace BrgyProfileCore.Windows.Households
         public void refreshList()
         {
             var db = new BrgyContext();
-
-            var residents = db.Residents.ToList().FindAll(resident =>
+            var residents = db.Residents.Include(r => r.Household).ToList().FindAll(resident =>
             {
                 if (this.household != null)
                 {

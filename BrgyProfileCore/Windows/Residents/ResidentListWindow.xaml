@@ -1,0 +1,35 @@
+﻿<Window x:Class="BrgyProfileCore.Windows.Residents.ResidentListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BrgyProfileCore.Windows.Residents"
+        mc:Ignorable="d"
+        Title="Residents" Height="450" Width="800" Activated="Window_Activated">
+    <Grid Background="#FFD1D1D1">
+        <GroupBox Header="Residents" Margin="10" MinWidth="400">
+            <Grid Margin="0">
+                <Button Content="Add Resident" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddResidentButton_Click"/>
+                <DataGrid x:Name="residentsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="residentsDataGrid_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="residentIdColumn" Binding="{Binding ResidentId}"
+                                            Header="Resident Id" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="residentNameColumn" Binding="{Binding FullName}"
+                                            Header="Name"/>
+                        <DataGridTextColumn x:Name="residentAgeColumn" Binding="{Binding Age}"
+                                            Header="Age"/>
+                        <DataGridTextColumn x:Name="residentAddressColumn" Binding="{Binding Address}"
+                                            Header="Address"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button x:Name="ResidentDetailsButton" Content="Resident Details" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Click="ResidentDetailsButton_Clicked"/>
+                <Button x:Name="EditResidentButton" Content="Edit Resident" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Click="EditResidentButton_Clicked"/>
+                <Button x:Name="DeleteResidentButton" Content="Delete Resident" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Click="DeleteResidentButton_Click"/>
+                <TextBox x:Name="SearchTextBox" HorizontalAlignment="Right" Height="20" Margin="0,10,115,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SearchTextChanged"/>
+                <Label Content="Search" HorizontalAlignment="Right" Margin="0,7,240,0" VerticalAlignment="Top"/>
+            </Grid>
+
+        </GroupBox>
+
+    </Grid>
+</Window>

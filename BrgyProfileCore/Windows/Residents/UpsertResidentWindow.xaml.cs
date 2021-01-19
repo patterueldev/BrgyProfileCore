@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace BrgyProfileCore.Windows.Residents
 {
@@ -18,15 +20,22 @@ namespace BrgyProfileCore.Windows.Residents
     public partial class UpsertResidentWindow : Window
     {
         public Resident resident;
+        public Household household;
+
         public UpsertResidentWindow()
         {
             InitializeComponent();
+
+            var db = new BrgyContext();
+            HouseholdBox.ItemsSource = db.Households.ToList();
             UpdateView();
         }
 
         public UpsertResidentWindow(Resident resident)
         {
             InitializeComponent();
+
+            var db = new BrgyContext();
 
             this.resident = resident;
 
@@ -38,6 +47,9 @@ namespace BrgyProfileCore.Windows.Residents
             AddressField.Text = resident.Address;
             ContactNumberField.Text = resident.ContactNumber;
             GuardianField.Text = resident.Guardian;
+
+            HouseholdBox.ItemsSource = db.Households.ToList();
+            this.household = resident.Household;
 
             UpdateView();
         }
