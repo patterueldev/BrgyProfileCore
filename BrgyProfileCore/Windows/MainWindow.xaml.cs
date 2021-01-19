@@ -115,8 +115,8 @@ namespace BrgyProfileCore.Windows
 
         private void ViewAllHouseholdsButton_Click(object sender, RoutedEventArgs e)
         {
-            //HouseholdListWindow window = new HouseholdListWindow();
-            //window.ShowDialog();
+            HouseholdListWindow window = new HouseholdListWindow();
+            window.ShowDialog();
         }
 
         private void AddHouseholdButton_Click(object sender, RoutedEventArgs e)

@@ -12,7 +12,7 @@
     * Navigate to that folder (e.g., `cd C:\projects\BrgyProfileCore`)
     * Fetch tracked changes from git server: `git fetch origin`
     * Stash local changes (unless you're a developer): `git stash -u`
-    * Pull the changes: `git pull origin develop`(It should be develop branch if #2 was followed.)
+    * Pull the changes: `git pull origin main`(It should be main branch if #2 was followed.)
 4. Using powershell.exe, go to the repository root folder (e.g., `cd C:\projects\BrgyProfileCore`) and run the command `initialize-db.bat`
     * This will copy a blank database to the documents folder
     * Alternatively, you could navigate using the File Explorer, then double-clicking the `initialize-db.bat` file.
