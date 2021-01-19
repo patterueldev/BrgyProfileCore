@@ -15,7 +15,7 @@ namespace BrgyProfileCore
         public string ContactNumber { get; set; }
         public string Guardian { get; set; }
 
-        public int HouseholdId { get; set; }
+        public int? HouseholdId { get; set; }
         public Household Household { get; set; }
 
         //public int SitioId { get; set; }

@@ -47,7 +47,7 @@ namespace BrgyProfileCore.Migrations
                     Address = table.Column<string>(type: "TEXT", nullable: true),
                     ContactNumber = table.Column<string>(type: "TEXT", nullable: true),
                     Guardian = table.Column<string>(type: "TEXT", nullable: true),
-                    HouseholdId = table.Column<int>(type: "INTEGER", nullable: false)
+                    HouseholdId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -57,7 +57,7 @@ namespace BrgyProfileCore.Migrations
                         column: x => x.HouseholdId,
                         principalTable: "Households",
                         principalColumn: "HouseholdId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

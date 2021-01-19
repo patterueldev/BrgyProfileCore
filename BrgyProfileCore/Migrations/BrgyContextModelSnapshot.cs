@@ -54,7 +54,7 @@ namespace BrgyProfileCore.Migrations
                     b.Property<string>("Guardian")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("HouseholdId")
+                    b.Property<int?>("HouseholdId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LastName")
@@ -88,9 +88,7 @@ namespace BrgyProfileCore.Migrations
                 {
                     b.HasOne("BrgyProfileCore.Household", "Household")
                         .WithMany("Residents")
-                        .HasForeignKey("HouseholdId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("HouseholdId");
 
                     b.Navigation("Household");
                 });

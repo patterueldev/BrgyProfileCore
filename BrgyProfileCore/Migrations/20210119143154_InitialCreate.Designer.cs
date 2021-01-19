@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BrgyProfileCore.Migrations
 {
     [DbContext(typeof(BrgyContext))]
-    [Migration("20210119141919_InitialCreate")]
+    [Migration("20210119143154_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,7 +56,7 @@ namespace BrgyProfileCore.Migrations
                     b.Property<string>("Guardian")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("HouseholdId")
+                    b.Property<int?>("HouseholdId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("LastName")
@@ -90,9 +90,7 @@ namespace BrgyProfileCore.Migrations
                 {
                     b.HasOne("BrgyProfileCore.Household", "Household")
                         .WithMany("Residents")
-                        .HasForeignKey("HouseholdId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("HouseholdId");
 
                     b.Navigation("Household");
                 });

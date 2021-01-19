@@ -41,8 +41,8 @@ namespace BrgyProfileCore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Resident>()
-                .HasOne(typeof(Household), "Household")
-                .WithMany("Residents");
+                .HasOne(r => r.Household)
+                .WithMany(h => h.Residents);
         }
     }
 }
