@@ -19,6 +19,7 @@ namespace BrgyProfileCore.Windows.Households
     /// </summary>
     public partial class UpsertHouseholdWindow : Window
     {
+        BrgyContext db = new BrgyContext();
         public Household household;
         List<Resident> selectedResidents
         {
@@ -38,6 +39,16 @@ namespace BrgyProfileCore.Windows.Households
                     }
                     return checkbox.IsChecked == true;
                 });
+            }
+            set
+            {
+                List<Resident> residents = (List<Resident>)residentsSelectionDataGrid.ItemsSource;
+                foreach (var resident in residents)
+                {
+                    var checkbox = (CheckBox)residentSelectionColumn.GetCellContent(resident);
+                    var res = value.FirstOrDefault(r => { return r.ResidentId == resident.ResidentId; });
+                    checkbox.IsChecked = res != null;
+                }
             }
         }
 
@@ -63,9 +74,10 @@ namespace BrgyProfileCore.Windows.Households
         public UpsertHouseholdWindow(Household household)
         {
             InitializeComponent();
-            this.household = household;
 
-            HouseholdNameField.Text = household.HouseholdName;
+            this.household = db.Households.Include(h => h.Residents).First(h => h.HouseholdId == household.HouseholdId);
+
+            HouseholdNameField.Text = this.household.HouseholdName;
             this.refreshList();
         }
 
@@ -138,7 +150,7 @@ namespace BrgyProfileCore.Windows.Households
             {
                 if (this.household != null)
                 {
-                    return resident.Household == this.household || resident.Household == null;
+                    return resident.HouseholdId == this.household.HouseholdId || resident.Household == null;
                 }
                 return resident.Household == null;
             });
