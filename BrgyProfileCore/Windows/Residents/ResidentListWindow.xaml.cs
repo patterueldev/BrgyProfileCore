@@ -45,6 +45,22 @@ namespace BrgyProfileCore.Windows.Residents
             var households = db.Households.ToList();
             HouseholdBox.ItemsSource = households;
         }
+
+        /// <summary>
+        /// Class Initializer
+        /// </summary>
+        public ResidentListWindow(Household household)
+        {
+            InitializeComponent();
+
+            var db = new BrgyContext();
+            var households = db.Households.ToList();
+            HouseholdBox.ItemsSource = households;
+
+            HouseholdBox.SelectedItem = households.FirstOrDefault(h => h.HouseholdId == household.HouseholdId);
+            HouseholdBox.IsEnabled = false;
+        }
+
         /// <summary>
         /// Window did Activate
         /// </summary>

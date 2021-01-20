@@ -14,6 +14,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BrgyProfileCore.Windows.Households
 {
+    using Windows.Residents;
+
     /// <summary>
     /// Interaction logic for HouseholdListWindow.xaml
     /// </summary>
@@ -56,7 +58,13 @@ namespace BrgyProfileCore.Windows.Households
 
         private void HouseholdResidentsButton_Click(object sender, RoutedEventArgs e)
         {
+            if (selectedHousehold == null)
+            {
+                return;
+            }
 
+            ResidentListWindow resWin = new ResidentListWindow(selectedHousehold);
+            resWin.ShowDialog();
         }
 
         private void EditHouseholdButton_Click(object sender, RoutedEventArgs e)
