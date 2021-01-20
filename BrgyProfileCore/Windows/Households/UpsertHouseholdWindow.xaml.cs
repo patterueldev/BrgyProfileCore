@@ -89,7 +89,6 @@ namespace BrgyProfileCore.Windows.Households
                 return;
             }
 
-            var db = new BrgyContext();
             var residents = selectedResidents.ToList();
             if (household == null)
             {
@@ -145,7 +144,6 @@ namespace BrgyProfileCore.Windows.Households
         /// </summary>
         public void refreshList()
         {
-            var db = new BrgyContext();
             var residents = db.Residents.Include(r => r.Household).ToList().FindAll(resident =>
             {
                 if (this.household != null)
