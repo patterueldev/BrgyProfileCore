@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace BrgyProfileCore.Windows.Residents
 {
@@ -39,6 +40,10 @@ namespace BrgyProfileCore.Windows.Residents
         public ResidentListWindow()
         {
             InitializeComponent();
+
+            var db = new BrgyContext();
+            var households = db.Households.ToList();
+            HouseholdBox.ItemsSource = households;
         }
         /// <summary>
         /// Window did Activate
@@ -139,14 +144,25 @@ namespace BrgyProfileCore.Windows.Residents
         public void refreshList(string keyword = null)
         {
             var db = new BrgyContext();
-            residentsDataGrid.ItemsSource = db.Residents.ToList().FindAll(resident =>
-            {
-                if (keyword == null)
+            residentsDataGrid.ItemsSource = db.Residents.Include(r => r.Household)
+                .ToList()
+                .FindAll(resident =>
                 {
-                    return true;
-                }
-                return resident.FullName.ToLower().Contains(keyword.ToLower());
-            });
+                    if (keyword == null)
+                    {
+                        return true;
+                    }
+                    return resident.FullName.ToLower().Contains(keyword.ToLower());
+                })
+                .FindAll( resident =>
+                {
+                    var selectedHousehold = (Household)HouseholdBox.SelectedItem;
+                    if (selectedHousehold == null)
+                    {
+                        return true;
+                    }
+                    return resident.HouseholdId == selectedHousehold.HouseholdId;
+                });
         }
 
         /// <summary>
@@ -158,6 +174,20 @@ namespace BrgyProfileCore.Windows.Residents
         {
             var keyword = SearchTextBox.Text;
             this.refreshList(keyword);
+        }
+
+        private void HouseholdBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var keyword = SearchTextBox.Text;
+            this.refreshList(keyword);
+        }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (HouseholdBox.IsEnabled)
+            {
+                HouseholdBox.SelectedIndex = -1;
+            }
         }
     }
 }
