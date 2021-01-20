@@ -124,5 +124,10 @@ namespace BrgyProfileCore.Windows
             var window = new UpsertHouseholdWindow();
             window.ShowDialog();
         }
+
+        private void householdsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

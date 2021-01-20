@@ -147,10 +147,9 @@ namespace BrgyProfileCore.Windows.Residents
 
         private void autofillbutton_click(object sender, RoutedEventArgs e)
         {
-            FirstNameField.Text = NameFaker.FirstName();
-            LastNameField.Text = NameFaker.LastName();
-            DateOfBirthPicker.SelectedDate = DateTimeFaker.BirthDay(15);
-            AddressField.Text = LocationFaker.Street();
+            FirstNameField.Text = Faker.Name.First();
+            LastNameField.Text = Faker.Name.Last();
+            AddressField.Text = Faker.Address.StreetAddress();
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace BrgyProfileCore.Windows.Households
 {
@@ -35,12 +36,22 @@ namespace BrgyProfileCore.Windows.Households
         public HouseholdListWindow()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Window did Activate
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Activated(object sender, EventArgs e)
+        {
             this.refreshList();
         }
 
         private void AddHouseholdButton_Click(object sender, RoutedEventArgs e)
         {
-
+            var window = new UpsertHouseholdWindow();
+            window.ShowDialog();
         }
 
         private void HouseholdResidentsButton_Click(object sender, RoutedEventArgs e)
@@ -64,9 +75,15 @@ namespace BrgyProfileCore.Windows.Households
 
         }
 
+        /// <summary>
+        /// Search Text Box Text Change Event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchTextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var keyword = SearchTextBox.Text;
+            this.refreshList(keyword);
         }
 
         private void householdsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -86,7 +103,7 @@ namespace BrgyProfileCore.Windows.Households
         public void refreshList(string keyword = null)
         {
             var db = new BrgyContext();
-            householdsDataGrid.ItemsSource = db.Households.ToList().FindAll(household =>
+            householdsDataGrid.ItemsSource = db.Households.Include(h => h.Residents).ToList().FindAll(household =>
             {
                 if (keyword == null)
                 {

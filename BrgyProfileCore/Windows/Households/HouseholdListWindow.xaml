@@ -5,22 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BrgyProfileCore.Windows.Households"
         mc:Ignorable="d"
-        Title="HouseholdListWindow" Height="450" Width="800">
+        Title="HouseholdListWindow" Height="450" Width="800" Activated="Window_Activated">
     <Grid Background="#FFD1D1D1">
         <GroupBox Header="Household" Margin="10" MinWidth="400">
             <Grid Margin="0">
                 <Button Content="Add Household" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddHouseholdButton_Click"/>
 
-                <DataGrid x:Name="householdsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" Grid.ColumnSpan="2" SelectionChanged="householdsDataGrid_SelectionChanged">
+                <DataGrid x:Name="householdsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="householdsDataGrid_SelectionChanged" Grid.ColumnSpan="2">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="householdIdColumn" Binding="{Binding HouseholdId}"
                             Header="Household Id" Width="SizeToHeader"/>
-                        <DataGridTextColumn x:Name="householdName" Binding="{Binding HouseholdName}"
+                        <DataGridTextColumn x:Name="householdNameColumn" Binding="{Binding HouseholdName}"
                             Header="Name"/>
-                        <DataGridTextColumn x:Name="householdHead" Binding="{Binding HouseholdHead}"
+                        <DataGridTextColumn x:Name="residentNumberColumn" Binding="{Binding ResidentsCount}"
+                            Header="Number of Residents"/>
+                        <DataGridTextColumn x:Name="householdHeadColumn" Binding="{Binding HouseholdHead}"
                             Header="Head"/>
-                        <DataGridTextColumn x:Name="sitio" Binding="{Binding Sitio}"
-                            Header="Sitio"/>
+                        <DataGridTextColumn x:Name="householdMembersColumn" Binding="{Binding MembersSnippet}"
+                            Header="Members"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Button x:Name="HouseholdResidentsButton" Content="Household Residents" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Padding="10,1" Click="HouseholdResidentsButton_Click"/>

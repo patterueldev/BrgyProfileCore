@@ -34,7 +34,7 @@
                     <ColumnDefinition Width="25*"/>
                     <ColumnDefinition Width="47*"/>
                 </Grid.ColumnDefinitions>
-                <DataGrid x:Name="householdsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="residentsDataGrid_SelectionChanged" Grid.ColumnSpan="2">
+                <DataGrid x:Name="householdsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="householdsDataGrid_SelectionChanged" Grid.ColumnSpan="2">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="householdIdColumn" Binding="{Binding HouseholdId}"
                             Header="Household Id" Width="SizeToHeader"/>
