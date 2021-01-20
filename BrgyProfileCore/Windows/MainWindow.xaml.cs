@@ -134,7 +134,8 @@ namespace BrgyProfileCore.Windows
 
         private void ViewAllSitioButton_Click(object sender, RoutedEventArgs e)
         {
-
+            SitioListWindow window = new SitioListWindow();
+            window.ShowDialog();
         }
 
         private void AddSitioButton_Click(object sender, RoutedEventArgs e)
