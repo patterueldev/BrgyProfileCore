@@ -22,6 +22,8 @@
                                             Header="Address"/>
                         <DataGridTextColumn x:Name="householdNameColumn" Binding="{Binding HouseholdName}"
                                             Header="Household"/>
+                        <DataGridTextColumn x:Name="sitioNameColumn" Binding="{Binding SitioName}"
+                                            Header="Sitio"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Button x:Name="ResidentDetailsButton" Content="Resident Details" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Click="ResidentDetailsButton_Clicked"/>
@@ -33,7 +35,9 @@
                 <Label Content="Filter: " HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
                 <Label Content="By Household" HorizontalAlignment="Left" Margin="57,35,0,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="HouseholdBox" DisplayMemberPath="HouseholdName" HorizontalAlignment="Left" Margin="145,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="HouseholdBox_SelectionChanged"/>
-                <Button x:Name="ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="270,38,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="ClearButton_Click"/>
+                <Label Content="By Sitio" HorizontalAlignment="Left" Margin="270,35,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="SitioBox" DisplayMemberPath="SitioName" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SitioBox_SelectionChanged"/>
+                <Button x:Name="ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="449,38,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="ClearButton_Click"/>
             </Grid>
 
         </GroupBox>

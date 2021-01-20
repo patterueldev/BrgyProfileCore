@@ -58,5 +58,17 @@ namespace BrgyProfileCore
                 return Household.HouseholdName;
             }
         }
+
+        public string SitioName
+        {
+            get
+            {
+                if (Sitio == null)
+                {
+                    return "N/A";
+                }
+                return Sitio.SitioName;
+            }
+        }
     }
 }

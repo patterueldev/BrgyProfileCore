@@ -14,6 +14,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BrgyProfileCore.Windows.SitioModule
 {
+    using Windows.Residents;
+
     /// <summary>
     /// Interaction logic for SitioListWindow.xaml
     /// </summary>
@@ -50,6 +52,13 @@ namespace BrgyProfileCore.Windows.SitioModule
 
         private void SitioResidentsButton_Click(object sender, RoutedEventArgs e)
         {
+            if (selectedSitio == null)
+            {
+                return;
+            }
+
+            ResidentListWindow resWin = new ResidentListWindow(selectedSitio);
+            resWin.ShowDialog();
         }
 
         private void AddSitioButton_Click(object sender, RoutedEventArgs e)
