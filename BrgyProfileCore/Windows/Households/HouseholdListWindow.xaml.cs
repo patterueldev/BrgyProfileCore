@@ -72,7 +72,21 @@ namespace BrgyProfileCore.Windows.Households
 
         private void DeleteHouseholdButton_Click(object sender, RoutedEventArgs e)
         {
+            if (selectedHousehold == null)
+            {
+                return;
+            }
 
+            var household = selectedHousehold;
+            MessageBoxResult messageBoxResult = MessageBox.Show($"Delete {selectedHousehold.HouseholdName} from the records? This action cannot be undone.", "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                var db = new BrgyContext();
+                db.Remove(household);
+                db.SaveChanges();
+
+                this.refreshList();
+            }
         }
 
         /// <summary>
