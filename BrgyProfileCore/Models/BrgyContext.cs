@@ -18,7 +18,7 @@ namespace BrgyProfileCore
     {
         public DbSet<Resident> Residents { get; set; }
         public DbSet<Household> Households { get; set; }
-        public DbSet<Sitio> SitioList { get; set; }
+        public DbSet<Sitio> Sitio { get; set; }
         private DBDataSource dataSource
         {
             get

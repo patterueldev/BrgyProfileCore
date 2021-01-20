@@ -18,8 +18,8 @@ namespace BrgyProfileCore
         public int? HouseholdId { get; set; }
         public Household Household { get; set; }
 
-        //public int SitioId { get; set; }
-        //public Sitio Sitio { get; set; }
+        public int? SitioId { get; set; }
+        public Sitio Sitio { get; set; }
 
         public string FullName
         {

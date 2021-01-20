@@ -46,11 +46,31 @@
                             Header="Head"/>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Button Content="View All" HorizontalAlignment="Right" Margin="0,10,40,0" VerticalAlignment="Top" Width="100" Click="ViewAllHouseholdsButton_Click"/>
+                <Button Content="View All" HorizontalAlignment="Right" Margin="0,10,42,0" VerticalAlignment="Top" Width="100" Click="ViewAllHouseholdsButton_Click"/>
                 <Button Content="Add Household" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddHouseholdButton_Click" Grid.Column="1"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Sitio" Margin="415,377,415,10"/>
+        <GroupBox Header="Sitio" Margin="415,377,415,10">
+            <Grid Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*"/>
+                    <ColumnDefinition Width="47*"/>
+                </Grid.ColumnDefinitions>
+
+                <DataGrid x:Name="sitioDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="householdsDataGrid_SelectionChanged" Grid.ColumnSpan="2">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn x:Name="sitioIdColumn" Binding="{Binding SitioId}"
+                        Header="Sitio Id" Width="SizeToHeader"/>
+                        <DataGridTextColumn x:Name="sitioNameColumn" Binding="{Binding SitioName}"
+                        Header="Name"/>
+                        <DataGridTextColumn x:Name="sitioResidentNumberColumn" Binding="{Binding ResidentsCount}"
+                        Header="Number of Residents"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="View All" HorizontalAlignment="Right" Margin="0,10,42,0" VerticalAlignment="Top" Width="100" Click="ViewAllSitioButton_Click"/>
+                <Button Content="Add Sitio" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddSitioButton_Click" Grid.Column="1"/>
+            </Grid>
+        </GroupBox>
         <GroupBox Header="Statistics" Margin="0,10,10,319" HorizontalAlignment="Right" MinWidth="400"/>
         <GroupBox Header="Barangay Info" Margin="864,377,10,10"/>
 
