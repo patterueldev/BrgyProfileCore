@@ -35,6 +35,23 @@ namespace BrgyProfileCore
                 return "N/A";
             }
         }
+        public string MembersSnippet
+        {
+            get
+            {
+                if (Residents == null)
+                {
+                    return "N/A";
+                }
+                if (Residents.Count > 0)
+                {
+                    return Residents
+                        .Select(r => { return r.FirstName; })
+                        .Aggregate( (c, n) => c + ", " + n );
+                }
+                return "N/A";
+            }
+        }
         public int ResidentsCount
         {
             get

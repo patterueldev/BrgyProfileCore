@@ -18,8 +18,8 @@ namespace BrgyProfileCore
         public int? HouseholdId { get; set; }
         public Household Household { get; set; }
 
-        //public int SitioId { get; set; }
-        //public Sitio Sitio { get; set; }
+        public int? SitioId { get; set; }
+        public Sitio Sitio { get; set; }
 
         public string FullName
         {
@@ -44,6 +44,30 @@ namespace BrgyProfileCore
                     return years;
                 }
                 return 0;
+            }
+        }
+
+        public string HouseholdName
+        {
+            get
+            {
+                if(Household == null)
+                {
+                    return "N/A";
+                }
+                return Household.HouseholdName;
+            }
+        }
+
+        public string SitioName
+        {
+            get
+            {
+                if (Sitio == null)
+                {
+                    return "N/A";
+                }
+                return Sitio.SitioName;
             }
         }
     }

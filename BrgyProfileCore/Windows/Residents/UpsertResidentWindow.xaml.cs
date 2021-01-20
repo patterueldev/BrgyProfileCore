@@ -11,7 +11,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore;
-using Faker;
 
 namespace BrgyProfileCore.Windows.Residents
 {
@@ -30,6 +29,10 @@ namespace BrgyProfileCore.Windows.Residents
 
             var households = db.Households.Include(h => h.Residents).ToList();
             HouseholdBox.ItemsSource = households;
+
+            var sitioList = db.Sitio.Include(s => s.Residents).ToList();
+            SitioBox.ItemsSource = sitioList;
+
             UpdateView();
         }
 
@@ -53,6 +56,13 @@ namespace BrgyProfileCore.Windows.Residents
             HouseholdBox.SelectedItem = households.FirstOrDefault(h =>
             {
                 return h.HouseholdId == resident.HouseholdId;
+            });
+
+            var sitioList = db.Sitio.Include(s => s.Residents).ToList();
+            SitioBox.ItemsSource = sitioList;
+            SitioBox.SelectedItem = sitioList.FirstOrDefault(s =>
+            {
+                return s.SitioId == resident.SitioId;
             });
 
             UpdateView();
@@ -85,6 +95,7 @@ namespace BrgyProfileCore.Windows.Residents
             }
 
             var household = (Household)this.HouseholdBox.SelectedItem;
+            var sitio = (Sitio)this.SitioBox.SelectedItem;
 
             if (resident == null)
             {
@@ -105,7 +116,14 @@ namespace BrgyProfileCore.Windows.Residents
                 {
                     household.Residents.Add(resident);
                 }
-                else
+                
+                if(sitio != null)
+                {
+                    sitio.Residents.Add(resident);
+                }
+
+
+                if(household == null && sitio == null)
                 {
                     db.Add(resident);
                 }
@@ -123,6 +141,7 @@ namespace BrgyProfileCore.Windows.Residents
                 this.resident.Guardian = GuardianField.Text.Trim();
 
                 this.resident.Household = household;
+                this.resident.Sitio = sitio;
 
                 db.Update(this.resident);
             }
@@ -147,10 +166,9 @@ namespace BrgyProfileCore.Windows.Residents
 
         private void autofillbutton_click(object sender, RoutedEventArgs e)
         {
-            FirstNameField.Text = NameFaker.FirstName();
-            LastNameField.Text = NameFaker.LastName();
-            DateOfBirthPicker.SelectedDate = DateTimeFaker.BirthDay(15);
-            AddressField.Text = LocationFaker.Street();
+            FirstNameField.Text = Faker.Name.First();
+            LastNameField.Text = Faker.Name.Last();
+            AddressField.Text = Faker.Address.StreetAddress();
         }
     }
 }

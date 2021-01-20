@@ -10,7 +10,7 @@
         <GroupBox Header="Residents" Margin="10" MinWidth="400">
             <Grid Margin="0">
                 <Button Content="Add Resident" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddResidentButton_Click"/>
-                <DataGrid x:Name="residentsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="residentsDataGrid_SelectionChanged">
+                <DataGrid x:Name="residentsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,66,10,10" IsReadOnly="True" SelectionChanged="residentsDataGrid_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="residentIdColumn" Binding="{Binding ResidentId}"
                                             Header="Resident Id" Width="SizeToHeader"/>
@@ -20,6 +20,10 @@
                                             Header="Age"/>
                         <DataGridTextColumn x:Name="residentAddressColumn" Binding="{Binding Address}"
                                             Header="Address"/>
+                        <DataGridTextColumn x:Name="householdNameColumn" Binding="{Binding HouseholdName}"
+                                            Header="Household"/>
+                        <DataGridTextColumn x:Name="sitioNameColumn" Binding="{Binding SitioName}"
+                                            Header="Sitio"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Button x:Name="ResidentDetailsButton" Content="Resident Details" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Click="ResidentDetailsButton_Clicked"/>
@@ -27,6 +31,13 @@
                 <Button x:Name="DeleteResidentButton" Content="Delete Resident" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Click="DeleteResidentButton_Click"/>
                 <TextBox x:Name="SearchTextBox" HorizontalAlignment="Right" Height="20" Margin="0,10,115,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SearchTextChanged"/>
                 <Label Content="Search" HorizontalAlignment="Right" Margin="0,7,240,0" VerticalAlignment="Top"/>
+
+                <Label Content="Filter: " HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+                <Label Content="By Household" HorizontalAlignment="Left" Margin="57,35,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="HouseholdBox" DisplayMemberPath="HouseholdName" HorizontalAlignment="Left" Margin="145,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="HouseholdBox_SelectionChanged"/>
+                <Label Content="By Sitio" HorizontalAlignment="Left" Margin="270,35,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="SitioBox" DisplayMemberPath="SitioName" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SitioBox_SelectionChanged"/>
+                <Button x:Name="ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="449,38,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="ClearButton_Click"/>
             </Grid>
 
         </GroupBox>

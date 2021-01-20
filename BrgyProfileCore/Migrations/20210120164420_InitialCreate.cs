@@ -22,7 +22,7 @@ namespace BrgyProfileCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SitioList",
+                name: "Sitio",
                 columns: table => new
                 {
                     SitioId = table.Column<int>(type: "INTEGER", nullable: false)
@@ -31,7 +31,7 @@ namespace BrgyProfileCore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SitioList", x => x.SitioId);
+                    table.PrimaryKey("PK_Sitio", x => x.SitioId);
                 });
 
             migrationBuilder.CreateTable(
@@ -47,7 +47,8 @@ namespace BrgyProfileCore.Migrations
                     Address = table.Column<string>(type: "TEXT", nullable: true),
                     ContactNumber = table.Column<string>(type: "TEXT", nullable: true),
                     Guardian = table.Column<string>(type: "TEXT", nullable: true),
-                    HouseholdId = table.Column<int>(type: "INTEGER", nullable: true)
+                    HouseholdId = table.Column<int>(type: "INTEGER", nullable: true),
+                    SitioId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -58,12 +59,23 @@ namespace BrgyProfileCore.Migrations
                         principalTable: "Households",
                         principalColumn: "HouseholdId",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Residents_Sitio_SitioId",
+                        column: x => x.SitioId,
+                        principalTable: "Sitio",
+                        principalColumn: "SitioId",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Residents_HouseholdId",
                 table: "Residents",
                 column: "HouseholdId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Residents_SitioId",
+                table: "Residents",
+                column: "SitioId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -72,10 +84,10 @@ namespace BrgyProfileCore.Migrations
                 name: "Residents");
 
             migrationBuilder.DropTable(
-                name: "SitioList");
+                name: "Households");
 
             migrationBuilder.DropTable(
-                name: "Households");
+                name: "Sitio");
         }
     }
 }

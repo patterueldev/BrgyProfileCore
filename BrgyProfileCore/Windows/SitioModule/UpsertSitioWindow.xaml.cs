@@ -12,15 +12,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore;
 
-namespace BrgyProfileCore.Windows.Households
+namespace BrgyProfileCore.Windows.SitioModule
 {
     /// <summary>
-    /// Interaction logic for UpsertHouseholdWindow.xaml
+    /// Interaction logic for UpsertSitioWindow.xaml
     /// </summary>
-    public partial class UpsertHouseholdWindow : Window
+    public partial class UpsertSitioWindow : Window
     {
         BrgyContext db = new BrgyContext();
-        public Household household;
+        public Sitio sitio;
         List<Resident> selectedResidents
         {
             get
@@ -51,67 +51,51 @@ namespace BrgyProfileCore.Windows.Households
                 }
             }
         }
-
-        int? headResidentId
-        {
-            get
-            {
-                var headResident = (Resident)HeadResidentBox.SelectedItem;
-                if (headResident != null)
-                {
-                    return headResident.ResidentId;
-                }
-                return null;
-            }
-        }
-
-        public UpsertHouseholdWindow()
+        public UpsertSitioWindow()
         {
             InitializeComponent();
             this.refreshList();
         }
 
-        public UpsertHouseholdWindow(Household household)
+        public UpsertSitioWindow(Sitio sitio)
         {
             InitializeComponent();
 
-            this.household = db.Households.Include(h => h.Residents).First(h => h.HouseholdId == household.HouseholdId);
+            this.sitio = db.Sitio.Include(s => s.Residents).First(s => s.SitioId == sitio.SitioId);
 
-            HouseholdNameField.Text = this.household.HouseholdName;
+            SitioNameField.Text = this.sitio.SitioName;
             this.refreshList();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (HouseholdNameField.Text.Trim() == "")
+            if (SitioNameField.Text.Trim() == "")
             {
-                this.ShowInvalidInputMessage("Household name must not be empty");
+                this.ShowInvalidInputMessage("Sitio name must not be empty");
                 return;
             }
 
             var residents = selectedResidents.ToList();
-            if (household == null)
+            if (sitio == null)
             {
                 // Is Adding
-                this.household = new Household
+                this.sitio = new Sitio
                 {
-                    HouseholdName = HouseholdNameField.Text.Trim(),
-                    HeadResidentId = headResidentId,
+                    SitioName = SitioNameField.Text.Trim(),
                 };
-                db.Add(this.household);
+                db.Add(this.sitio);
             }
             else
             {
                 // Is Editing
-                this.household.HouseholdName = HouseholdNameField.Text.Trim();
-                this.household.HeadResidentId = headResidentId;
+                this.sitio.SitioName = SitioNameField.Text.Trim();
 
-                db.Update(this.household);
+                db.Update(this.sitio);
             }
 
-            if (this.household.HasResidents())
+            if (this.sitio.HasResidents())
             {
-                var existingResidents = this.household.Residents.ToList();
+                var existingResidents = this.sitio.Residents.ToList();
 
                 existingResidents.ForEach(resident =>
                 {
@@ -124,7 +108,7 @@ namespace BrgyProfileCore.Windows.Households
             {
                 residents.ForEach(resident =>
                 {
-                    resident.Household = this.household;
+                    resident.Sitio = this.sitio;
                 });
                 db.UpdateRange(residents);
             }
@@ -134,27 +118,21 @@ namespace BrgyProfileCore.Windows.Households
             this.Close();
         }
 
-        private void handleChecked(object sender, RoutedEventArgs e)
-        {
-            HeadResidentBox.ItemsSource = selectedResidents;
-        }
-
         /// <summary>
         /// Refreshes data grid
         /// </summary>
         public void refreshList()
         {
-            var residents = db.Residents.Include(r => r.Household).ToList().FindAll(resident =>
+            var residents = db.Residents.Include(r => r.Sitio).ToList().FindAll(resident =>
             {
-                if (this.household != null)
+                if (this.sitio != null)
                 {
-                    return resident.HouseholdId == this.household.HouseholdId || resident.Household == null;
+                    return resident.SitioId == this.sitio.SitioId || resident.Sitio == null;
                 }
-                return resident.Household == null;
+                return resident.Sitio == null;
             });
 
             residentsSelectionDataGrid.ItemsSource = residents;
-            HeadResidentBox.ItemsSource = selectedResidents;
         }
 
         void ShowInvalidInputMessage(string message)
