@@ -63,9 +63,14 @@ namespace BrgyProfileCore.Migrations
                     b.Property<string>("MiddleName")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("SitioId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("ResidentId");
 
                     b.HasIndex("HouseholdId");
+
+                    b.HasIndex("SitioId");
 
                     b.ToTable("Residents");
                 });
@@ -81,7 +86,7 @@ namespace BrgyProfileCore.Migrations
 
                     b.HasKey("SitioId");
 
-                    b.ToTable("SitioList");
+                    b.ToTable("Sitio");
                 });
 
             modelBuilder.Entity("BrgyProfileCore.Resident", b =>
@@ -90,10 +95,21 @@ namespace BrgyProfileCore.Migrations
                         .WithMany("Residents")
                         .HasForeignKey("HouseholdId");
 
+                    b.HasOne("BrgyProfileCore.Sitio", "Sitio")
+                        .WithMany("Residents")
+                        .HasForeignKey("SitioId");
+
                     b.Navigation("Household");
+
+                    b.Navigation("Sitio");
                 });
 
             modelBuilder.Entity("BrgyProfileCore.Household", b =>
+                {
+                    b.Navigation("Residents");
+                });
+
+            modelBuilder.Entity("BrgyProfileCore.Sitio", b =>
                 {
                     b.Navigation("Residents");
                 });

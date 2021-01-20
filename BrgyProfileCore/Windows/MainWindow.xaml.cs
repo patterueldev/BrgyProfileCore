@@ -17,6 +17,7 @@ namespace BrgyProfileCore.Windows
 {
     using Residents;
     using Households;
+    using SitioModule;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -111,6 +112,7 @@ namespace BrgyProfileCore.Windows
             var db = new BrgyContext();
             residentsDataGrid.ItemsSource = db.Residents.ToList();
             householdsDataGrid.ItemsSource = db.Households.ToList();
+            sitioDataGrid.ItemsSource = db.Sitio.ToList();
         }
 
         private void ViewAllHouseholdsButton_Click(object sender, RoutedEventArgs e)
@@ -122,6 +124,23 @@ namespace BrgyProfileCore.Windows
         private void AddHouseholdButton_Click(object sender, RoutedEventArgs e)
         {
             var window = new UpsertHouseholdWindow();
+            window.ShowDialog();
+        }
+
+        private void householdsDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ViewAllSitioButton_Click(object sender, RoutedEventArgs e)
+        {
+            SitioListWindow window = new SitioListWindow();
+            window.ShowDialog();
+        }
+
+        private void AddSitioButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new UpsertSitioWindow();
             window.ShowDialog();
         }
     }
