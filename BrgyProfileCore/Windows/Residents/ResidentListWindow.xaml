@@ -36,7 +36,7 @@
                 <Label Content="By Household" HorizontalAlignment="Left" Margin="57,35,0,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="HouseholdBox" DisplayMemberPath="HouseholdName" HorizontalAlignment="Left" Margin="145,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="HouseholdBox_SelectionChanged"/>
                 <Label Content="By Sitio" HorizontalAlignment="Left" Margin="270,35,0,0" VerticalAlignment="Top"/>
-                <ComboBox x:Name="SitioBox" DisplayMemberPath="SitioName" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SitioBox_SelectionChanged"/>
+                <ComboBox x:Name="SitioBox" DisplayMemberPath="SitioName" HorizontalAlignment="Left" Margin="319,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SitioBox_SelectionChanged"/>
                 <Button x:Name="ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="449,38,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="ClearButton_Click"/>
             </Grid>
 

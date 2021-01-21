@@ -19,6 +19,8 @@ namespace BrgyProfileCore.Windows
     using Households;
     using SitioModule;
 
+    using Core;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -60,6 +62,16 @@ namespace BrgyProfileCore.Windows
         private void Window_Activated(object sender, EventArgs e)
         {
             this.refreshList();
+
+            BrgyNameLabel.Content = BrgyProfileCore.Properties.Settings.Default.BrgyName;
+            MunicipalityLabel.Content = BrgyProfileCore.Properties.Settings.Default.Municipality;
+            ProvinceLabel.Content = BrgyProfileCore.Properties.Settings.Default.Province;
+
+            AverageResidentperHouseholdDetail.FieldValueText = $"{BrgyStatistics.AverageResidentPerHousehold}";
+            AveragePopulationperSitioDetail.FieldValueText = $"{BrgyStatistics.AveragePopulationperSitio}";
+            AverageResident1_18perSitioDetail.FieldValueText = $"{BrgyStatistics.AverageResident1_18perSitio}";
+            AverageResident19_50perSitioDetail.FieldValueText = $"{BrgyStatistics.AverageResident19_50perSitio}";
+            AverageResident50_AboveperSitioDetail.FieldValueText = $"{BrgyStatistics.AverageResident51_AboveperSitio}";
         }
 
         /// <summary>
@@ -141,6 +153,12 @@ namespace BrgyProfileCore.Windows
         private void AddSitioButton_Click(object sender, RoutedEventArgs e)
         {
             var window = new UpsertSitioWindow();
+            window.ShowDialog();
+        }
+
+        private void UpdateProfileButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new UpdateProfileWindow();
             window.ShowDialog();
         }
     }
