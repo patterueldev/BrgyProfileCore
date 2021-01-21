@@ -80,8 +80,10 @@
                     <CustomControls:StatisticDetailView x:Name="AverageResident1_18perSitioDetail" FieldHeader="Average residents between ages 1-18 per Sitio"/>
                     <CustomControls:StatisticDetailView x:Name="AverageResident19_50perSitioDetail" FieldHeader="Average residents between ages 19-50 per Sitio"/>
                     <CustomControls:StatisticDetailView x:Name="AverageResident50_AboveperSitioDetail" FieldHeader="Average residents between ages 50 and above per Sitio"/>
+                    <!--
                     <CustomControls:StatisticDetailView FieldHeader="Average male per Sitio"/>
                     <CustomControls:StatisticDetailView FieldHeader="Average female per Sitio"/>
+                    -->
                 </StackPanel>
             </Grid>
         </GroupBox>
