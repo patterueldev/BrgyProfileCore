@@ -14,6 +14,10 @@ namespace BrgyProfileCore.Core
                 var Households = db.Households.Include(h => h.Residents).ToList();
                 var totalResidents = Households.Select(h => h.Residents.Count).Sum();
                 var totalHouseholds = Households.Count;
+                if(totalHouseholds == 0)
+                {
+                    return 0;
+                }
                 return totalResidents/totalHouseholds;
             }
         }
@@ -24,6 +28,10 @@ namespace BrgyProfileCore.Core
                 var Sitio = db.Sitio.Include(h => h.Residents).ToList();
                 var totalResidents = Sitio.Select(h => h.Residents.Count).Sum();
                 var totalSitio = Sitio.Count;
+                if (totalSitio == 0)
+                {
+                    return 0;
+                }
                 return totalResidents / totalSitio;
             }
         }
@@ -40,6 +48,10 @@ namespace BrgyProfileCore.Core
                     return residents.Count;
                 }).Sum();
                 var totalSitio = Sitio.Count;
+                if (totalSitio == 0)
+                {
+                    return 0;
+                }
                 return totalResidents / totalSitio;
             }
         }
@@ -56,6 +68,10 @@ namespace BrgyProfileCore.Core
                     return residents.Count;
                 }).Sum();
                 var totalSitio = Sitio.Count;
+                if (totalSitio == 0)
+                {
+                    return 0;
+                }
                 return totalResidents / totalSitio;
             }
         }
@@ -72,6 +88,10 @@ namespace BrgyProfileCore.Core
                     return residents.Count;
                 }).Sum();
                 var totalSitio = Sitio.Count;
+                if (totalSitio == 0)
+                {
+                    return 0;
+                }
                 return totalResidents / totalSitio;
             }
         }
