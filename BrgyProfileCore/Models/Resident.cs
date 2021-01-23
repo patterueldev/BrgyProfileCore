@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace BrgyProfileCore
 {
     public class Resident
@@ -21,6 +20,12 @@ namespace BrgyProfileCore
         public int? SitioId { get; set; }
         public Sitio Sitio { get; set; }
 
+
+        // MARK: Additional Info
+        public string Gender { get; set; }
+        public string HighestEducationalAttainment { get; set; }
+        public string Religion { get; set; }
+        public string AdditionalInfoJSON { get; set; }
         public string FullName
         {
             get
@@ -70,5 +75,7 @@ namespace BrgyProfileCore
                 return Sitio.SitioName;
             }
         }
+
+        
     }
 }
