@@ -47,9 +47,9 @@ namespace BrgyProfileCore.Windows.Residents
             LastNameField.Text = resident.LastName;
 
             DateOfBirthPicker.SelectedDate = resident.DateOfBirth;
-            AddressField.Text = resident.Address;
+            AddressStreetNameField.Text = resident.Address;
             ContactNumberField.Text = resident.ContactNumber;
-            GuardianField.Text = resident.Guardian;
+            //GuardianField.Text = resident.Guardian;
 
             var households = db.Households.Include(h => h.Residents).ToList();
             HouseholdBox.ItemsSource = households;
@@ -88,7 +88,7 @@ namespace BrgyProfileCore.Windows.Residents
                 return;
             }
 
-            if (AddressField.Text.Trim() == "")
+            if (AddressStreetNameField.Text.Trim() == "")
             {
                 this.ShowInvalidInputMessage("Address must not be empty");
                 return;
@@ -106,9 +106,9 @@ namespace BrgyProfileCore.Windows.Residents
                     LastName = LastNameField.Text.Trim(),
 
                     DateOfBirth = (DateTime)DateOfBirthPicker.SelectedDate,
-                    Address = AddressField.Text.Trim(),
+                    Address = AddressStreetNameField.Text.Trim(),
                     ContactNumber = ContactNumberField.Text.Trim(),
-                    Guardian = GuardianField.Text.Trim(),
+                    //Guardian = GuardianField.Text.Trim(),
                 };
 
                 // Is Adding
@@ -136,9 +136,9 @@ namespace BrgyProfileCore.Windows.Residents
                 this.resident.LastName = LastNameField.Text.Trim();
 
                 this.resident.DateOfBirth = (DateTime)DateOfBirthPicker.SelectedDate;
-                this.resident.Address = AddressField.Text.Trim();
+                this.resident.Address = AddressStreetNameField.Text.Trim();
                 this.resident.ContactNumber = ContactNumberField.Text.Trim();
-                this.resident.Guardian = GuardianField.Text.Trim();
+                //this.resident.Guardian = GuardianField.Text.Trim();
 
                 this.resident.Household = household;
                 this.resident.Sitio = sitio;
@@ -168,7 +168,7 @@ namespace BrgyProfileCore.Windows.Residents
         {
             FirstNameField.Text = Faker.Name.First();
             LastNameField.Text = Faker.Name.Last();
-            AddressField.Text = Faker.Address.StreetAddress();
+            AddressStreetNameField.Text = Faker.Address.StreetAddress();
         }
     }
 }
