@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32;
+using BrgyProfileCore.Core;
 
 namespace BrgyProfileCore.Windows.Residents
 {
@@ -247,6 +249,88 @@ namespace BrgyProfileCore.Windows.Residents
         {
             var keyword = SearchTextBox.Text;
             this.refreshList(keyword);
+        }
+
+        private void printButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void exportSheetButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = "xls";
+            dialog.Filter = "Excel |*.xls";
+            dialog.AddExtension = true;
+            var datesuffix = DateTime.Now.ToString("_mm-dd_HH-mm-ss");
+            dialog.FileName = $"Residents{datesuffix}.xls";
+
+            if (dialog.ShowDialog() == true)
+            {
+                var db = new BrgyContext();
+                var residents = db.Residents
+                .Include(r => r.Household)
+                .Include(r => r.Sitio)
+                .ToList()
+                .FindAll(resident =>
+                {
+                    var selectedHousehold = (Household)HouseholdBox.SelectedItem;
+                    if (selectedHousehold == null)
+                    {
+                        return true;
+                    }
+                    return resident.HouseholdId == selectedHousehold.HouseholdId;
+                })
+                .FindAll(resident =>
+                {
+                    var selectedSitio = (Sitio)SitioBox.SelectedItem;
+                    if (selectedSitio == null)
+                    {
+                        return true;
+                    }
+                    return resident.SitioId == selectedSitio.SitioId;
+                });
+
+                PrintHelper.printResidents(residents, dialog.FileName);
+            }
+        }
+
+        private void exportHouseholdButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = "xls";
+            dialog.Filter = "Excel |*.xls";
+            dialog.AddExtension = true;
+            var datesuffix = DateTime.Now.ToString("_mm-dd_HH-mm-ss");
+            dialog.FileName = $"Household{datesuffix}.xls";
+
+            if (dialog.ShowDialog() == true)
+            {
+                var db = new BrgyContext();
+                var residents = db.Residents
+                .Include(r => r.Household)
+                .Include(r => r.Sitio)
+                .ToList()
+                .FindAll(resident =>
+                {
+                    var selectedHousehold = (Household)HouseholdBox.SelectedItem;
+                    if (selectedHousehold == null)
+                    {
+                        return true;
+                    }
+                    return resident.HouseholdId == selectedHousehold.HouseholdId;
+                })
+                .FindAll(resident =>
+                {
+                    var selectedSitio = (Sitio)SitioBox.SelectedItem;
+                    if (selectedSitio == null)
+                    {
+                        return true;
+                    }
+                    return resident.SitioId == selectedSitio.SitioId;
+                });
+
+                PrintHelper.printRBI(residents, dialog.FileName);
+            }
         }
     }
 }

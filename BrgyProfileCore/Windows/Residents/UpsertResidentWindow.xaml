@@ -5,73 +5,263 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BrgyProfileCore.Windows.Residents"
         mc:Ignorable="d"
-        Title="Add Resident" Height="450" Width="800" MinWidth="800" MinHeight="450" ResizeMode="NoResize">
+        Title="Add Resident" Width="800" MinWidth="800" MinHeight="450">
     <Grid Background="#FFD1D1D1">
-        <GroupBox x:Name="GroupBox" Header="Add Resident" Height="399" Margin="11,11,10,11" Width="773" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid Margin="0" HorizontalAlignment="Left" Width="762">
-                <StackPanel HorizontalAlignment="Left" Height="356" Margin="10,10,0,0" VerticalAlignment="Top" Width="350">
-                    <!-- First Name -->
-                    <Label>
-                        <TextBlock>
+        <GroupBox x:Name="GroupBox" Header="Add Resident" Margin="10,10,10,35">
+            <ScrollViewer>
+                <Grid>
+                    <StackPanel Margin="10,10,375,10">
+                        <!-- Household -->
+                        <Label Content="Household"/>
+                        <ComboBox x:Name="HouseholdBox" DisplayMemberPath="HouseholdName" Height="23"/>
+                        
+                        <!-- First Name -->
+                        <Label>
+                            <TextBlock>
                             <Run Text="First name"></Run>
                             <Run Text="*" Foreground="Red"></Run>
-                        </TextBlock>
-                    </Label>
-                    <TextBox Height="23" TextWrapping="Wrap" x:Name="FirstNameField"/>
+                            </TextBlock>
+                        </Label>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="FirstNameField"/>
 
-                    <!-- Middle Name -->
-                    <Label Content="Middle name"/>
-                    <TextBox Height="23" TextWrapping="Wrap" x:Name="MiddleNameField"/>
+                        <!-- Middle Name -->
+                        <Label Content="Middle name"/>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="MiddleNameField"/>
 
-                    <!-- Last Name -->
-                    <Label>
-                        <TextBlock>
+                        <!-- Last Name -->
+                        <Label>
+                            <TextBlock>
                             <Run Text="Last name"></Run>
                             <Run Text="*" Foreground="Red"></Run>
-                        </TextBlock>
-                    </Label>
-                    <TextBox Height="23" TextWrapping="Wrap" x:Name="LastNameField"/>
+                            </TextBlock>
+                        </Label>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="LastNameField"/>
 
-                    <!-- Date of Birth -->
-                    <Label>
-                        <TextBlock>
+                        <!-- Gender -->
+                        <Label>
+                            <TextBlock>
+                            <Run Text="Gender"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                            </TextBlock>
+                        </Label>
+                        <ComboBox x:Name="GenderBox" DisplayMemberPath="Gender" Height="23"/>
+
+                        <!-- Marital Status -->
+                        <Label>
+                            <TextBlock>
+                            <Run Text="Marital Status"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                            </TextBlock>
+                        </Label>
+                        <ComboBox x:Name="MaritalStatusBox" DisplayMemberPath="MaritalStatus" Height="23"/>
+
+                        <!-- Address Number -->
+                        <Label>
+                            <TextBlock>
+                            <Run Text="Address - Number"></Run>
+                            </TextBlock>
+                        </Label>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="AddressNumberField"/>
+
+                        <!-- Address Street Name -->
+                        <Label>
+                            <TextBlock>
+                            <Run Text="Address - Street Name"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                            </TextBlock>
+                        </Label>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="AddressStreetNameField"/>
+
+                        <!-- Address Subdivision -->
+                        <Label>
+                            <TextBlock>
+                            <Run Text="Address - Name of Subdivision"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                            </TextBlock>
+                        </Label>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="AddressSubdivisionField"/>
+
+                        <!-- Contact number -->
+                        <Label Content="Contact number"/>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="ContactNumberField"/>
+
+                        <!-- Major Occupation of Earning HH Member -->
+                        <Label Content="Major Occupation of Earning HH Member"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Other Source of Income -->
+                        <Label Content="Other Source of Income"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Total Actual Income of Earning Member -->
+                        <Label Content="Total Actual Income of Earning Member"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!--Lot Ownership where House is Located -->
+                        <Label Content="Lot Ownership where House is Located"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Type of Fuel for Lighting -->
+                        <Label Content="Type of Fuel for Lighting"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Type of Fuel for Cooking -->
+                        <Label Content="Type of Fuel for Cooking"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- No. of Children Born Alive -->
+                        <Label Content="No. of Children Born Alive"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- No. of Children Still Living -->
+                        <Label Content="No. of Children Still Living"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!--Family Planning Practice Method Used -->
+                        <Label Content="Family Planning Practice Method Used"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Family Planning Intension to Use -->
+                        <Label Content="Family Planning Practice Intension to Use"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Family Planning Practice Reason for Not Using -->
+                        <Label Content="Family Planning Practice Reason for Not Using"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Type of Toilet -->
+                        <Label Content="Type of Toilet"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Type of Garbage Disposal -->
+                        <Label Content="Type of Garbage Disposal"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+                    </StackPanel>
+
+                    <StackPanel HorizontalAlignment="Right"  Margin="0,10,10,0" VerticalAlignment="Top" Width="350">
+
+                        <!-- Sitio -->
+                        <Label Content="Sitio"/>
+                        <ComboBox x:Name="SitioBox" DisplayMemberPath="SitioName" Height="23"/>
+
+                        <!-- Date of Birth -->
+                        <Label>
+                            <TextBlock>
                             <Run Text="Date of Birth"></Run>
                             <Run Text="*" Foreground="Red"></Run>
-                        </TextBlock>
-                    </Label>
-                    <DatePicker x:Name="DateOfBirthPicker" DisplayDate="1990-01-01"/>
+                            </TextBlock>
+                        </Label>
+                        <DatePicker x:Name="DateOfBirthPicker" DisplayDate="1990-01-01" Height="23"/>
 
-                    <!-- Address -->
-                    <Label>
-                        <TextBlock>
-                            <Run Text="Address"></Run>
+                        <!-- Place of Birth -->
+                        <Label>
+                            <TextBlock>
+                            <Run Text="Place of Birth"></Run>
                             <Run Text="*" Foreground="Red"></Run>
-                        </TextBlock>
-                    </Label>
-                    <TextBox Height="23" TextWrapping="Wrap" x:Name="AddressField"/>
+                            </TextBlock>
+                        </Label>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="PlaceOfBirthField"/>
 
-                    <!-- Contact number -->
-                    <Label Content="Contact number"/>
-                    <TextBox Height="23" TextWrapping="Wrap" x:Name="ContactNumberField"/>
+                        <!-- Religious Affiliation -->
+                        <Label>
+                            <TextBlock>
+                            <Run Text="Religious Affiliation"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                            </TextBlock>
+                        </Label>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="ReligiousAffiliationField"/>
 
-                    <!-- Guardian -->
-                    <Label Content="Guardian"/>
-                    <TextBox Height="23" TextWrapping="Wrap" x:Name="GuardianField"/>
-                </StackPanel>
+                        <!-- Citizenship -->
+                        <Label>
+                            <TextBlock>
+                            <Run Text="Citizenship"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                            </TextBlock>
+                        </Label>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="CitizenshipField"/>
 
-                <StackPanel HorizontalAlignment="Right" Height="148" Margin="0,10,10,0" VerticalAlignment="Top" Width="350">
-                    <!-- Household -->
-                    <Label Content="Household"/>
-                    <ComboBox x:Name="HouseholdBox" DisplayMemberPath="HouseholdName"/>
+                        <!-- Occupation -->
+                        <Label>
+                            <TextBlock>
+                            <Run Text="Occupation"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                            </TextBlock>
+                        </Label>
+                        <TextBox Height="23" TextWrapping="Wrap" x:Name="OccupationField"/>
 
-                    <!-- Sitio -->
-                    <Label Content="Sitio"/>
-                    <ComboBox x:Name="SitioBox" DisplayMemberPath="SitioName"/>
-                </StackPanel>
-                <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="SaveButton_Click"/>
-                <Button Content="autofill" HorizontalAlignment="Right" Margin="0,0,185,10" VerticalAlignment="Bottom" Click="autofillbutton_click"/>
-            </Grid>
+                        <!-- Relationship -->
+                        <Label Content="Relationship to HH Head"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Highest Educational Attainment -->
+                        <Label Content="Highest Educational Attainment"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Grade/Year Level of School Attendance -->
+                        <Label Content="Grade/Year Level of School Attendance"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Reason for Dropping Out of School -->
+                        <Label Content="Reason for Dropping Out of School"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Special Skills -->
+                        <Label Content="Special Skills"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Disability -->
+                        <Label Content="Disability"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Indigenous People Membership -->
+                        <Label Content="Indigenous People Membership"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- PHIC Membership Sponsor -->
+                        <Label Content="PHIC Membership Sponsor"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- NHTS -->
+                        <Label Content="NHTS"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- 4P's -->
+                        <Label Content="4P's"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- House Ownership -->
+                        <Label Content="House Ownership"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Geohazard Location -->
+                        <Label Content="Geohazard Location"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Water Level -->
+                        <Label Content="Water Level"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Source of Water for Drinking -->
+                        <Label Content="Source of Water for Drinking"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Distance of Water Source from House -->
+                        <Label Content="Distance of Water Source from House"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Source of Water for General Use -->
+                        <Label Content="Source of Water for General Use"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+
+                        <!-- Remarks -->
+                        <Label Content="Remarks"/>
+                        <TextBox Height="23" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
         </GroupBox>
+        <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="SaveButton_Click"/>
+        <Button Content="autofill" HorizontalAlignment="Right" Margin="0,0,185,10" VerticalAlignment="Bottom" Click="autofillbutton_click"/>
 
     </Grid>
 </Window>

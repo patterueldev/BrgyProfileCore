@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BrgyProfileCore.Windows.Residents"
         mc:Ignorable="d"
-        Title="Residents" Height="450" Width="800" Activated="Window_Activated">
+        Title="Residents" Height="420" Width="535" MinWidth="650" MinHeight="250" Activated="Window_Activated">
     <Grid Background="#FFD1D1D1">
         <GroupBox Header="Residents" Margin="10" MinWidth="400">
             <Grid Margin="0">
                 <Button Content="Add Resident" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddResidentButton_Click"/>
-                <DataGrid x:Name="residentsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,66,10,10" IsReadOnly="True" SelectionChanged="residentsDataGrid_SelectionChanged">
+                <DataGrid x:Name="residentsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,96,10,10" IsReadOnly="True" SelectionChanged="residentsDataGrid_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="residentIdColumn" Binding="{Binding ResidentId}"
                                             Header="Resident Id" Width="SizeToHeader"/>
@@ -38,6 +38,9 @@
                 <Label Content="By Sitio" HorizontalAlignment="Left" Margin="270,35,0,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="SitioBox" DisplayMemberPath="SitioName" HorizontalAlignment="Left" Margin="319,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SitioBox_SelectionChanged"/>
                 <Button x:Name="ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="449,38,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="ClearButton_Click"/>
+                <Button x:Name="printButton" Content="Print" HorizontalAlignment="Left" Margin="252,66,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="printButton_Click"/>
+                <Button x:Name="exportSheetButton" Content="Export Sheet" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="exportSheetButton_Click"/>
+                <Button x:Name="exportHouseholdButton" Content="Export Household" HorizontalAlignment="Left" Margin="115,66,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="exportHouseholdButton_Click"/>
             </Grid>
 
         </GroupBox>
