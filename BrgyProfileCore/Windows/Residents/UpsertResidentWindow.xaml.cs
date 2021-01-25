@@ -27,6 +27,8 @@ namespace BrgyProfileCore.Windows.Residents
         {
             InitializeComponent();
 
+            this.resident = new Resident();
+
             var households = db.Households.Include(h => h.Residents).ToList();
             HouseholdBox.ItemsSource = households;
 
@@ -42,13 +44,13 @@ namespace BrgyProfileCore.Windows.Residents
 
             this.resident = db.Residents.First(r => r.ResidentId == resident.ResidentId);
 
-            FirstNameField.Text = resident.FirstName;
-            MiddleNameField.Text = resident.MiddleName;
-            LastNameField.Text = resident.LastName;
+            //FirstNameField.Text = resident.FirstName;
+            //MiddleNameField.Text = resident.MiddleName;
+            //LastNameField.Text = resident.LastName;
 
-            DateOfBirthPicker.SelectedDate = resident.DateOfBirth;
-            AddressStreetNameField.Text = resident.Address;
-            ContactNumberField.Text = resident.ContactNumber;
+            //DateOfBirthPicker.SelectedDate = resident.DateOfBirth;
+            //AddressStreetNameField.Text = resident.Address;
+            //ContactNumberField.Text = resident.ContactNumber;
             //GuardianField.Text = resident.Guardian;
 
             var households = db.Households.Include(h => h.Residents).ToList();
@@ -67,50 +69,79 @@ namespace BrgyProfileCore.Windows.Residents
 
             UpdateView();
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = resident;
+        }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (FirstNameField.Text.Trim() == "")
+            if (resident.FirstName.Trim() == "")
             {
                 this.ShowInvalidInputMessage("First name must not be empty");
                 return;
             }
 
-            if (LastNameField.Text.Trim() == "")
+            if (resident.LastName.Trim() == "")
             {
                 this.ShowInvalidInputMessage("Last name must not be empty");
                 return;
             }
 
-            if (DateOfBirthPicker.SelectedDate == null)
+            if (resident.Gender.Trim() == "")
+            {
+                this.ShowInvalidInputMessage("Gender must not be empty");
+                return;
+            }
+
+            if (resident.MaritalStatus.Trim() == "")
+            {
+                this.ShowInvalidInputMessage("Marital Status must not be empty");
+                return;
+            }
+
+            if (resident.AddressStreet.Trim() == "")
+            {
+                this.ShowInvalidInputMessage("Street Name must not be empty");
+                return;
+            }
+
+            if (resident.AddressSubdivision.Trim() == "")
+            {
+                this.ShowInvalidInputMessage("Name of Subdivision must not be empty");
+                return;
+            }
+
+            if (resident.DateOfBirth == null)
             {
                 this.ShowInvalidInputMessage("Date of birth must not be empty");
                 return;
             }
 
-            if (AddressStreetNameField.Text.Trim() == "")
+            if (resident.PlaceOfBirth.Trim() == "")
             {
-                this.ShowInvalidInputMessage("Address must not be empty");
+                this.ShowInvalidInputMessage("Place of Birth must not be empty");
+                return;
+            }
+
+            if (resident.Religion.Trim() == "")
+            {
+                this.ShowInvalidInputMessage("Religious Affiliation must not be empty");
+                return;
+            }
+
+            if (resident.Citizenship.Trim() == "")
+            {
+                this.ShowInvalidInputMessage("Citizenship must not be empty");
                 return;
             }
 
             var household = (Household)this.HouseholdBox.SelectedItem;
             var sitio = (Sitio)this.SitioBox.SelectedItem;
 
-            if (resident == null)
+            // need to identify if resident is already created or new
+            if (resident.ResidentId == 0)
             {
-                var resident = new Resident
-                {
-                    FirstName = FirstNameField.Text.Trim(),
-                    MiddleName = MiddleNameField.Text.Trim(),
-                    LastName = LastNameField.Text.Trim(),
-
-                    DateOfBirth = (DateTime)DateOfBirthPicker.SelectedDate,
-                    Address = AddressStreetNameField.Text.Trim(),
-                    ContactNumber = ContactNumberField.Text.Trim(),
-                    //Guardian = GuardianField.Text.Trim(),
-                };
-
                 // Is Adding
                 if (household != null)
                 {
@@ -131,15 +162,6 @@ namespace BrgyProfileCore.Windows.Residents
             else
             {
                 // Is Editing
-                this.resident.FirstName = FirstNameField.Text.Trim();
-                this.resident.MiddleName = MiddleNameField.Text.Trim();
-                this.resident.LastName = LastNameField.Text.Trim();
-
-                this.resident.DateOfBirth = (DateTime)DateOfBirthPicker.SelectedDate;
-                this.resident.Address = AddressStreetNameField.Text.Trim();
-                this.resident.ContactNumber = ContactNumberField.Text.Trim();
-                //this.resident.Guardian = GuardianField.Text.Trim();
-
                 this.resident.Household = household;
                 this.resident.Sitio = sitio;
 
@@ -162,13 +184,6 @@ namespace BrgyProfileCore.Windows.Residents
             var title = resident == null ? "Add Resident" : "Edit Resident";
             GroupBox.Header = title;
             this.Title = title;
-        }
-
-        private void autofillbutton_click(object sender, RoutedEventArgs e)
-        {
-            FirstNameField.Text = Faker.Name.First();
-            LastNameField.Text = Faker.Name.Last();
-            AddressStreetNameField.Text = Faker.Address.StreetAddress();
         }
     }
 }

@@ -38,7 +38,6 @@ namespace BrgyProfileCore.Windows.Residents
             }
             AddressDetailView.FieldValue = NAifNull(resident.Address);
             ContactNumberDetailView.FieldValue = NAifNull(resident.ContactNumber);
-            GuardianDetailView.FieldValue = NAifNull(resident.Guardian);
         }
 
         string NAifNull(string str)

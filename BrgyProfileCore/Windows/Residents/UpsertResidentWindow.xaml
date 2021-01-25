@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BrgyProfileCore.Windows.Residents"
         mc:Ignorable="d"
-        Title="Add Resident" Width="800" MinWidth="800" MinHeight="450">
+        Title="Add Resident" Width="800" MinWidth="800" MinHeight="450" Loaded="Window_Loaded">
     <Grid Background="#FFD1D1D1">
         <GroupBox x:Name="GroupBox" Header="Add Resident" Margin="10,10,10,35">
             <ScrollViewer>
@@ -22,11 +22,11 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="FirstNameField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding FirstName, Mode=TwoWay}"/>
 
                         <!-- Middle Name -->
                         <Label Content="Middle name"/>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="MiddleNameField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding MiddleName, Mode=TwoWay}"/>
 
                         <!-- Last Name -->
                         <Label>
@@ -35,7 +35,7 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="LastNameField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding LastName, Mode=TwoWay}"/>
 
                         <!-- Gender -->
                         <Label>
@@ -44,7 +44,11 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <ComboBox x:Name="GenderBox" DisplayMemberPath="Gender" Height="23"/>
+                        <ComboBox Height="23" SelectedValue="{Binding Gender, Mode=TwoWay}" SelectedValuePath="Tag">
+                            <ComboBoxItem Tag="Male">Male</ComboBoxItem>
+                            <ComboBoxItem Tag="Female">Female</ComboBoxItem>
+                            <ComboBoxItem Tag="Others">Others</ComboBoxItem>
+                        </ComboBox>
 
                         <!-- Marital Status -->
                         <Label>
@@ -53,7 +57,13 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <ComboBox x:Name="MaritalStatusBox" DisplayMemberPath="MaritalStatus" Height="23"/>
+                        <ComboBox Height="23" SelectedValue="{Binding MaritalStatus, Mode=TwoWay}" SelectedValuePath="Tag">
+                            <ComboBoxItem Tag="Single">Single</ComboBoxItem>
+                            <ComboBoxItem Tag="Married">Married</ComboBoxItem>
+                            <ComboBoxItem Tag="Divorced">Divorced</ComboBoxItem>
+                            <ComboBoxItem Tag="Widowed">Widowed</ComboBoxItem>
+                            <ComboBoxItem Tag="Separated">Separated</ComboBoxItem>
+                        </ComboBox>
 
                         <!-- Address Number -->
                         <Label>
@@ -61,7 +71,7 @@
                             <Run Text="Address - Number"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="AddressNumberField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding AddressNumber, Mode=TwoWay}"/>
 
                         <!-- Address Street Name -->
                         <Label>
@@ -70,7 +80,7 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="AddressStreetNameField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding AddressStreet, Mode=TwoWay}"/>
 
                         <!-- Address Subdivision -->
                         <Label>
@@ -79,63 +89,63 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="AddressSubdivisionField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding AddressSubdivision, Mode=TwoWay}"/>
 
                         <!-- Contact number -->
                         <Label Content="Contact number"/>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="ContactNumberField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding ContactNumber, Mode=TwoWay}"/>
 
                         <!-- Major Occupation of Earning HH Member -->
                         <Label Content="Major Occupation of Earning HH Member"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding MajorOccupationofEarningHHMember, Mode=TwoWay}"/>
 
                         <!-- Other Source of Income -->
                         <Label Content="Other Source of Income"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding OtherSourceofIncome, Mode=TwoWay}"/>
 
                         <!-- Total Actual Income of Earning Member -->
                         <Label Content="Total Actual Income of Earning Member"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding TotalActualIncomeofEarningMember, Mode=TwoWay}"/>
 
                         <!--Lot Ownership where House is Located -->
                         <Label Content="Lot Ownership where House is Located"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding LotOwnershipwhereHouseisLocated, Mode=TwoWay}"/>
 
                         <!-- Type of Fuel for Lighting -->
                         <Label Content="Type of Fuel for Lighting"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding TypeofFuel_Lighting, Mode=TwoWay}"/>
 
                         <!-- Type of Fuel for Cooking -->
                         <Label Content="Type of Fuel for Cooking"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding TypeofFuel_Cooking, Mode=TwoWay}"/>
 
                         <!-- No. of Children Born Alive -->
                         <Label Content="No. of Children Born Alive"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding No_ofChildren_BornAlive, Mode=TwoWay}"/>
 
                         <!-- No. of Children Still Living -->
                         <Label Content="No. of Children Still Living"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding No_ofChildren_StillLiving, Mode=TwoWay}"/>
 
                         <!--Family Planning Practice Method Used -->
                         <Label Content="Family Planning Practice Method Used"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding FamilyPlanningPracticeMethodUsed, Mode=TwoWay}"/>
 
                         <!-- Family Planning Intension to Use -->
                         <Label Content="Family Planning Practice Intension to Use"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding FamilyPlanningPracticeIntensiontoUse, Mode=TwoWay}"/>
 
                         <!-- Family Planning Practice Reason for Not Using -->
                         <Label Content="Family Planning Practice Reason for Not Using"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding FamilyPlanningPracticeReasonforNotUsing, Mode=TwoWay}"/>
 
                         <!-- Type of Toilet -->
                         <Label Content="Type of Toilet"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding TypeofToilet, Mode=TwoWay}"/>
 
                         <!-- Type of Garbage Disposal -->
                         <Label Content="Type of Garbage Disposal"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding TypeofGarbageDisposal, Mode=TwoWay}"/>
                     </StackPanel>
 
                     <StackPanel HorizontalAlignment="Right"  Margin="0,10,10,0" VerticalAlignment="Top" Width="350">
@@ -151,7 +161,7 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <DatePicker x:Name="DateOfBirthPicker" DisplayDate="1990-01-01" Height="23"/>
+                        <DatePicker DisplayDate="1990-01-01" SelectedDate="{Binding DateOfBirth, Mode=TwoWay}" Height="23"/>
 
                         <!-- Place of Birth -->
                         <Label>
@@ -160,7 +170,7 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="PlaceOfBirthField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding PlaceOfBirth, Mode=TwoWay}"/>
 
                         <!-- Religious Affiliation -->
                         <Label>
@@ -169,7 +179,7 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="ReligiousAffiliationField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Religion, Mode=TwoWay}"/>
 
                         <!-- Citizenship -->
                         <Label>
@@ -178,90 +188,88 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="CitizenshipField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Citizenship, Mode=TwoWay}"/>
 
                         <!-- Occupation -->
                         <Label>
                             <TextBlock>
                             <Run Text="Occupation"></Run>
-                            <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" x:Name="OccupationField"/>
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Occupation, Mode=TwoWay}"/>
 
                         <!-- Relationship -->
                         <Label Content="Relationship to HH Head"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding RelationshiptoHHHead, Mode=TwoWay}"/>
 
                         <!-- Highest Educational Attainment -->
                         <Label Content="Highest Educational Attainment"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding HighestEducationalAttainment, Mode=TwoWay}"/>
 
                         <!-- Grade/Year Level of School Attendance -->
                         <Label Content="Grade/Year Level of School Attendance"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Grade_YearLevelofSchoolAttendance, Mode=TwoWay}"/>
 
                         <!-- Reason for Dropping Out of School -->
                         <Label Content="Reason for Dropping Out of School"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding ReasonforDroppingOutofSchool, Mode=TwoWay}"/>
 
                         <!-- Special Skills -->
                         <Label Content="Special Skills"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding SpecialSkills, Mode=TwoWay}"/>
 
                         <!-- Disability -->
                         <Label Content="Disability"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Disability, Mode=TwoWay}"/>
 
                         <!-- Indigenous People Membership -->
                         <Label Content="Indigenous People Membership"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding IndigenousPeopleMembership, Mode=TwoWay}"/>
 
                         <!-- PHIC Membership Sponsor -->
                         <Label Content="PHIC Membership Sponsor"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding PHICMembershipSponsor, Mode=TwoWay}"/>
 
                         <!-- NHTS -->
                         <Label Content="NHTS"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding NHTS, Mode=TwoWay}"/>
 
                         <!-- 4P's -->
                         <Label Content="4P's"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Four_Ps, Mode=TwoWay}"/>
 
                         <!-- House Ownership -->
                         <Label Content="House Ownership"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding HouseOwnership, Mode=TwoWay}"/>
 
                         <!-- Geohazard Location -->
                         <Label Content="Geohazard Location"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding GeohazardLocation, Mode=TwoWay}"/>
 
                         <!-- Water Level -->
                         <Label Content="Water Level"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding WaterLevel, Mode=TwoWay}"/>
 
                         <!-- Source of Water for Drinking -->
                         <Label Content="Source of Water for Drinking"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding SourceofWaterforDrinking, Mode=TwoWay}"/>
 
                         <!-- Distance of Water Source from House -->
                         <Label Content="Distance of Water Source from House"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding DistanceofWaterSourcefromHouse, Mode=TwoWay}"/>
 
                         <!-- Source of Water for General Use -->
                         <Label Content="Source of Water for General Use"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding SourceofWaterforGeneralUse, Mode=TwoWay}"/>
 
                         <!-- Remarks -->
                         <Label Content="Remarks"/>
-                        <TextBox Height="23" TextWrapping="Wrap" />
+                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Remarks, Mode=TwoWay}"/>
                     </StackPanel>
                 </Grid>
             </ScrollViewer>
         </GroupBox>
         <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="SaveButton_Click"/>
-        <Button Content="autofill" HorizontalAlignment="Right" Margin="0,0,185,10" VerticalAlignment="Bottom" Click="autofillbutton_click"/>
 
     </Grid>
 </Window>

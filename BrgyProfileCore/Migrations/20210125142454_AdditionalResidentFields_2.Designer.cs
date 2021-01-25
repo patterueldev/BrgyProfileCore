@@ -3,14 +3,16 @@ using System;
 using BrgyProfileCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BrgyProfileCore.Migrations
 {
     [DbContext(typeof(BrgyContext))]
-    partial class BrgyContextModelSnapshot : ModelSnapshot
+    [Migration("20210125142454_AdditionalResidentFields_2")]
+    partial class AdditionalResidentFields_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,18 +44,6 @@ namespace BrgyProfileCore.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("AddressNumber")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("AddressStreet")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("AddressSubdivision")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Citizenship")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("ContactNumber")
                         .HasColumnType("TEXT");
 
@@ -68,15 +58,6 @@ namespace BrgyProfileCore.Migrations
 
                     b.Property<int>("FamilyNo")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("FamilyPlanningPracticeIntensiontoUse")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FamilyPlanningPracticeMethodUsed")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FamilyPlanningPracticeReasonforNotUsing")
-                        .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("TEXT");
@@ -132,16 +113,10 @@ namespace BrgyProfileCore.Migrations
                     b.Property<string>("No_ofChildren_StillLiving")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Occupation")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("OtherSourceofIncome")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PHICMembershipSponsor")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("PlaceOfBirth")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ReasonforDroppingOutofSchool")
@@ -151,9 +126,6 @@ namespace BrgyProfileCore.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Religion")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Remarks")
                         .HasColumnType("TEXT");
 
                     b.Property<int?>("SitioId")
