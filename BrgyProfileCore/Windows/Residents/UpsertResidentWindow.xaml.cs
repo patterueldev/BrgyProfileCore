@@ -28,6 +28,7 @@ namespace BrgyProfileCore.Windows.Residents
             InitializeComponent();
 
             this.resident = new Resident();
+            resident.DateOfBirth = new DateTime(2000, 1, 1);
 
             var households = db.Households.Include(h => h.Residents).ToList();
             HouseholdBox.ItemsSource = households;
@@ -76,37 +77,37 @@ namespace BrgyProfileCore.Windows.Residents
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (resident.FirstName.Trim() == "")
+            if (IsNullOrEmpty(resident.FirstName))
             {
                 this.ShowInvalidInputMessage("First name must not be empty");
                 return;
             }
 
-            if (resident.LastName.Trim() == "")
+            if (IsNullOrEmpty(resident.LastName))
             {
                 this.ShowInvalidInputMessage("Last name must not be empty");
                 return;
             }
 
-            if (resident.Gender.Trim() == "")
+            if (IsNullOrEmpty(resident.Gender))
             {
                 this.ShowInvalidInputMessage("Gender must not be empty");
                 return;
             }
 
-            if (resident.MaritalStatus.Trim() == "")
+            if (IsNullOrEmpty(resident.MaritalStatus))
             {
                 this.ShowInvalidInputMessage("Marital Status must not be empty");
                 return;
             }
 
-            if (resident.AddressStreet.Trim() == "")
+            if (IsNullOrEmpty(resident.AddressStreet))
             {
                 this.ShowInvalidInputMessage("Street Name must not be empty");
                 return;
             }
 
-            if (resident.AddressSubdivision.Trim() == "")
+            if (IsNullOrEmpty(resident.AddressSubdivision))
             {
                 this.ShowInvalidInputMessage("Name of Subdivision must not be empty");
                 return;
@@ -118,19 +119,19 @@ namespace BrgyProfileCore.Windows.Residents
                 return;
             }
 
-            if (resident.PlaceOfBirth.Trim() == "")
+            if (IsNullOrEmpty(resident.PlaceOfBirth))
             {
                 this.ShowInvalidInputMessage("Place of Birth must not be empty");
                 return;
             }
 
-            if (resident.Religion.Trim() == "")
+            if (IsNullOrEmpty(resident.Religion))
             {
                 this.ShowInvalidInputMessage("Religious Affiliation must not be empty");
                 return;
             }
 
-            if (resident.Citizenship.Trim() == "")
+            if (IsNullOrEmpty(resident.Citizenship))
             {
                 this.ShowInvalidInputMessage("Citizenship must not be empty");
                 return;
@@ -177,6 +178,15 @@ namespace BrgyProfileCore.Windows.Residents
         void ShowInvalidInputMessage(string message)
         {
             MessageBox.Show(message, "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
+        bool IsNullOrEmpty(string validatable)
+        {
+            if(validatable != null)
+            {
+                return validatable.Trim() == "";
+            }
+            return true;
         }
 
         void UpdateView()

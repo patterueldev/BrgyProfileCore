@@ -113,7 +113,7 @@ namespace BrgyProfileCore.Windows
             var idx = residentsDataGrid.SelectedIndex;
 
             // toggles buttons
-            ResidentDetailsButton.IsEnabled = idx >= 0;
+            EditResidentButton.IsEnabled = idx >= 0;
         }
 
         /// <summary>
@@ -159,6 +159,17 @@ namespace BrgyProfileCore.Windows
         private void UpdateProfileButton_Click(object sender, RoutedEventArgs e)
         {
             var window = new UpdateProfileWindow();
+            window.ShowDialog();
+        }
+
+        private void EditResidentButton_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (selectedResident == null)
+            {
+                return;
+            }
+
+            var window = new UpsertResidentWindow(selectedResident);
             window.ShowDialog();
         }
     }

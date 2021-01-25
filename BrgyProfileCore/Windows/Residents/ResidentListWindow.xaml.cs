@@ -172,7 +172,6 @@ namespace BrgyProfileCore.Windows.Residents
             var idx = residentsDataGrid.SelectedIndex;
 
             // toggles buttons
-            ResidentDetailsButton.IsEnabled = idx >= 0;
             EditResidentButton.IsEnabled = idx >= 0;
             DeleteResidentButton.IsEnabled = idx >= 0;
         }
