@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using IronXL;
 using System.Linq;
+using SpreadsheetLight;
 
 namespace BrgyProfileCore.Core
 {
@@ -73,128 +73,143 @@ namespace BrgyProfileCore.Core
         }
         public static void printResidents(List<Resident> residents, string filename = "Residents.xls")
         {
-
             //Create new Excel WorkBook document. 
             //The default file format is XLSX, but we can override that for legacy support
-            WorkBook xlsWorkbook = WorkBook.Create(ExcelFileFormat.XLS);
-            xlsWorkbook.Metadata.Author = "IronXL";
-
-            //Add a blank WorkSheet
-            WorkSheet xlsSheet = xlsWorkbook.CreateWorkSheet("new_sheet");
+            var sl = new SLDocument();
+            sl.AddWorksheet("Residents");
+            sl.SelectWorksheet("Residents");
 
             //Add data and styles to the new worksheet
             residentHeaders.ForEach(header =>
             {
                 var col = residentHeaders.IndexOf(header) + 1;
                 var cellColumn = NumberToString(col) + "1";
-                xlsSheet[cellColumn].Value = header;
-                xlsSheet[cellColumn].Style.WrapText = true;
-                xlsSheet[cellColumn].Style.BottomBorder.Type = IronXL.Styles.BorderType.Thick;
-                xlsSheet[cellColumn].Style.ShrinkToFit = true;
+                sl.SetCellValue(cellColumn, header);
+
+                SLStyle style = sl.CreateStyle();
+                style.SetWrapText(true);
+                style.SetBottomBorder(DocumentFormat.OpenXml.Spreadsheet.BorderStyleValues.Medium, SLThemeColorIndexValues.Dark1Color);
+                style.Alignment.Horizontal = DocumentFormat.OpenXml.Spreadsheet.HorizontalAlignmentValues.Center;
+                sl.SetCellStyle(cellColumn, style);
+                sl.AutoFitColumn(cellColumn, 50);
             });
 
+            sl.SetRowHeight(1, 40);
             residents.ForEach(resident =>
             {
                 var row = residents.IndexOf(resident) + 2;
-                xlsSheet[$"A{row}"].Value = resident.HouseholdId;
-                xlsSheet[$"D{row}"].Value = resident.FullName;
-                xlsSheet[$"E{row}"].Value = resident.RelationshiptoHHHead;
+                //sl.SetCellValue($"A{row}", resident.HouseholdId);
+                sl.SetCellValue($"D{row}", resident.FullName);
+                sl.SetCellValue($"E{row}", resident.RelationshiptoHHHead);
 
-                xlsSheet[$"F{row}"].Value = resident.Gender;
-                xlsSheet[$"G{row}"].Value = resident.MaritalStatus;
-                xlsSheet[$"H{row}"].Value = resident.DateOfBirth.ToString("MM/dd/yyyy");
-                xlsSheet[$"I{row}"].Value = resident.Age;
-                xlsSheet[$"J{row}"].Value = resident.HighestEducationalAttainment;
+                sl.SetCellValue($"F{row}", resident.Gender);
+                sl.SetCellValue($"G{row}", resident.MaritalStatus);
+                sl.SetCellValue($"H{row}", resident.DateOfBirth.ToString("MM/dd/yyyy"));
+                sl.SetCellValue($"I{row}", resident.Age);
+                sl.SetCellValue($"J{row}", resident.HighestEducationalAttainment);
 
-                xlsSheet[$"K{row}"].Value = resident.Grade_YearLevelofSchoolAttendance;
-                xlsSheet[$"L{row}"].Value = resident.ReasonforDroppingOutofSchool;
-                xlsSheet[$"M{row}"].Value = resident.Religion;
-                xlsSheet[$"N{row}"].Value = resident.SpecialSkills;
-                xlsSheet[$"O{row}"].Value = resident.Disability;
+                sl.SetCellValue($"K{row}", resident.Grade_YearLevelofSchoolAttendance);
+                sl.SetCellValue($"L{row}", resident.ReasonforDroppingOutofSchool);
+                sl.SetCellValue($"M{row}", resident.Religion);
+                sl.SetCellValue($"N{row}", resident.SpecialSkills);
+                sl.SetCellValue($"O{row}", resident.Disability);
 
-                xlsSheet[$"P{row}"].Value = resident.IndigenousPeopleMembership;
-                xlsSheet[$"Q{row}"].Value = resident.PHICMembershipSponsor;
-                xlsSheet[$"R{row}"].Value = resident.NHTS;
-                xlsSheet[$"S{row}"].Value = resident.Four_Ps;
-                xlsSheet[$"T{row}"].Value = resident.MajorOccupationofEarningHHMember;
+                sl.SetCellValue($"P{row}", resident.IndigenousPeopleMembership);
+                sl.SetCellValue($"Q{row}", resident.PHICMembershipSponsor);
+                sl.SetCellValue($"R{row}", resident.NHTS);
+                sl.SetCellValue($"S{row}", resident.Four_Ps);
+                sl.SetCellValue($"T{row}", resident.MajorOccupationofEarningHHMember);
 
-                xlsSheet[$"U{row}"].Value = resident.OtherSourceofIncome;
-                xlsSheet[$"V{row}"].Value = resident.TotalActualIncomeofEarningMember;
-                xlsSheet[$"W{row}"].Value = resident.HouseOwnership;
-                xlsSheet[$"X{row}"].Value = resident.GeohazardLocation;
-                xlsSheet[$"Y{row}"].Value = resident.WaterLevel;
+                sl.SetCellValue($"U{row}", resident.OtherSourceofIncome);
+                sl.SetCellValue($"V{row}", resident.TotalActualIncomeofEarningMember);
+                sl.SetCellValue($"W{row}", resident.HouseOwnership);
+                sl.SetCellValue($"X{row}", resident.GeohazardLocation);
+                sl.SetCellValue($"Y{row}", resident.WaterLevel);
 
-                xlsSheet[$"Z{row}"].Value = resident.LotOwnershipwhereHouseisLocated;
-                xlsSheet[$"AA{row}"].Value = resident.TypeofFuel_Lighting;
-                xlsSheet[$"AB{row}"].Value = resident.TypeofFuel_Cooking;
-                xlsSheet[$"AC{row}"].Value = resident.SourceofWaterforDrinking;
-                xlsSheet[$"AD{row}"].Value = resident.DistanceofWaterSourcefromHouse;
+                sl.SetCellValue($"Z{row}", resident.LotOwnershipwhereHouseisLocated);
+                sl.SetCellValue($"AA{row}", resident.TypeofFuel_Lighting);
+                sl.SetCellValue($"AB{row}", resident.TypeofFuel_Cooking);
+                sl.SetCellValue($"AC{row}", resident.SourceofWaterforDrinking);
+                sl.SetCellValue($"AD{row}", resident.DistanceofWaterSourcefromHouse);
 
-                xlsSheet[$"AE{row}"].Value = resident.SourceofWaterforGeneralUse;
-                xlsSheet[$"AF{row}"].Value = resident.TypeofToilet;
-                xlsSheet[$"AG{row}"].Value = resident.TypeofGarbageDisposal;
-                xlsSheet[$"AH{row}"].Value = resident.No_ofChildren_BornAlive;
-                xlsSheet[$"AI{row}"].Value = resident.No_ofChildren_StillLiving;
+                sl.SetCellValue($"AE{row}", resident.SourceofWaterforGeneralUse);
+                sl.SetCellValue($"AF{row}", resident.TypeofToilet);
+                sl.SetCellValue($"AG{row}", resident.TypeofGarbageDisposal);
+                sl.SetCellValue($"AH{row}", resident.No_ofChildren_BornAlive);
+                sl.SetCellValue($"AI{row}", resident.No_ofChildren_StillLiving);
 
-                xlsSheet[$"AJ{row}"].Value = resident.FamilyPlanningPracticeMethodUsed;
-                xlsSheet[$"AK{row}"].Value = resident.FamilyPlanningPracticeIntensiontoUse;
-                xlsSheet[$"AL{row}"].Value = resident.FamilyPlanningPracticeReasonforNotUsing;
-                xlsSheet[$"AM{row}"].Value = resident.Remarks;
+                sl.SetCellValue($"AJ{row}", resident.FamilyPlanningPracticeMethodUsed);
+                sl.SetCellValue($"AK{row}", resident.FamilyPlanningPracticeIntensiontoUse);
+                sl.SetCellValue($"AL{row}", resident.FamilyPlanningPracticeReasonforNotUsing);
+                sl.SetCellValue($"AM{row}", resident.Remarks);
+
+                residentHeaders.ForEach(header =>
+                {
+                    var col = residentHeaders.IndexOf(header) + 1;
+                    var cellColumn = NumberToString(col) + $"{row}";
+
+                    SLStyle style = sl.CreateStyle();
+                    style.SetWrapText(true);
+                    sl.SetCellStyle(cellColumn, style);
+                    sl.AutoFitColumn(cellColumn, 50);
+                });
+
+                sl.AutoFitRow(row);
             });
             //Save the excel file
-            xlsWorkbook.SaveAs(filename);
+            sl.SaveAs(filename);
         }
 
         public static void printRBI(List<Resident> residents, string filename = "RBI.xls")
         {
-            //Create new Excel WorkBook document. 
-            //The default file format is XLSX, but we can override that for legacy support
-            WorkBook xlsWorkbook = WorkBook.Create(ExcelFileFormat.XLS);
-            xlsWorkbook.Metadata.Author = "IronXL";
+            ////Create new Excel WorkBook document. 
+            ////The default file format is XLSX, but we can override that for legacy support
+            //WorkBook xlsWorkbook = WorkBook.Create(ExcelFileFormat.XLS);
+            //xlsWorkbook.Metadata.Author = "IronXL";
 
-            //Add a blank WorkSheet
-            WorkSheet xlsSheet = xlsWorkbook.CreateWorkSheet("new_sheet");
+            ////Add a blank WorkSheet
+            //WorkSheet xlsSheet = xlsWorkbook.CreateWorkSheet("new_sheet");
 
-            // Headers
+            //// Headers
 
-            /// NAME HEADER
-            xlsSheet.Merge("A1:D1");
-            xlsSheet["A1"].Value = "NAME";
-            xlsSheet["A1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            ///// NAME HEADER
+            //xlsSheet.Merge("A1:D1");
+            //xlsSheet["A1"].Value = "NAME";
+            //xlsSheet["A1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
 
-            xlsSheet.Merge("A2:D2");
-            xlsSheet["A2"].Value = "1";
-            xlsSheet["A2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            //xlsSheet.Merge("A2:D2");
+            //xlsSheet["A2"].Value = "1";
+            //xlsSheet["A2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
 
-            xlsSheet["A3"].Value = "LAST";
-            xlsSheet["B3"].Value = "FIRST";
-            xlsSheet["C3"].Value = "MIDDLE";
-            xlsSheet["D3"].Value = "QUALIFIER";
+            //xlsSheet["A3"].Value = "LAST";
+            //xlsSheet["B3"].Value = "FIRST";
+            //xlsSheet["C3"].Value = "MIDDLE";
+            //xlsSheet["D3"].Value = "QUALIFIER";
 
-            /// ADDRESS HEADER
-            xlsSheet.Merge("E1:G1");
-            xlsSheet["E1"].Value = "ADDRESS";
-            xlsSheet["E1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            ///// ADDRESS HEADER
+            //xlsSheet.Merge("E1:G1");
+            //xlsSheet["E1"].Value = "ADDRESS";
+            //xlsSheet["E1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
 
-            xlsSheet.Merge("E2:G2");
-            xlsSheet["E2"].Value = "(2)";
-            xlsSheet["E2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            //xlsSheet.Merge("E2:G2");
+            //xlsSheet["E2"].Value = "(2)";
+            //xlsSheet["E2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
 
-            xlsSheet["E3"].Value = "NUMBER";
-            xlsSheet["F3"].Value = "STREET NAME";
-            xlsSheet["G3"].Value = "NAME OF SITIO";
+            //xlsSheet["E3"].Value = "NUMBER";
+            //xlsSheet["F3"].Value = "STREET NAME";
+            //xlsSheet["G3"].Value = "NAME OF SITIO";
 
-            //Add data and styles to the new worksheet
-            residents.ForEach(resident =>
-            {
-                var row = residents.IndexOf(resident) + 5;
-                xlsSheet[$"A{row}"].Value = resident.LastName;
-                xlsSheet[$"B{row}"].Value = resident.FirstName;
-                xlsSheet[$"C{row}"].Value = resident.MiddleName;
-            });
+            ////Add data and styles to the new worksheet
+            //residents.ForEach(resident =>
+            //{
+            //    var row = residents.IndexOf(resident) + 5;
+            //    xlsSheet[$"A{row}"].Value = resident.LastName;
+            //    xlsSheet[$"B{row}"].Value = resident.FirstName;
+            //    xlsSheet[$"C{row}"].Value = resident.MiddleName;
+            //});
 
-            //Save the excel file
-            xlsWorkbook.SaveAs(filename);
+            ////Save the excel file
+            //xlsWorkbook.SaveAs(filename);
         }
 
         public static string NumberToString(int value)
