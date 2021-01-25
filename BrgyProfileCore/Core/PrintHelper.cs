@@ -61,63 +61,13 @@ namespace BrgyProfileCore.Core
                     "Type of Toilet",
                     "Type of Garbage Disposal",
                     "No. of Children - Born Alive",
-                    "No. of Children - Still Living"
-                };
-            }
-        }
-        public static List<String> rbiHeaders
-        {
-            get
-            {
-                return new List<String>(){
-                    // A
-                    "Household No.",
-                    "Family No.",
-                    "Line No.",
-                    "Name of Household Member",
-                    "Relationship to HH Head",
-
-                    //F
-                    "Sex",
-                    "Marital Status",
-                    "Date of Birth (mm/dd/yyyy)",
-                    "Age",
-                    "Highest Educational Attainment",
-
-                    // K
-                    "Grade/Year Level of School Attendance",
-                    "Reason for Dropping Out of School",
-                    "Religious Affiliation",
-                    "Special Skills",
-                    "Disability",
-
-                    //P
-                    "Indigenous People Membership",
-                    "PHIC Membership Sponsor",
-                    "Beneficiary - NHTS",
-                    "Beneficiary - 4P's",
-                    "Major Occupation of Earning HH Member",
-
-                    //U
-                    "Other Source of Income",
-                    "Total Actual Income of Earning Member",
-                    "House Ownership",
-                    "Geohazard Location",
-                    "Water Level",
-
-                    //Z
-                    "Lot Ownership where House is Located",
-                    "Type of Fuel for Lighting",
-                    "Type of Fuel for Cooking",
-                    "Source of Water for Drinking",
-                    "Distance of Water Source from House",
-
-                    //AE
-                    "Source of Water for General Use",
-                    "Type of Toilet",
-                    "Type of Garbage Disposal",
-                    "No. of Children - Born Alive",
-                    "No. of Children - Still Living"
+                    "No. of Children - Still Living",
+                    
+                    //AJ
+                    "Family Planning Practice - Method Used",
+                    "Family Planning Practice - Intention to Use",
+                    "Family Planning Practice - Reason for not Using/Stopping/Shifting",
+                    "Remarks"
                 };
             }
         }
@@ -148,11 +98,48 @@ namespace BrgyProfileCore.Core
                 var row = residents.IndexOf(resident) + 2;
                 xlsSheet[$"A{row}"].Value = resident.HouseholdId;
                 xlsSheet[$"D{row}"].Value = resident.FullName;
+                xlsSheet[$"E{row}"].Value = resident.RelationshiptoHHHead;
 
                 xlsSheet[$"F{row}"].Value = resident.Gender;
-
+                xlsSheet[$"G{row}"].Value = resident.MaritalStatus;
                 xlsSheet[$"H{row}"].Value = resident.DateOfBirth.ToString("MM/dd/yyyy");
                 xlsSheet[$"I{row}"].Value = resident.Age;
+                xlsSheet[$"J{row}"].Value = resident.HighestEducationalAttainment;
+
+                xlsSheet[$"K{row}"].Value = resident.Grade_YearLevelofSchoolAttendance;
+                xlsSheet[$"L{row}"].Value = resident.ReasonforDroppingOutofSchool;
+                xlsSheet[$"M{row}"].Value = resident.Religion;
+                xlsSheet[$"N{row}"].Value = resident.SpecialSkills;
+                xlsSheet[$"O{row}"].Value = resident.Disability;
+
+                xlsSheet[$"P{row}"].Value = resident.IndigenousPeopleMembership;
+                xlsSheet[$"Q{row}"].Value = resident.PHICMembershipSponsor;
+                xlsSheet[$"R{row}"].Value = resident.NHTS;
+                xlsSheet[$"S{row}"].Value = resident.Four_Ps;
+                xlsSheet[$"T{row}"].Value = resident.MajorOccupationofEarningHHMember;
+
+                xlsSheet[$"U{row}"].Value = resident.OtherSourceofIncome;
+                xlsSheet[$"V{row}"].Value = resident.TotalActualIncomeofEarningMember;
+                xlsSheet[$"W{row}"].Value = resident.HouseOwnership;
+                xlsSheet[$"X{row}"].Value = resident.GeohazardLocation;
+                xlsSheet[$"Y{row}"].Value = resident.WaterLevel;
+
+                xlsSheet[$"Z{row}"].Value = resident.LotOwnershipwhereHouseisLocated;
+                xlsSheet[$"AA{row}"].Value = resident.TypeofFuel_Lighting;
+                xlsSheet[$"AB{row}"].Value = resident.TypeofFuel_Cooking;
+                xlsSheet[$"AC{row}"].Value = resident.SourceofWaterforDrinking;
+                xlsSheet[$"AD{row}"].Value = resident.DistanceofWaterSourcefromHouse;
+
+                xlsSheet[$"AE{row}"].Value = resident.SourceofWaterforGeneralUse;
+                xlsSheet[$"AF{row}"].Value = resident.TypeofToilet;
+                xlsSheet[$"AG{row}"].Value = resident.TypeofGarbageDisposal;
+                xlsSheet[$"AH{row}"].Value = resident.No_ofChildren_BornAlive;
+                xlsSheet[$"AI{row}"].Value = resident.No_ofChildren_StillLiving;
+
+                xlsSheet[$"AJ{row}"].Value = resident.FamilyPlanningPracticeMethodUsed;
+                xlsSheet[$"AK{row}"].Value = resident.FamilyPlanningPracticeIntensiontoUse;
+                xlsSheet[$"AL{row}"].Value = resident.FamilyPlanningPracticeReasonforNotUsing;
+                xlsSheet[$"AM{row}"].Value = resident.Remarks;
             });
             //Save the excel file
             xlsWorkbook.SaveAs(filename);
