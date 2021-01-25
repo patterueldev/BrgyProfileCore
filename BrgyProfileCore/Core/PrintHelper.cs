@@ -98,7 +98,12 @@ namespace BrgyProfileCore.Core
             residents.ForEach(resident =>
             {
                 var row = residents.IndexOf(resident) + 2;
-                //sl.SetCellValue($"A{row}", resident.HouseholdId);
+                var householdNo = "";
+                if (resident.HouseholdId != null)
+                {
+                    householdNo = $"{householdNo}";
+                }
+                sl.SetCellValue($"A{row}", householdNo);
                 sl.SetCellValue($"D{row}", resident.FullName);
                 sl.SetCellValue($"E{row}", resident.RelationshiptoHHHead);
 
@@ -162,54 +167,120 @@ namespace BrgyProfileCore.Core
 
         public static void printRBI(List<Resident> residents, string filename = "RBI.xls")
         {
-            ////Create new Excel WorkBook document. 
-            ////The default file format is XLSX, but we can override that for legacy support
-            //WorkBook xlsWorkbook = WorkBook.Create(ExcelFileFormat.XLS);
-            //xlsWorkbook.Metadata.Author = "IronXL";
+            var sl = new SLDocument();
+            sl.AddWorksheet("Household");
+            sl.SelectWorksheet("Household");
 
-            ////Add a blank WorkSheet
-            //WorkSheet xlsSheet = xlsWorkbook.CreateWorkSheet("new_sheet");
+
+            SLStyle style = sl.CreateStyle();
+            style.SetWrapText(true);
+            style.Alignment.Horizontal = DocumentFormat.OpenXml.Spreadsheet.HorizontalAlignmentValues.Center;
+            style.Alignment.Vertical = DocumentFormat.OpenXml.Spreadsheet.VerticalAlignmentValues.Center;
 
             //// Headers
 
             ///// NAME HEADER
-            //xlsSheet.Merge("A1:D1");
-            //xlsSheet["A1"].Value = "NAME";
-            //xlsSheet["A1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            sl.MergeWorksheetCells("A1", "D1");
+            sl.SetCellValue("A1", "NAME");
+            sl.SetCellStyle("A1", style);
 
-            //xlsSheet.Merge("A2:D2");
-            //xlsSheet["A2"].Value = "1";
-            //xlsSheet["A2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            sl.MergeWorksheetCells("A2", "D2");
+            sl.SetCellValue("A2", "1");
+            sl.SetCellStyle("A2", style);
 
-            //xlsSheet["A3"].Value = "LAST";
-            //xlsSheet["B3"].Value = "FIRST";
-            //xlsSheet["C3"].Value = "MIDDLE";
-            //xlsSheet["D3"].Value = "QUALIFIER";
+            sl.SetCellValue("A3", "LAST");
+            sl.SetCellValue("B3", "FIRST");
+            sl.SetCellValue("C3", "MIDDLE");
+            sl.SetCellValue("D3", "QUALIFIER");
+            sl.SetCellStyle("A3", "D3", style);
+            sl.AutoFitColumn("A3", "D3", 50);
 
             ///// ADDRESS HEADER
-            //xlsSheet.Merge("E1:G1");
-            //xlsSheet["E1"].Value = "ADDRESS";
-            //xlsSheet["E1"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            sl.MergeWorksheetCells("E1", "G1");
+            sl.SetCellValue("E1", "ADDRESS");
+            sl.SetCellStyle("E1", style);
 
-            //xlsSheet.Merge("E2:G2");
-            //xlsSheet["E2"].Value = "(2)";
-            //xlsSheet["E2"].Style.HorizontalAlignment = IronXL.Styles.HorizontalAlignment.Center;
+            sl.MergeWorksheetCells("E2", "G2");
+            sl.SetCellValue("E2", "2");
+            sl.SetCellStyle("E2", style);
 
-            //xlsSheet["E3"].Value = "NUMBER";
-            //xlsSheet["F3"].Value = "STREET NAME";
-            //xlsSheet["G3"].Value = "NAME OF SITIO";
+            sl.SetCellValue("E3", "NUMBER");
+            sl.SetCellValue("F3", "STREET NAME");
+            sl.SetCellValue("G3", "NAME OF SITIO");
+            sl.SetCellStyle("E3", "G3", style);
+            sl.AutoFitColumn("E3", "G3", 50);
+            sl.SetCellValue("E1", "ADDRESS");
+            sl.SetCellStyle("E1", style);
+
+            // Place of Birth // H
+            sl.SetCellValue("H1", "PLACE OF BIRTH\n\n(3)");
+            sl.SetCellStyle("H1", style);
+            sl.SetCellStyle("H1", style);
+            sl.MergeWorksheetCells("H1", "H3");
+
+            // Date of Birth // I
+            sl.SetCellValue("I1", "DATE OF BIRTH\n\n(4)");
+            sl.SetCellStyle("I1", style);
+            sl.AutoFitColumn("I1", 50);
+            sl.MergeWorksheetCells("I1", "I3");
+
+            // Sex // J
+            sl.SetCellValue("J1", "SEX\n\n(5)");
+            sl.SetCellStyle("J1", style);
+            sl.AutoFitColumn("J1", 50);
+            sl.MergeWorksheetCells("J1", "J3");
+
+            // Civil // K
+            sl.SetCellValue("K1", "CIVIL\n\n(6)");
+            sl.SetCellStyle("K1", style);
+            sl.AutoFitColumn("K1", 50);
+            sl.MergeWorksheetCells("K1", "K3");
+
+            // Citizenship // L
+            sl.SetCellValue("L1", "CITIZENSHIP\n\n(7)");
+            sl.SetCellStyle("L1", style);
+            sl.AutoFitColumn("L1", 50);
+            sl.MergeWorksheetCells("L1", "L3");
+
+            // Occupation // M
+            sl.SetCellValue("M1", "OCCUPATION\n\n(7)");
+            sl.SetCellStyle("M1", style);
+            sl.AutoFitColumn("M1", 50);
+            sl.MergeWorksheetCells("M1", "M3");
+
+            // Relationship with the Head // N
+            sl.SetCellValue("N1", "RELATIONSHIP WITH THE HEAD OF THE FAMILY");
+            sl.SetCellStyle("N1", style);
+            sl.AutoFitColumn("N1", 30);
+            sl.MergeWorksheetCells("N1", "N4");
 
             ////Add data and styles to the new worksheet
-            //residents.ForEach(resident =>
-            //{
-            //    var row = residents.IndexOf(resident) + 5;
-            //    xlsSheet[$"A{row}"].Value = resident.LastName;
-            //    xlsSheet[$"B{row}"].Value = resident.FirstName;
-            //    xlsSheet[$"C{row}"].Value = resident.MiddleName;
-            //});
+            residents.ForEach(resident =>
+            {
+                var row = residents.IndexOf(resident) + 5;
+                sl.SetCellValue($"A{row}", resident.LastName);
+                sl.SetCellValue($"B{row}", resident.FirstName);
+                sl.SetCellValue($"C{row}", resident.MiddleName);
 
-            ////Save the excel file
-            //xlsWorkbook.SaveAs(filename);
+                sl.SetCellValue($"E{row}", resident.AddressNumber);
+                sl.SetCellValue($"F{row}", resident.AddressStreet);
+                sl.SetCellValue($"G{row}", resident.AddressSubdivision);
+
+                sl.SetCellValue($"H{row}", resident.PlaceOfBirth);
+                sl.SetCellValue($"I{row}", resident.DateOfBirth.ToString("MM/dd/yyyy"));
+
+                if (resident.Gender != null && resident.Gender.Trim() != "")
+                {
+                    sl.SetCellValue($"J{row}", resident.Gender[0].ToString());
+                }
+
+                sl.SetCellValue($"K{row}", resident.MaritalStatus);
+                sl.SetCellValue($"L{row}", resident.Citizenship);
+                sl.SetCellValue($"M{row}", resident.Occupation);
+                sl.SetCellValue($"N{row}", resident.RelationshiptoHHHead);
+            });
+            //Save the excel file
+            sl.SaveAs(filename);
         }
 
         public static string NumberToString(int value)
