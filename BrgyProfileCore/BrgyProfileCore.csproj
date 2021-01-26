@@ -7,10 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Charts.WPF" Version="1.0.0" />
     <PackageReference Include="Faker.Net" Version="1.4.108" />
     <PackageReference Include="IronPdf" Version="2020.12.3" />
-    <PackageReference Include="IronXL.Excel" Version="2020.12.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2">
@@ -18,7 +16,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="SpreadsheetLight" Version="3.5.0" />
-    <PackageReference Include="SSh.JsonMapper" Version="0.1.7" />
   </ItemGroup>
 
   <ItemGroup>

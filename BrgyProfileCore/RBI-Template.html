@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <style>
+            * {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .main-header{
+                text-align: center;
+                text-transform: uppercase;
+            }
+            .aligned-lists-box{
+                display: inline-block;
+            }
+            .no-style-li{
+                list-style: none;
+            }
+
+            .grouped-flexed{
+                display: flex;
+                justify-content: center;
+            }
+            .grouped-flexed > div{
+                margin: 0 7%;
+            }
+            .grouped-flexed > p{
+                margin: 0 10%;
+            }
+            .sign-action-p{
+                padding-right: 60px;
+                margin-bottom: 35px;
+            }
+            .name-sign-p{
+                text-align: center;
+                padding-left: 60px;
+            }
+            table, th, td{
+                border: solid #000 1px;
+            }
+            table{
+                border-collapse: collapse;
+                width: 100%;
+            }
+            thead{
+                text-align: center;
+            }
+            th{
+                padding: 0 20px;
+            }
+        </style>
+    </head>
+    </head>
+    <body>
+        <div class="main-header">
+            <h2>Household</h2>
+            <h2>Record of Barangay Inhabitants (RBI)</h2>
+        </div>
+        <div class="grouped-flexed">
+            <div>
+                <ol class="aligned-lists-box" type="A">
+                    <li>REGION</li>
+                    <li>PROVINCE</li>
+                    <li>CITY/MUNICIPALITY</li>
+                    <li>BARANGAY</li>
+                    <li>HOUSEHOLD NO.</li>
+                </ol>
+                <ul class="aligned-lists-box no-style-li">
+                    <li>VI</li>
+                    <li>ILOILO</li>
+                    <li>DINGLE</li>
+                    <li>SAN JOSE</li>
+                    <li>_____________</li>
+                </ul>
+            </div>
+            <div>
+                <ol class="aligned-lists-box" type="A">
+                    <li>1 PSGC</li>
+                    <li>1 PSGC</li>
+                    <li>1 PSGC</li>
+                    <li>1 PSGC</li>
+                </ol>
+                <ul class="aligned-lists-box no-style-li">
+                    <li>_____________</li>
+                    <li>_____________</li>
+                    <li>_____________</li>
+                    <li>_____________</li>
+                </ul>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="4">NAME</th>
+                    <th colspan="3">ADDRESS</th>
+    
+                    <th rowspan="3">PLACE OF BIRTH</th>
+                    <th rowspan="3">DATE OF BIRTH</th>
+                    <th rowspan="3">SEX</th>
+                    <th rowspan="3">CIVIL</th>
+                    <th rowspan="3">CITIZENSHIP</th>
+                    <th rowspan="3">OCCUPATION</th>
+                    <th rowspan="4">RELATIONSHIP WITH THE HEAD OF THE FAMILY</th>
+                </tr>
+                <tr>
+                    <th colspan="4">1</th>
+                    <th colspan="3">2</th>
+                </tr>
+                <tr>
+                    <th>LAST</th>
+                    <th>FIRST</th>
+                    <th>MIDDLE</th>
+                    <th>QUALIFIER</th>
+                    
+                    <th>NUMBER</th>
+                    <th>STREET NAME</th>
+                    <th>NAME OF SUBD.</th>
+                </tr>
+                <tr>
+                    <th>(1.1)</th>
+                    <th>(1.2)</th>
+                    <th>(1.3)</th>
+                    <th>(1.4)</th>
+                    
+                    <th>(2.1)</th>
+                    <th>(2.2)</th>
+                    <th>(2.3)</th>
+                    
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- sample -->
+                <tr>
+                    <td>BIONAT</td>
+                    <td>BIENVENIDO</td>
+                    <td>MEJICA</td>
+                    <td></td>
+                    
+                    <td></td>
+                    <td>ENGINEERING</td>
+                    <td>SAN JOSE</td>
+                    
+                    <td>BULACAN, BULACAN</td>
+                    <td>9/2/1956</td>
+                    <td>M</td>
+                    <td>MARRIED</td>
+                    <td>FILIPINO</td>
+                    <td>RET. AFP</td>
+                    
+                    <td>HEAD OF THE FAMILY</td>
+                </tr>
+                <!-- end sample-->
+            </tbody>
+        </table>
+
+        <div>
+            <p>Legend:</p>
+
+            <div>
+                <ul class="aligned-lists-box no-style-li">
+                    <li>REMARK</li>
+                    <li>PSGC</li>
+                    <li>HOUSEHOLD</li>
+                    <li>QUALIFIER</li>
+                </ul>
+                <ul class="aligned-lists-box no-style-li">
+                    <li>Utilize the column for any information necessary to generate additional into data</li>
+                    <li>Philippine Standard Geographic Code shall be made available by the DILG City/Municipality Offices.</li>
+                    <li>Is a social unit consisting of a person living alone or a group of persons who (1) sleep in the same housing unit.</li>
+                    <li>Is the addition and/or inclusion of the word "JR", "SR", "III", etc. As the case may be after the persons surname.</li>
+                </ul>
+            </div>
+            <div class="grouped-flexed">
+                <div>
+                    <p class="sign-action-p">Prepared by:</p>
+                    <p class="name-sign-p">
+                        <span style="text-decoration: underline;">JALLY D. SENORIO</span><br>
+                        BHW
+                    </p>
+                </div>
+                <div>
+                    <p class="sign-action-p">Certified correct:</p>
+                    <p class="name-sign-p">
+                        <span style="text-decoration: underline;">LYDEE V. PENDON</span><br>
+                        Brgy. Secretary
+                    </p>
+                </div>
+                <div>
+                    <p class="sign-action-p">Validated by:</p>
+                    <p class="name-sign-p">
+                        <span style="text-decoration: underline;">JULIAN S. DAANOY</span><br>
+                        Punong Barangay
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
