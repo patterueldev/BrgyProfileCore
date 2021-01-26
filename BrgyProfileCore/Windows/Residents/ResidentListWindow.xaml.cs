@@ -252,6 +252,41 @@ namespace BrgyProfileCore.Windows.Residents
 
         private void printButton_Click(object sender, RoutedEventArgs e)
         {
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = "pdf";
+            dialog.Filter = "PDF Files |*.pdf";
+            dialog.AddExtension = true;
+            var datesuffix = DateTime.Now.ToString("_mm-dd_HH-mm-ss");
+            dialog.FileName = $"Residents{datesuffix}.pdf";
+
+            if (dialog.ShowDialog() == true)
+            {
+                var db = new BrgyContext();
+                var residents = db.Residents
+                .Include(r => r.Household)
+                .Include(r => r.Sitio)
+                .ToList()
+                .FindAll(resident =>
+                {
+                    var selectedHousehold = (Household)HouseholdBox.SelectedItem;
+                    if (selectedHousehold == null)
+                    {
+                        return true;
+                    }
+                    return resident.HouseholdId == selectedHousehold.HouseholdId;
+                })
+                .FindAll(resident =>
+                {
+                    var selectedSitio = (Sitio)SitioBox.SelectedItem;
+                    if (selectedSitio == null)
+                    {
+                        return true;
+                    }
+                    return resident.SitioId == selectedSitio.SitioId;
+                });
+
+                PrintHelper.PrintToPDF(residents, dialog.FileName);
+            }
         }
 
         private void exportSheetButton_Click(object sender, RoutedEventArgs e)

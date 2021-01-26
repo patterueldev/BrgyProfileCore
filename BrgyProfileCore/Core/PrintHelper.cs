@@ -4,6 +4,8 @@ using System.Text;
 using System.Linq;
 using SpreadsheetLight;
 using System.Windows.Controls;
+using System.IO;
+using System.Reflection;
 
 namespace BrgyProfileCore.Core
 {
@@ -282,6 +284,22 @@ namespace BrgyProfileCore.Core
             });
             //Save the excel file
             sl.SaveAs(filename);
+            System.Diagnostics.Process.Start(filename);
+        }
+
+        public static void PrintToPDF(List<Resident> residents, string filename = "RBI.xls")
+        {
+            var Renderer = new IronPdf.HtmlToPdf();
+            Renderer.PrintOptions.PaperOrientation = IronPdf.PdfPrintOptions.PdfPaperOrientation.Landscape;
+
+            string curDir = Directory.GetCurrentDirectory();
+            string myFile = Path.Combine(curDir, "RBI-Template.html");
+
+            string result = System.IO.File.ReadAllText(myFile);
+
+            var PDF = Renderer.RenderHtmlAsPdf(result);
+            PDF.SaveAs(filename);
+
         }
 
         public static string NumberToString(int value)
