@@ -12,16 +12,89 @@
                 <Button Content="Add Resident" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddResidentButton_Click"/>
                 <DataGrid x:Name="residentsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,96,10,10" IsReadOnly="True" SelectionChanged="residentsDataGrid_SelectionChanged">
                     <DataGrid.Columns>
-                        <DataGridTextColumn x:Name="residentIdColumn" Binding="{Binding ResidentId}"
-                                            Header="Resident Id" Width="SizeToHeader"/>
-                        <DataGridTextColumn x:Name="residentNameColumn" Binding="{Binding FullName}"
-                                            Header="Name"/>
-                        <DataGridTextColumn x:Name="residentAgeColumn" Binding="{Binding Age}"
+                        <DataGridTextColumn Binding="{Binding HouseholdId}"
+                                            Header="Household No." Width="SizeToHeader"/>
+                        <DataGridTextColumn Header="Family No." Width="SizeToHeader"/>
+                        <DataGridTextColumn Header="Line No." Width="SizeToHeader"/>
+                        <DataGridTextColumn Binding="{Binding FullName}"
+                                            Header="Name of Household Member"/>
+                        <DataGridTextColumn Binding="{Binding RelationshiptoHHHead}"
+                                            Header="Relationship to HH Head" Width="SizeToHeader"/>
+
+                        <DataGridTextColumn Binding="{Binding Gender}"
+                                            Header="Sex" Width="SizeToHeader"/>
+                        <DataGridTextColumn Binding="{Binding MaritalStatus}"
+                                            Header="Marital Status" Width="SizeToHeader"/>
+                        <DataGridTextColumn Binding="{Binding DateOfBirth, StringFormat=\{0:MM/dd/yyyy\}}"
+                                            Header="Date of Birth" Width="SizeToHeader"/>
+                        <DataGridTextColumn Binding="{Binding Age}"
                                             Header="Age"/>
-                        <DataGridTextColumn x:Name="householdNameColumn" Binding="{Binding HouseholdName}"
-                                            Header="Household"/>
-                        <DataGridTextColumn x:Name="sitioNameColumn" Binding="{Binding SitioName}"
-                                            Header="Sitio"/>
+                        <DataGridTextColumn Binding="{Binding HighestEducationalAttainment}"
+                                            Header="Highest Educational Attainment" Width="SizeToHeader"/>
+
+                        <DataGridTextColumn Binding="{Binding Grade_YearLevelofSchoolAttendance}"
+                                            Header="Grade/Year Level of School Attendance" Width="SizeToHeader"/>
+                        <DataGridTextColumn Binding="{Binding ReasonforDroppingOutofSchool}"
+                                            Header="Reason for Dropping Out of School" Width="SizeToHeader"/>
+                        <DataGridTextColumn Binding="{Binding Religion}"
+                                            Header="Religious Affiliation" Width="SizeToHeader"/>
+                        <DataGridTextColumn Binding="{Binding SpecialSkills}"
+                                            Header="Special Skills" Width="SizeToHeader"/>
+                        <DataGridTextColumn Binding="{Binding Disability}"
+                                            Header="Disability" Width="SizeToHeader"/>
+
+                        <DataGridTextColumn Binding="{Binding IndigenousPeopleMembership}"
+                                            Header="Indigenous People Membership" Width="SizeToHeader"/>
+                        <DataGridTextColumn Binding="{Binding PHICMembershipSponsor}"
+                                            Header="PHIC Membership Sponsor" Width="SizeToHeader"/>
+                        <DataGridTextColumn Binding="{Binding NHTS}"
+                                            Header="Beneficiary - NHTS"/>
+                        <DataGridTextColumn Binding="{Binding Four_Ps}"
+                                            Header="Beneficiary - 4P's"/>
+                        <DataGridTextColumn Binding="{Binding MajorOccupationofEarningHHMember}"
+                                            Header="Major Occupation of Earning HH Member"/>
+
+                        <DataGridTextColumn Binding="{Binding OtherSourceofIncome}"
+                                            Header="Other Source of Income"/>
+                        <DataGridTextColumn Binding="{Binding TotalActualIncomeofEarningMember}"
+                                            Header="Total Actual Income of Earning Member"/>
+                        <DataGridTextColumn Binding="{Binding HouseOwnership}"
+                                            Header="House Ownership"/>
+                        <DataGridTextColumn Binding="{Binding GeohazardLocation}"
+                                            Header="Geohazard Location"/>
+                        <DataGridTextColumn Binding="{Binding WaterLevel}"
+                                            Header="Water Level"/>
+
+                        <DataGridTextColumn Binding="{Binding LotOwnershipwhereHouseisLocated}"
+                                            Header="Lot Ownership where House is Located"/>
+                        <DataGridTextColumn Binding="{Binding TypeofFuel_Lighting}"
+                                            Header="Type of Fuel for Lighting"/>
+                        <DataGridTextColumn Binding="{Binding TypeofFuel_Cooking}"
+                                            Header="Type of Fuel for Cooking"/>
+                        <DataGridTextColumn Binding="{Binding SourceofWaterforDrinking}"
+                                            Header="Source of Water for Drinking"/>
+                        <DataGridTextColumn Binding="{Binding DistanceofWaterSourcefromHouse}"
+                                            Header="Distance of Water Source from House"/>
+
+                        <DataGridTextColumn Binding="{Binding SourceofWaterforGeneralUse}"
+                                            Header="Source of Water for General Use"/>
+                        <DataGridTextColumn Binding="{Binding TypeofToilet}"
+                                            Header="Type of Toilet"/>
+                        <DataGridTextColumn Binding="{Binding TypeofGarbageDisposal}"
+                                            Header="Type of Garbage Disposal"/>
+                        <DataGridTextColumn Binding="{Binding No_ofChildren_BornAlive}"
+                                            Header="No. of Children - Born Alive"/>
+                        <DataGridTextColumn Binding="{Binding No_ofChildren_StillLiving}"
+                                            Header="No. of Children - Still Living"/>
+
+                        <DataGridTextColumn Binding="{Binding FamilyPlanningPracticeMethodUsed}"
+                                            Header="Family Planning Practice - Method Used"/>
+                        <DataGridTextColumn Binding="{Binding FamilyPlanningPracticeIntensiontoUse}"
+                                            Header="Family Planning Practice - Intention to Use"/>
+                        <DataGridTextColumn Binding="{Binding FamilyPlanningPracticeReasonforNotUsing}"
+                                            Header="Family Planning Practice - Reason for not Using/Stopping/Shifting"/>
+                        <DataGridTextColumn Binding="{Binding Remarks}"
+                                            Header="Remarks"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <Button x:Name="EditResidentButton" Content="Edit Resident" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Click="EditResidentButton_Clicked"/>
