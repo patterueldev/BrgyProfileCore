@@ -10,7 +10,7 @@ using System.Reflection;
 namespace BrgyProfileCore.Core
 {
     
-    class PrintHelper
+    static class PrintHelper
     {
         public static List<String> residentHeaders
         {
@@ -295,9 +295,44 @@ namespace BrgyProfileCore.Core
             string curDir = Directory.GetCurrentDirectory();
             string myFile = Path.Combine(curDir, "RBI-Template.html");
 
-            string result = System.IO.File.ReadAllText(myFile);
+            string html = System.IO.File.ReadAllText(myFile);
 
-            var PDF = Renderer.RenderHtmlAsPdf(result);
+            // process here
+            var builder = new StringBuilder(html);
+            var start = IndexOf(builder, "<!-- sample -->", 0, false);
+            var endText = "<!-- end sample-->";
+            var end = IndexOf(builder, endText, endText.Length - 1, false);
+            builder.Remove(start, end - start);
+
+            var tableRowsBuilder = new StringBuilder();
+            residents.ForEach(r =>
+            {
+                var row = @$"
+                <tr>
+                    <td>{r.LastName}</td>
+                    <td>{r.FirstName}</td>
+                    <td>{r.MiddleName}</td>
+                    <td></td>
+                    
+                    <td>{r.AddressNumber}</td>
+                    <td>{r.AddressStreet}</td>
+                    <td>{r.AddressSubdivision}</td>
+                    
+                    <td>{r.PlaceOfBirth}</td>
+                    <td>{r.DateOfBirth.ToString("MM/dd/yyyy")}</td>
+                    <td>{r.Gender}</td>
+                    <td>{r.MaritalStatus}</td>
+                    <td>{r.Citizenship}</td>
+                    <td>{r.Occupation}</td>
+                    
+                    <td>{r.RelationshiptoHHHead}</td>
+                </tr>";
+                tableRowsBuilder.Append(row);
+            });
+
+            builder.Insert(start, tableRowsBuilder.ToString());
+
+            var PDF = Renderer.RenderHtmlAsPdf(builder.ToString());
             PDF.SaveAs(filename);
 
         }
@@ -316,6 +351,45 @@ namespace BrgyProfileCore.Core
             } while (value > 0);
 
             return sb.ToString();
+        }
+        public static int IndexOf(this StringBuilder sb, string value, int startIndex, bool ignoreCase)
+        {
+            int index;
+            int length = value.Length;
+            int maxSearchLength = (sb.Length - length) + 1;
+
+            if (ignoreCase)
+            {
+                for (int i = startIndex; i < maxSearchLength; ++i)
+                {
+                    if (Char.ToLower(sb[i]) == Char.ToLower(value[0]))
+                    {
+                        index = 1;
+                        while ((index < length) && (Char.ToLower(sb[i + index]) == Char.ToLower(value[index])))
+                            ++index;
+
+                        if (index == length)
+                            return i;
+                    }
+                }
+
+                return -1;
+            }
+
+            for (int i = startIndex; i < maxSearchLength; ++i)
+            {
+                if (sb[i] == value[0])
+                {
+                    index = 1;
+                    while ((index < length) && (sb[i + index] == value[index]))
+                        ++index;
+
+                    if (index == length)
+                        return i;
+                }
+            }
+
+            return -1;
         }
     }
 }
