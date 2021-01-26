@@ -256,7 +256,7 @@ namespace BrgyProfileCore.Windows.Residents
             dialog.DefaultExt = "pdf";
             dialog.Filter = "PDF Files |*.pdf";
             dialog.AddExtension = true;
-            var datesuffix = DateTime.Now.ToString("_mm-dd_HH-mm-ss");
+            var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
             dialog.FileName = $"Residents{datesuffix}.pdf";
 
             if (dialog.ShowDialog() == true)
@@ -295,7 +295,7 @@ namespace BrgyProfileCore.Windows.Residents
             dialog.DefaultExt = "xls";
             dialog.Filter = "Excel |*.xls";
             dialog.AddExtension = true;
-            var datesuffix = DateTime.Now.ToString("_mm-dd_HH-mm-ss");
+            var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
             dialog.FileName = $"Residents{datesuffix}.xls";
 
             if (dialog.ShowDialog() == true)
@@ -334,7 +334,7 @@ namespace BrgyProfileCore.Windows.Residents
             dialog.DefaultExt = "xls";
             dialog.Filter = "Excel |*.xls";
             dialog.AddExtension = true;
-            var datesuffix = DateTime.Now.ToString("_mm-dd_HH-mm-ss");
+            var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
             dialog.FileName = $"Household{datesuffix}.xls";
 
             if (dialog.ShowDialog() == true)
