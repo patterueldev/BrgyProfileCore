@@ -108,9 +108,7 @@
                 <Label Content="By Sitio" HorizontalAlignment="Left" Margin="270,35,0,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="SitioBox" DisplayMemberPath="SitioName" HorizontalAlignment="Left" Margin="319,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="SitioBox_SelectionChanged"/>
                 <Button x:Name="ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="449,38,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="ClearButton_Click"/>
-                <Button x:Name="printButton" Content="Print RBI" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="printButton_Click" Visibility="Visible"/>
-                <Button x:Name="exportSheetButton" Content="Export Residents Sheet" HorizontalAlignment="Left" Margin="217,66,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="exportSheetButton_Click"/>
-                <Button x:Name="exportHouseholdButton" Content="Export RBI Sheet" HorizontalAlignment="Left" Margin="92,66,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="exportHouseholdButton_Click"/>
+                <Button x:Name="exportSheetButton" Content="Export Residents Sheet" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="exportSheetButton_Click"/>
             </Grid>
 
         </GroupBox>

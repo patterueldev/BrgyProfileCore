@@ -11,5 +11,23 @@
     <Setting Name="Province" Type="System.String" Scope="User">
       <Value Profile="(Default)">Iloilo</Value>
     </Setting>
+    <Setting Name="RBI_PreparedBy" Type="System.String" Scope="User">
+      <Value Profile="(Default)">John B. Smith</Value>
+    </Setting>
+    <Setting Name="RBI_CertifiedCorrected" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Erwin B. Smith</Value>
+    </Setting>
+    <Setting Name="RBI_ValidatedBy" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Levi R. Ackerman</Value>
+    </Setting>
+    <Setting Name="RBI_PreparedByTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BHW</Value>
+    </Setting>
+    <Setting Name="RBI_CertifiedCorrectedTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Brgy. Secretary</Value>
+    </Setting>
+    <Setting Name="RBI_ValidatedByTitle" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Punong Barangay</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

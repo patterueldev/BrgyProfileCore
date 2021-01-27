@@ -284,7 +284,6 @@ namespace BrgyProfileCore.Core
             });
             //Save the excel file
             sl.SaveAs(filename);
-            System.Diagnostics.Process.Start(filename);
         }
 
         public static void PrintToPDF(List<Resident> residents, string filename = "RBI.xls")
@@ -296,13 +295,6 @@ namespace BrgyProfileCore.Core
             string myFile = Path.Combine(curDir, "RBI-Template.html");
 
             string html = System.IO.File.ReadAllText(myFile);
-
-            // process here
-            var builder = new StringBuilder(html);
-            var start = IndexOf(builder, "<!-- sample -->", 0, false);
-            var endText = "<!-- end sample-->";
-            var end = IndexOf(builder, endText, endText.Length - 1, false);
-            builder.Remove(start, end - start);
 
             var tableRowsBuilder = new StringBuilder();
             residents.ForEach(r =>
@@ -330,9 +322,53 @@ namespace BrgyProfileCore.Core
                 tableRowsBuilder.Append(row);
             });
 
-            builder.Insert(start, tableRowsBuilder.ToString());
+            var settings = Properties.Settings.Default;
 
-            var PDF = Renderer.RenderHtmlAsPdf(builder.ToString());
+            var processed = Helpers.ReplaceString(html, 
+                "<!-- sample -->", 
+                "<!-- end sample-->", 
+                tableRowsBuilder.ToString());
+
+            processed = Helpers.ReplaceString(processed, 
+                "<!-- Province Name -->", 
+                "<!-- End Province Name -->", 
+                settings.Province.ToUpper());
+            processed = Helpers.ReplaceString(processed,
+                "<!-- Municipality Name -->",
+                "<!-- End Municipality Name -->",
+                settings.Municipality.ToUpper());
+            processed = Helpers.ReplaceString(processed,
+                "<!-- Brgy Name -->",
+                "<!-- End Brgy Name -->",
+                settings.BrgyName.ToUpper());
+
+            processed = Helpers.ReplaceString(processed,
+                "<!-- PreparedBy -->",
+                "<!-- EndPreparedBy -->",
+                settings.RBI_PreparedBy.ToUpper());
+            processed = Helpers.ReplaceString(processed,
+                "<!-- CertifiedCorrect -->",
+                "<!-- EndCertifiedCorrect -->",
+                settings.RBI_CertifiedCorrected.ToUpper());
+            processed = Helpers.ReplaceString(processed,
+                "<!-- ValidatedBy -->",
+                "<!-- EndValidatedBy -->",
+                settings.RBI_ValidatedBy.ToUpper());
+
+            processed = Helpers.ReplaceString(processed,
+                "<!-- PreparedByTitle -->",
+                "<!-- EndPreparedByTitle -->",
+                settings.RBI_PreparedByTitle);
+            processed = Helpers.ReplaceString(processed,
+                "<!-- CertifiedCorrectTitle -->",
+                "<!-- EndCertifiedCorrectTitle -->",
+                settings.RBI_CertifiedCorrectedTitle);
+            processed = Helpers.ReplaceString(processed,
+                "<!-- ValidatedByTitle -->",
+                "<!-- EndValidatedByTitle -->",
+                settings.RBI_ValidatedByTitle);
+
+            var PDF = Renderer.RenderHtmlAsPdf(processed);
             PDF.SaveAs(filename);
 
         }
@@ -351,45 +387,6 @@ namespace BrgyProfileCore.Core
             } while (value > 0);
 
             return sb.ToString();
-        }
-        public static int IndexOf(this StringBuilder sb, string value, int startIndex, bool ignoreCase)
-        {
-            int index;
-            int length = value.Length;
-            int maxSearchLength = (sb.Length - length) + 1;
-
-            if (ignoreCase)
-            {
-                for (int i = startIndex; i < maxSearchLength; ++i)
-                {
-                    if (Char.ToLower(sb[i]) == Char.ToLower(value[0]))
-                    {
-                        index = 1;
-                        while ((index < length) && (Char.ToLower(sb[i + index]) == Char.ToLower(value[index])))
-                            ++index;
-
-                        if (index == length)
-                            return i;
-                    }
-                }
-
-                return -1;
-            }
-
-            for (int i = startIndex; i < maxSearchLength; ++i)
-            {
-                if (sb[i] == value[0])
-                {
-                    index = 1;
-                    while ((index < length) && (sb[i + index] == value[index]))
-                        ++index;
-
-                    if (index == length)
-                        return i;
-                }
-            }
-
-            return -1;
         }
     }
 }

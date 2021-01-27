@@ -7,9 +7,13 @@
         mc:Ignorable="d"
         Title="UpdateProfileWindow" Height="450" Width="800">
     <Grid Background="#FFD1D1D1">
-        <GroupBox x:Name="GroupBox" Header="Add Resident" Height="399" Margin="11,11,10,11" Width="773" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <GroupBox x:Name="GroupBox" Header="Update Profile" Height="399" Margin="11,11,10,11" Width="773" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid Margin="0" HorizontalAlignment="Left" Width="762">
-                <StackPanel HorizontalAlignment="Left" Height="356" Margin="10,10,0,0" VerticalAlignment="Top" Width="350">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="49*"/>
+                    <ColumnDefinition Width="713*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel HorizontalAlignment="Left" Height="356" Margin="10,0,0,0" VerticalAlignment="Center" Width="350" Grid.ColumnSpan="2">
                     <!-- Brgy Name -->
                     <Label>
                         <TextBlock>
@@ -31,8 +35,59 @@
                     </Label>
                     <TextBox Height="23" TextWrapping="Wrap" x:Name="ProvinceField"/>
                 </StackPanel>
-                
-                <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="SaveButton_Click"/>
+
+                <StackPanel HorizontalAlignment="Right" Margin="0,10,10,35" Width="371" Grid.Column="1">
+                    <Label Content="RBI" />
+                    <!-- Brgy Name -->
+                    <Label>
+                        <TextBlock>
+                            <Run Text="Prepared By"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                        </TextBlock>
+                    </Label>
+                    <TextBox Height="23" TextWrapping="Wrap" x:Name="PreparedByField"/>
+                    <!-- Brgy Name -->
+                    <Label>
+                        <TextBlock>
+                            <Run Text="Prepared By Title"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                        </TextBlock>
+                    </Label>
+                    <TextBox Height="23" TextWrapping="Wrap" x:Name="PreparedByTitleField"/>
+
+                    <!-- Brgy Name -->
+                    <Label>
+                        <TextBlock>
+                            <Run Text="Certified Correct"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                        </TextBlock>
+                    </Label>
+                    <TextBox Height="23" TextWrapping="Wrap" x:Name="CertifiedCorrectField"/>
+                    <Label>
+                        <TextBlock>
+                            <Run Text="Certified Correct Title"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                        </TextBlock>
+                    </Label>
+                    <TextBox Height="23" TextWrapping="Wrap" x:Name="CertifiedCorrectTitleField"/>
+
+                    <!-- Brgy Name -->
+                    <Label>
+                        <TextBlock>
+                            <Run Text="Validated By"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                        </TextBlock>
+                    </Label>
+                    <TextBox Height="23" TextWrapping="Wrap" x:Name="ValidatedByField"/>
+                    <Label>
+                        <TextBlock>
+                            <Run Text="Validated By Title"></Run>
+                            <Run Text="*" Foreground="Red"></Run>
+                        </TextBlock>
+                    </Label>
+                    <TextBox Height="23" TextWrapping="Wrap" x:Name="ValidatedByTitleField"/>
+                </StackPanel>
+                <Button Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" Click="SaveButton_Click" Grid.Column="1"/>
             </Grid>
         </GroupBox>
 

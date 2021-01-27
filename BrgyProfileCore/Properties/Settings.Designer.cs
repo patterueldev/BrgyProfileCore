@@ -58,5 +58,77 @@ namespace BrgyProfileCore.Properties {
                 this["Province"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("John B. Smith")]
+        public string RBI_PreparedBy {
+            get {
+                return ((string)(this["RBI_PreparedBy"]));
+            }
+            set {
+                this["RBI_PreparedBy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Erwin B. Smith")]
+        public string RBI_CertifiedCorrected {
+            get {
+                return ((string)(this["RBI_CertifiedCorrected"]));
+            }
+            set {
+                this["RBI_CertifiedCorrected"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Levi R. Ackerman")]
+        public string RBI_ValidatedBy {
+            get {
+                return ((string)(this["RBI_ValidatedBy"]));
+            }
+            set {
+                this["RBI_ValidatedBy"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("BHW")]
+        public string RBI_PreparedByTitle {
+            get {
+                return ((string)(this["RBI_PreparedByTitle"]));
+            }
+            set {
+                this["RBI_PreparedByTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Brgy. Secretary")]
+        public string RBI_CertifiedCorrectedTitle {
+            get {
+                return ((string)(this["RBI_CertifiedCorrectedTitle"]));
+            }
+            set {
+                this["RBI_CertifiedCorrectedTitle"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Punong Barangay")]
+        public string RBI_ValidatedByTitle {
+            get {
+                return ((string)(this["RBI_ValidatedByTitle"]));
+            }
+            set {
+                this["RBI_ValidatedByTitle"] = value;
+            }
+        }
     }
 }

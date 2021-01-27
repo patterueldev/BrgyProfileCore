@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32;
+using BrgyProfileCore.Core;
 
 namespace BrgyProfileCore.Windows.Households
 {
@@ -117,6 +119,8 @@ namespace BrgyProfileCore.Windows.Households
             HouseholdResidentsButton.IsEnabled = idx >= 0;
             EditHouseholdButton.IsEnabled = idx >= 0;
             DeleteHouseholdButton.IsEnabled = idx >= 0;
+            printRBIButton.IsEnabled = idx >= 0;
+            exportRBIButton.IsEnabled = idx >= 0;
         }
 
         /// <summary>
@@ -141,6 +145,78 @@ namespace BrgyProfileCore.Windows.Households
                 }
                 return household.HouseholdName.ToLower().Contains(keyword.ToLower()) || residents.Count > 0;
             });
+        }
+
+        private void printRBIButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedHousehold == null)
+            {
+                return;
+            }
+
+            var household = selectedHousehold;
+
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = "pdf";
+            dialog.Filter = "PDF Files |*.pdf";
+            dialog.AddExtension = true;
+            var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
+            dialog.FileName = $"Residents{datesuffix}.pdf";
+
+            if (dialog.ShowDialog() == true)
+            {
+                var db = new BrgyContext();
+                var residents = db.Residents
+                .Include(r => r.Household)
+                .Include(r => r.Sitio)
+                .ToList()
+                .FindAll(resident =>
+                {
+                    if (household == null)
+                    {
+                        return false;
+                    }
+                    return resident.HouseholdId == household.HouseholdId;
+                });
+
+                PrintHelper.PrintToPDF(residents, dialog.FileName);
+            }
+        }
+
+        private void exportRBIButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedHousehold == null)
+            {
+                return;
+            }
+
+            var household = selectedHousehold;
+
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = "xls";
+            dialog.Filter = "Excel |*.xls";
+            dialog.AddExtension = true;
+            var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
+            dialog.FileName = $"Household{datesuffix}.xls";
+
+            if (dialog.ShowDialog() == true)
+            {
+                var db = new BrgyContext();
+                var residents = db.Residents
+                .Include(r => r.Household)
+                .Include(r => r.Sitio)
+                .ToList()
+                .FindAll(resident =>
+                {
+                    if (household == null)
+                    {
+                        return false;
+                    }
+                    return resident.HouseholdId == household.HouseholdId;
+                });
+
+                PrintHelper.printRBI(residents, dialog.FileName);
+            }
         }
     }
 }

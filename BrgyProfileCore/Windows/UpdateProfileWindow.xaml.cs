@@ -25,6 +25,14 @@ namespace BrgyProfileCore.Windows
             BrgyNameField.Text = settings.BrgyName;
             MunicipalityField.Text = settings.Municipality;
             ProvinceField.Text = settings.Province;
+
+            PreparedByField.Text = settings.RBI_PreparedBy;
+            CertifiedCorrectField.Text = settings.RBI_CertifiedCorrected;
+            ValidatedByField.Text = settings.RBI_ValidatedBy;
+
+            PreparedByTitleField.Text = settings.RBI_PreparedByTitle;
+            CertifiedCorrectTitleField.Text = settings.RBI_CertifiedCorrectedTitle;
+            ValidatedByTitleField.Text = settings.RBI_ValidatedByTitle;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -52,6 +60,15 @@ namespace BrgyProfileCore.Windows
             settings.BrgyName = BrgyNameField.Text.Trim();
             settings.Municipality = MunicipalityField.Text.Trim();
             settings.Province = ProvinceField.Text.Trim();
+
+            settings.RBI_PreparedBy = PreparedByField.Text.Trim();
+            settings.RBI_CertifiedCorrected = CertifiedCorrectField.Text.Trim();
+            settings.RBI_ValidatedBy = ValidatedByField.Text.Trim();
+
+            settings.RBI_PreparedByTitle = PreparedByTitleField.Text.Trim();
+            settings.RBI_CertifiedCorrectedTitle = CertifiedCorrectTitleField.Text.Trim();
+            settings.RBI_ValidatedByTitle = ValidatedByTitleField.Text.Trim();
+
             settings.Save();
 
             MessageBox.Show("Your changes have been made.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
