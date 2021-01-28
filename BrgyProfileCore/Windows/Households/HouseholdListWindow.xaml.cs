@@ -156,31 +156,27 @@ namespace BrgyProfileCore.Windows.Households
 
             var household = selectedHousehold;
 
-            var dialog = new SaveFileDialog();
-            dialog.DefaultExt = "pdf";
-            dialog.Filter = "PDF Files |*.pdf";
-            dialog.AddExtension = true;
-            var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
-            dialog.FileName = $"Residents{datesuffix}.pdf";
-
-            if (dialog.ShowDialog() == true)
+            var db = new BrgyContext();
+            var residents = db.Residents
+            .Include(r => r.Household)
+            .Include(r => r.Sitio)
+            .ToList()
+            .FindAll(resident =>
             {
-                var db = new BrgyContext();
-                var residents = db.Residents
-                .Include(r => r.Household)
-                .Include(r => r.Sitio)
-                .ToList()
-                .FindAll(resident =>
+                if (household == null)
                 {
-                    if (household == null)
-                    {
-                        return false;
-                    }
-                    return resident.HouseholdId == household.HouseholdId;
-                });
+                    return false;
+                }
+                return resident.HouseholdId == household.HouseholdId;
+            });
 
-                PrintHelper.PrintToPDF(residents, dialog.FileName);
+            var dialog = new PrinterSelectDialogWindow();
+            var result = dialog.ShowDialog();
+            if(result == true)
+            {
+                PrintHelper.PrintHouseholdToPDF(residents, "test", true, dialog.SelectedPrinter);
             }
+
         }
 
         private void exportRBIButton_Click(object sender, RoutedEventArgs e)
@@ -193,11 +189,11 @@ namespace BrgyProfileCore.Windows.Households
             var household = selectedHousehold;
 
             var dialog = new SaveFileDialog();
-            dialog.DefaultExt = "xls";
-            dialog.Filter = "Excel |*.xls";
+            dialog.DefaultExt = "pdf";
+            dialog.Filter = "PDF Files |*.pdf";
             dialog.AddExtension = true;
             var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
-            dialog.FileName = $"Household{datesuffix}.xls";
+            dialog.FileName = $"RBI{datesuffix}.pdf";
 
             if (dialog.ShowDialog() == true)
             {
@@ -215,7 +211,7 @@ namespace BrgyProfileCore.Windows.Households
                     return resident.HouseholdId == household.HouseholdId;
                 });
 
-                PrintHelper.printRBI(residents, dialog.FileName);
+                PrintHelper.PrintHouseholdToPDF(residents, dialog.FileName, false);
             }
         }
     }

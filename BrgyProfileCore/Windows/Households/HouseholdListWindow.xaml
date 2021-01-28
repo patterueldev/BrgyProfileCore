@@ -11,7 +11,7 @@
             <Grid Margin="0">
                 <Button Content="Add Household" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddHouseholdButton_Click"/>
                 <Button x:Name="printRBIButton" Content="Print RBI" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="printRBIButton_Click" Visibility="Visible" IsEnabled="False"/>
-                <Button x:Name="exportRBIButton" Content="Export RBI Sheet" HorizontalAlignment="Left" Margin="92,35,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="exportRBIButton_Click" IsEnabled="False"/>
+                <Button x:Name="exportRBIButton" Content="Export RBI" HorizontalAlignment="Left" Margin="92,35,0,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="exportRBIButton_Click" IsEnabled="False"/>
 
                 <DataGrid x:Name="householdsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,60,10,10" IsReadOnly="True" SelectionChanged="householdsDataGrid_SelectionChanged">
                     <DataGrid.Columns>

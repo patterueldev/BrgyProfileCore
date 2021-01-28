@@ -1,0 +1,15 @@
+﻿<Window x:Class="BrgyProfileCore.Windows.PrinterSelectDialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BrgyProfileCore.Windows"
+        mc:Ignorable="d"
+        Title="PrinterSelectDialogWindow" Height="450" Width="800">
+    <Grid Background="#FFD1D1D1" Margin="0">
+        <ListBox x:Name="printerListBox" Margin="10,41,10,35"/>
+        <Button x:Name="printButton" Content="Print" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Padding="15,1,15,1" Click="printButton_Click"/>
+        <Label Content="Select Printer" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

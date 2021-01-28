@@ -250,14 +250,14 @@ namespace BrgyProfileCore.Windows.Residents
             this.refreshList(keyword);
         }
 
-        private void exportSheetButton_Click(object sender, RoutedEventArgs e)
+        private void exportResidentButton_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new SaveFileDialog();
-            dialog.DefaultExt = "xls";
-            dialog.Filter = "Excel |*.xls";
+            dialog.DefaultExt = "pdf";
+            dialog.Filter = "PDF Files |*.pdf";
             dialog.AddExtension = true;
             var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
-            dialog.FileName = $"Residents{datesuffix}.xls";
+            dialog.FileName = $"Residents{datesuffix}.pdf";
 
             if (dialog.ShowDialog() == true)
             {
@@ -265,27 +265,34 @@ namespace BrgyProfileCore.Windows.Residents
                 var residents = db.Residents
                 .Include(r => r.Household)
                 .Include(r => r.Sitio)
-                .ToList()
-                .FindAll(resident =>
-                {
-                    var selectedHousehold = (Household)HouseholdBox.SelectedItem;
-                    if (selectedHousehold == null)
-                    {
-                        return true;
-                    }
-                    return resident.HouseholdId == selectedHousehold.HouseholdId;
-                })
-                .FindAll(resident =>
-                {
-                    var selectedSitio = (Sitio)SitioBox.SelectedItem;
-                    if (selectedSitio == null)
-                    {
-                        return true;
-                    }
-                    return resident.SitioId == selectedSitio.SitioId;
-                });
+                .ToList();
 
-                PrintHelper.printResidents(residents, dialog.FileName);
+                PrintHelper.PrintResidentsToPDF(residents, dialog.FileName, false);
+            }
+        }
+
+        private void printResidentsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var db = new BrgyContext();
+            var residents = db.Residents
+            .Include(r => r.Household)
+            .Include(r => r.Sitio)
+            .ToList()
+            .FindAll(resident =>
+            {
+                var selectedHousehold = (Household)HouseholdBox.SelectedItem;
+                if (selectedHousehold == null)
+                {
+                    return true;
+                }
+                return resident.HouseholdId == selectedHousehold.HouseholdId;
+            });
+
+            var dialog = new PrinterSelectDialogWindow();
+            var result = dialog.ShowDialog();
+            if (result == true)
+            {
+                PrintHelper.PrintResidentsToPDF(residents, "test", true, dialog.SelectedPrinter);
             }
         }
     }

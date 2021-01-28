@@ -6,6 +6,9 @@ using SpreadsheetLight;
 using System.Windows.Controls;
 using System.IO;
 using System.Reflection;
+using System.Printing;
+using System.Diagnostics;
+using PDFtoPrinter;
 
 namespace BrgyProfileCore.Core
 {
@@ -285,8 +288,57 @@ namespace BrgyProfileCore.Core
             //Save the excel file
             sl.SaveAs(filename);
         }
+        public static void PrintResidentsToPDF(List<Resident> residents, string filename, bool willprint, string printername = null)
+        {
+            var Renderer = new IronPdf.HtmlToPdf();
+            Renderer.PrintOptions.PaperOrientation = IronPdf.PdfPrintOptions.PdfPaperOrientation.Landscape;
 
-        public static void PrintToPDF(List<Resident> residents, string filename = "RBI.xls")
+            string curDir = Directory.GetCurrentDirectory();
+            string myFile = Path.Combine(curDir, "BHI-Template.html");
+
+            string html = System.IO.File.ReadAllText(myFile);
+
+            var tableRowsBuilder = new StringBuilder();
+            residents.ForEach(r =>
+            {
+                var row = @$"
+                <tr>
+                    <td>{r.FullName}</td>
+                    <td>{r.Gender}</td>
+                    <td>{r.MaritalStatus}</td>
+                    <td>{r.DateOfBirth.ToString("MM/dd/yyyy")}</td>
+
+                    <td>{r.HighestEducationalAttainment}</td>
+                    <td>{r.Religion}</td>
+                </tr>";
+                tableRowsBuilder.Append(row);
+            });
+
+            var processed = Helpers.ReplaceString(html,
+                "<!-- sample -->",
+                "<!-- end sample-->",
+                tableRowsBuilder.ToString());
+
+            var PDF = Renderer.RenderHtmlAsPdf(processed);
+
+            if (!willprint)
+            {
+                PDF.SaveAs(filename);
+            }
+            else
+            {
+                string Fname = "brgypdftemp.pdf";
+                string folderPath = System.IO.Path.GetTempPath();
+                string pdfPath = Path.Combine(folderPath, Fname);
+                PDF.SaveAs(pdfPath);
+
+                var printer = new PDFtoPrinterPrinter();
+                var options = new PrintingOptions(printername, pdfPath);
+                printer.Print(options);
+            }
+        }
+
+        public static void PrintHouseholdToPDF(List<Resident> residents, string filename, bool willprint, string printername = null)
         {
             var Renderer = new IronPdf.HtmlToPdf();
             Renderer.PrintOptions.PaperOrientation = IronPdf.PdfPrintOptions.PdfPaperOrientation.Landscape;
@@ -369,8 +421,22 @@ namespace BrgyProfileCore.Core
                 settings.RBI_ValidatedByTitle);
 
             var PDF = Renderer.RenderHtmlAsPdf(processed);
-            PDF.SaveAs(filename);
 
+            if (!willprint)
+            {
+                PDF.SaveAs(filename);
+            }
+            else
+            {
+                string Fname = "brgypdftemp.pdf";
+                string folderPath = System.IO.Path.GetTempPath();
+                string pdfPath = Path.Combine(folderPath, Fname);
+                PDF.SaveAs(pdfPath);
+
+                var printer = new PDFtoPrinterPrinter();
+                var options = new PrintingOptions(printername, pdfPath);
+                printer.Print(options);
+            }
         }
 
         public static string NumberToString(int value)
