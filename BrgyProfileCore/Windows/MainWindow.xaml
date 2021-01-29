@@ -7,96 +7,98 @@
         xmlns:CustomControls="clr-namespace:BrgyProfileCore.CustomControls" x:Class="BrgyProfileCore.Windows.MainWindow"
         mc:Ignorable="d"
         Title="Brgy Profile"
-         MinHeight="720" MinWidth="1280" ResizeMode="NoResize" Height="661.333" Width="1179.333" Activated="Window_Activated">
-    <Grid Background="#FFD1D1D1" Margin="0">
-        <GroupBox Header="Residents" HorizontalAlignment="Left" Margin="10,10,0,10" MinWidth="400">
-            <Grid Margin="0">
-                <Button Content="Add Resident" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddResidentButton_Click"/>
-                <DataGrid x:Name="residentsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="residentsDataGrid_SelectionChanged">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn x:Name="residentIdColumn" Binding="{Binding ResidentId}"
+         Height="658" Width="1297" Activated="Window_Activated">
+    <ScrollViewer>
+        <Grid Background="#FFD1D1D1" Margin="0">
+            <GroupBox Header="Residents" HorizontalAlignment="Left" Margin="10,10,0,10" MinWidth="400">
+                <Grid Margin="0">
+                    <Button Content="Add Resident" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddResidentButton_Click"/>
+                    <DataGrid x:Name="residentsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="residentsDataGrid_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="residentIdColumn" Binding="{Binding ResidentId}"
                                             Header="Resident Id" Width="SizeToHeader"/>
-                        <DataGridTextColumn x:Name="residentNameColumn" Binding="{Binding FullName}"
+                            <DataGridTextColumn x:Name="residentNameColumn" Binding="{Binding FullName}"
                                             Header="Name"/>
-                        <DataGridTextColumn x:Name="residentAgeColumn" Binding="{Binding Age}"
+                            <DataGridTextColumn x:Name="residentAgeColumn" Binding="{Binding Age}"
                                             Header="Age"/>
-                        <DataGridTextColumn x:Name="residentHouseholdNameColumn" Binding="{Binding HouseholdName}"
+                            <DataGridTextColumn x:Name="residentHouseholdNameColumn" Binding="{Binding HouseholdName}"
                                             Header="Household"/>
-                        <DataGridTextColumn x:Name="residentSitioNameColumn" Binding="{Binding SitioName}"
+                            <DataGridTextColumn x:Name="residentSitioNameColumn" Binding="{Binding SitioName}"
                                             Header="Sitio"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Button Content="View All" HorizontalAlignment="Right" Margin="0,10,278,0" VerticalAlignment="Top" Width="100" Click="ViewAllResidentsButton_Click"/>
-                <Button x:Name="EditResidentButton" Content="Edit Resident" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Click="EditResidentButton_Clicked"/>
-            </Grid>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="View All" HorizontalAlignment="Right" Margin="0,10,278,0" VerticalAlignment="Top" Width="100" Click="ViewAllResidentsButton_Click"/>
+                    <Button x:Name="EditResidentButton" Content="Edit Resident" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Click="EditResidentButton_Clicked"/>
+                </Grid>
 
-        </GroupBox>
-        <GroupBox Header="Households" Height="362" Margin="415,10,415,0" VerticalAlignment="Top">
-            <Grid Margin="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25*"/>
-                    <ColumnDefinition Width="47*"/>
-                </Grid.ColumnDefinitions>
-                <DataGrid x:Name="householdsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="householdsDataGrid_SelectionChanged" Grid.ColumnSpan="2">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn x:Name="householdIdColumn" Binding="{Binding HouseholdId}"
+            </GroupBox>
+            <GroupBox Header="Households" Height="362" Margin="415,10,415,0" VerticalAlignment="Top">
+                <Grid Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="47*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="householdsDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="householdsDataGrid_SelectionChanged" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="householdIdColumn" Binding="{Binding HouseholdId}"
                             Header="Household Id" Width="SizeToHeader"/>
-                        <DataGridTextColumn x:Name="householdNameColumn" Binding="{Binding HouseholdName}"
+                            <DataGridTextColumn x:Name="householdNameColumn" Binding="{Binding HouseholdName}"
                             Header="Name"/>
-                        <DataGridTextColumn x:Name="residentNumberColumn" Binding="{Binding ResidentsCount}"
+                            <DataGridTextColumn x:Name="residentNumberColumn" Binding="{Binding ResidentsCount}"
                             Header="Number of Residents"/>
-                        <DataGridTextColumn x:Name="householdHeadColumn" Binding="{Binding HouseholdHead}"
+                            <DataGridTextColumn x:Name="householdHeadColumn" Binding="{Binding HouseholdHead}"
                             Header="Head"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Button Content="View All" HorizontalAlignment="Right" Margin="0,10,42,0" VerticalAlignment="Top" Width="100" Click="ViewAllHouseholdsButton_Click"/>
-                <Button Content="Add Household" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddHouseholdButton_Click" Grid.Column="1"/>
-            </Grid>
-        </GroupBox>
-        <GroupBox Header="Sitio" Margin="415,377,415,10">
-            <Grid Margin="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25*"/>
-                    <ColumnDefinition Width="47*"/>
-                </Grid.ColumnDefinitions>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="View All" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="ViewAllHouseholdsButton_Click"/>
+                    <Button Content="Add Household" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddHouseholdButton_Click" Grid.Column="1"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Sitio" Margin="415,377,415,10">
+                <Grid Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*"/>
+                        <ColumnDefinition Width="47*"/>
+                    </Grid.ColumnDefinitions>
 
-                <DataGrid x:Name="sitioDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="householdsDataGrid_SelectionChanged" Grid.ColumnSpan="2">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn x:Name="sitioIdColumn" Binding="{Binding SitioId}"
+                    <DataGrid x:Name="sitioDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="householdsDataGrid_SelectionChanged" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="sitioIdColumn" Binding="{Binding SitioId}"
                         Header="Sitio Id" Width="SizeToHeader"/>
-                        <DataGridTextColumn x:Name="sitioNameColumn" Binding="{Binding SitioName}"
+                            <DataGridTextColumn x:Name="sitioNameColumn" Binding="{Binding SitioName}"
                         Header="Name"/>
-                        <DataGridTextColumn x:Name="sitioResidentNumberColumn" Binding="{Binding ResidentsCount}"
+                            <DataGridTextColumn x:Name="sitioResidentNumberColumn" Binding="{Binding ResidentsCount}"
                         Header="Number of Residents"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Button Content="View All" HorizontalAlignment="Right" Margin="0,10,42,0" VerticalAlignment="Top" Width="100" Click="ViewAllSitioButton_Click"/>
-                <Button Content="Add Sitio" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddSitioButton_Click" Grid.Column="1"/>
-            </Grid>
-        </GroupBox>
-        <GroupBox Header="Statistics" Margin="0,10,10,250" HorizontalAlignment="Right" MinWidth="400">
-            <Grid>
-                <StackPanel x:Name="StatisticStackPanel" Margin="10,10,10,10">
-                    <CustomControls:StatisticDetailView x:Name="AverageResidentperHouseholdDetail" FieldHeader="Average # of Residents per Household"/>
-                    <CustomControls:StatisticDetailView x:Name="AveragePopulationperSitioDetail" FieldHeader="Average Population per Sitio"/>
-                    <CustomControls:StatisticDetailView x:Name="AverageResident1_18perSitioDetail" FieldHeader="Average residents between ages 1-18 per Sitio"/>
-                    <CustomControls:StatisticDetailView x:Name="AverageResident19_50perSitioDetail" FieldHeader="Average residents between ages 19-50 per Sitio"/>
-                    <CustomControls:StatisticDetailView x:Name="AverageResident50_AboveperSitioDetail" FieldHeader="Average residents between ages 50 and above per Sitio"/>
-                    <!--
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="View All" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Click="ViewAllSitioButton_Click"/>
+                    <Button Content="Add Sitio" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddSitioButton_Click" Grid.Column="1"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Statistics" Margin="0,10,10,0" HorizontalAlignment="Right" MinWidth="400" VerticalAlignment="Top" Height="390">
+                <Grid>
+                    <StackPanel x:Name="StatisticStackPanel" Margin="10,10,10,10">
+                        <CustomControls:StatisticDetailView x:Name="AverageResidentperHouseholdDetail" FieldHeader="Average # of Residents per Household"/>
+                        <CustomControls:StatisticDetailView x:Name="AveragePopulationperSitioDetail" FieldHeader="Average Population per Sitio"/>
+                        <CustomControls:StatisticDetailView x:Name="AverageResident1_18perSitioDetail" FieldHeader="Average residents between ages 1-18 per Sitio"/>
+                        <CustomControls:StatisticDetailView x:Name="AverageResident19_50perSitioDetail" FieldHeader="Average residents between ages 19-50 per Sitio"/>
+                        <CustomControls:StatisticDetailView x:Name="AverageResident50_AboveperSitioDetail" FieldHeader="Average residents between ages 50 and above per Sitio"/>
+                        <!--
                     <CustomControls:StatisticDetailView FieldHeader="Average male per Sitio"/>
                     <CustomControls:StatisticDetailView FieldHeader="Average female per Sitio"/>
                     -->
-                </StackPanel>
-            </Grid>
-        </GroupBox>
-        <GroupBox Header="Barangay Info" Margin="870,459,10,10">
-            <Grid>
-                <Label x:Name="BrgyNameLabel" Content="&lt;Brgy Name&gt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="UpdateProfileButton" Content="Update Profile" HorizontalAlignment="Right" Margin="0,13,10,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="UpdateProfileButton_Click"/>
-                <Label x:Name="MunicipalityLabel" Content="&lt;Municipality&gt;" Margin="10,41,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
-                <Label x:Name="ProvinceLabel" Content="&lt;Province&gt;" Margin="10,72,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
-            </Grid>
-        </GroupBox>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Barangay Info" Margin="0,400,10,10" HorizontalAlignment="Right" Width="400">
+                <Grid>
+                    <Label x:Name="BrgyNameLabel" Content="&lt;Brgy Name&gt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="UpdateProfileButton" Content="Update Profile" HorizontalAlignment="Right" Margin="0,13,10,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="UpdateProfileButton_Click"/>
+                    <Label x:Name="MunicipalityLabel" Content="&lt;Municipality&gt;" Margin="10,41,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                    <Label x:Name="ProvinceLabel" Content="&lt;Province&gt;" Margin="10,72,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                </Grid>
+            </GroupBox>
 
-    </Grid>
+        </Grid>
+    </ScrollViewer>
 </Window>
