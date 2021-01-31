@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-31T16:01:36.294Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473" etag="2h1UnxQti51EIIvYW8i8" version="14.2.9" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-01-31T16:02:19.101Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473" etag="b46se3ZipBhvhEWA0luQ" version="14.2.9" type="github" pages="4">
   <diagram id="4PTbw8sbLUjb1KWMfwqf" name="Class Diagram">
     <mxGraphModel dx="2021" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1300" math="0" shadow="0">
       <root>
@@ -745,7 +745,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-12" value="View &lt;br&gt;Residents?" style="rhombus;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="220" y="360" width="80" height="80" as="geometry" />
+          <mxGeometry x="100" y="360" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-13" target="zH917204k25_6L9SABUO-15">
           <mxGeometry relative="1" as="geometry" />
@@ -754,25 +754,25 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-13" value="View Households?" style="rhombus;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="220" y="480" width="80" height="80" as="geometry" />
+          <mxGeometry x="100" y="480" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-15" target="zH917204k25_6L9SABUO-17">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-15" value="View Statistics?" style="rhombus;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="220" y="600" width="80" height="80" as="geometry" />
+          <mxGeometry x="100" y="600" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-17" target="zH917204k25_6L9SABUO-19">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-17" value="View App Profile?" style="rhombus;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="220" y="720" width="80" height="80" as="geometry" />
+          <mxGeometry x="100" y="720" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-19" target="zH917204k25_6L9SABUO-12">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="200" y="880" />
-              <mxPoint x="200" y="400" />
+              <mxPoint x="80" y="880" />
+              <mxPoint x="80" y="400" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -780,13 +780,24 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-19" value="Exit App" style="rhombus;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="220" y="840" width="80" height="80" as="geometry" />
+          <mxGeometry x="100" y="840" width="80" height="80" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-22" value="End" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="200" y="960" width="120" height="60" as="geometry" />
+          <mxGeometry x="80" y="960" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zH917204k25_6L9SABUO-38" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-24" target="zH917204k25_6L9SABUO-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zH917204k25_6L9SABUO-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-24" target="zH917204k25_6L9SABUO-39">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="400" />
+              <mxPoint x="540" y="520" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-24" value="Resident List" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="520" y="370" width="120" height="60" as="geometry" />
+          <mxGeometry x="400" y="370" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-26" target="zH917204k25_6L9SABUO-28">
           <mxGeometry relative="1" as="geometry" />
@@ -794,44 +805,50 @@
         <mxCell id="zH917204k25_6L9SABUO-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-26" target="zH917204k25_6L9SABUO-31">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="490" y="520" />
-              <mxPoint x="490" y="615" />
+              <mxPoint x="370" y="520" />
+              <mxPoint x="370" y="615" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-26" target="zH917204k25_6L9SABUO-33">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="490" y="520" />
-              <mxPoint x="490" y="710" />
+              <mxPoint x="370" y="520" />
+              <mxPoint x="370" y="710" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-26" target="zH917204k25_6L9SABUO-35">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="490" y="520" />
-              <mxPoint x="490" y="810" />
+              <mxPoint x="370" y="520" />
+              <mxPoint x="370" y="810" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-26" value="Household List" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="360" y="490" width="120" height="60" as="geometry" />
+          <mxGeometry x="240" y="490" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-28" target="zH917204k25_6L9SABUO-24">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-28" value="Open household&lt;br&gt;residents list" style="whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="520" y="490" width="120" height="60" as="geometry" />
+          <mxGeometry x="400" y="490" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-31" value="Print/Export RBI" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="520" y="585" width="120" height="60" as="geometry" />
+          <mxGeometry x="400" y="585" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-33" value="Add/Edit Household" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="520" y="680" width="120" height="60" as="geometry" />
+          <mxGeometry x="400" y="680" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-35" value="Add Resident to Household" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
-          <mxGeometry x="510" y="780" width="120" height="60" as="geometry" />
+          <mxGeometry x="390" y="780" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zH917204k25_6L9SABUO-37" value="Add/Edit Resident" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
+          <mxGeometry x="560" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zH917204k25_6L9SABUO-39" value="Print/Export &lt;br&gt;Residents List" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
+          <mxGeometry x="560" y="490" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
