@@ -7,7 +7,7 @@
         xmlns:CustomControls="clr-namespace:BrgyProfileCore.CustomControls" x:Class="BrgyProfileCore.Windows.MainWindow"
         mc:Ignorable="d"
         Title="Brgy Profile"
-         MinHeight="720" MinWidth="1280" ResizeMode="NoResize" Height="661.333" Width="1179.333" Activated="Window_Activated">
+         MinHeight="720" MinWidth="1280" ResizeMode="CanMinimize" Height="661.333" Width="1179.333" Activated="Window_Activated">
     <Grid Background="#FFD1D1D1" Margin="0">
         <GroupBox Header="Residents" HorizontalAlignment="Left" Margin="10,10,0,10" MinWidth="400">
             <Grid Margin="0">
@@ -93,8 +93,9 @@
             <Grid>
                 <Label x:Name="BrgyNameLabel" Content="&lt;Brgy Name&gt;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                 <Button x:Name="UpdateProfileButton" Content="Update Profile" HorizontalAlignment="Right" Margin="0,13,10,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="UpdateProfileButton_Click"/>
-                <Label x:Name="MunicipalityLabel" Content="&lt;Municipality&gt;" Margin="10,41,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                <Label x:Name="MunicipalityLabel" Content="&lt;Municipality&gt;" Margin="10,41,123,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
                 <Label x:Name="ProvinceLabel" Content="&lt;Province&gt;" Margin="10,72,10,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch"/>
+                <Button x:Name="logoutButton" Content="Logout" HorizontalAlignment="Right" Margin="0,44,10,0" VerticalAlignment="Top" Padding="15,1,15,1" Click="logoutButton_Click"/>
             </Grid>
         </GroupBox>
 

@@ -52,6 +52,15 @@ namespace BrgyProfileCore.Windows
         public MainWindow()
         {
             InitializeComponent();
+
+            if(BrgySession.current == null)
+            {
+                // open login
+                Visibility = Visibility.Hidden;
+                var window = new LoginWindow();
+                window.mainWindow = this;
+                window.ShowDialog();
+            }
         }
 
         /// <summary>
@@ -171,6 +180,20 @@ namespace BrgyProfileCore.Windows
 
             var window = new UpsertResidentWindow(selectedResident);
             window.ShowDialog();
+        }
+
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            BrgySession.LogoutUser();
+
+            if (BrgySession.current == null)
+            {
+                // open login
+                Visibility = Visibility.Hidden;
+                var window = new LoginWindow();
+                window.mainWindow = this;
+                window.ShowDialog();
+            }
         }
     }
 }

@@ -15,12 +15,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="PasswordHashing" Version="2.0.1" />
     <PackageReference Include="PDFtoPrinter" Version="1.3.2" />
     <PackageReference Include="SpreadsheetLight" Version="3.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ItemGroup>

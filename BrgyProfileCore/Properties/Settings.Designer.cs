@@ -130,5 +130,17 @@ namespace BrgyProfileCore.Properties {
                 this["RBI_ValidatedByTitle"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string UserLoggedIn {
+            get {
+                return ((string)(this["UserLoggedIn"]));
+            }
+            set {
+                this["UserLoggedIn"] = value;
+            }
+        }
     }
 }
