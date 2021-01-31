@@ -96,9 +96,4 @@ namespace BrgyProfileCore.Core
             }
         }
     }
-
-    class Helper
-    {
-
-    }
 }
