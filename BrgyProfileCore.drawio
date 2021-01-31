@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-31T15:24:43.116Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473" etag="kb--M6wdfu3GXyopjzx9" version="14.2.9" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-01-31T15:26:08.598Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473" etag="ORGOmyZV8PncScN-SFOe" version="14.2.9" type="github" pages="4">
   <diagram id="4PTbw8sbLUjb1KWMfwqf" name="Class Diagram">
     <mxGraphModel dx="2021" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1300" math="0" shadow="0">
       <root>
@@ -304,6 +304,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=10;" edge="1" parent="1" source="6n1Nlt8Wjwd03Qjzw5Ri-25" target="6n1Nlt8Wjwd03Qjzw5Ri-62">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="460" />
+              <mxPoint x="1155" y="460" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-25" value="NS: Core" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
           <mxGeometry x="940" y="370" width="120" height="60" as="geometry" />
         </mxCell>
@@ -363,6 +371,29 @@
         </mxCell>
         <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-61" value="+ AverageResident51_AboveperSitio: int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-54">
           <mxGeometry y="176" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-62" value="Helpers.cs" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="480" width="345" height="206" as="geometry">
+            <mxRectangle x="720" y="80" width="130" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-63" value="+ ReplaceString(original, start, end, replace): string" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-62">
+          <mxGeometry y="26" width="345" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-64" value="+ IndexOf(stringbuilder, stringvalue, startidx, ignorecase) :int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-62">
+          <mxGeometry y="56" width="345" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-65" value="+ AveragePopulationperSitio: int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-62">
+          <mxGeometry y="86" width="345" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-66" value="+ AverageResident1_18perSitio: int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-62">
+          <mxGeometry y="116" width="345" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-67" value="+ AverageResident19_50perSitio: int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-62">
+          <mxGeometry y="146" width="345" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-68" value="+ AverageResident51_AboveperSitio: int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-62">
+          <mxGeometry y="176" width="345" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
