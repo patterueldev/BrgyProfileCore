@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-31T15:59:55.109Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473" etag="0oFWHsGf0tV5S0qG2AYW" version="14.2.9" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-01-31T16:01:36.294Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473" etag="2h1UnxQti51EIIvYW8i8" version="14.2.9" type="github" pages="4">
   <diagram id="4PTbw8sbLUjb1KWMfwqf" name="Class Diagram">
     <mxGraphModel dx="2021" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1300" math="0" shadow="0">
       <root>
@@ -799,6 +799,22 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="zH917204k25_6L9SABUO-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-26" target="zH917204k25_6L9SABUO-33">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="520" />
+              <mxPoint x="490" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zH917204k25_6L9SABUO-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;fontSize=10;" edge="1" parent="FspPMz9jvyOns9fpIKPK-1" source="zH917204k25_6L9SABUO-26" target="zH917204k25_6L9SABUO-35">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="520" />
+              <mxPoint x="490" y="810" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="zH917204k25_6L9SABUO-26" value="Household List" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
           <mxGeometry x="360" y="490" width="120" height="60" as="geometry" />
         </mxCell>
@@ -808,8 +824,14 @@
         <mxCell id="zH917204k25_6L9SABUO-28" value="Open household&lt;br&gt;residents list" style="whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
           <mxGeometry x="520" y="490" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="zH917204k25_6L9SABUO-31" value="Print RBI" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
+        <mxCell id="zH917204k25_6L9SABUO-31" value="Print/Export RBI" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
           <mxGeometry x="520" y="585" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zH917204k25_6L9SABUO-33" value="Add/Edit Household" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
+          <mxGeometry x="520" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="zH917204k25_6L9SABUO-35" value="Add Resident to Household" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="FspPMz9jvyOns9fpIKPK-1">
+          <mxGeometry x="510" y="780" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
