@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-31T15:41:09.468Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473" etag="7JY444GZ26J8J20T2xYY" version="14.2.9" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-01-31T15:42:06.619Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473" etag="_xN1YDAbL5MQWh5WNqSD" version="14.2.9" type="github" pages="4">
   <diagram id="4PTbw8sbLUjb1KWMfwqf" name="Class Diagram">
     <mxGraphModel dx="2021" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1300" math="0" shadow="0">
       <root>
@@ -466,18 +466,19 @@
             <mxPoint x="300" y="550" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="FIFBV4x0dCOPi6-x9Z27-12" value="MVVM&lt;br&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=10;" vertex="1" parent="mGJx9E4KyoJxw8NdclXa-1">
+        <mxCell id="FIFBV4x0dCOPi6-x9Z27-12" value="MVVM&lt;br&gt;Data Model Updates" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=10;" vertex="1" parent="mGJx9E4KyoJxw8NdclXa-1">
           <mxGeometry x="80" y="520" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FIFBV4x0dCOPi6-x9Z27-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;fontSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="mGJx9E4KyoJxw8NdclXa-1" source="FIFBV4x0dCOPi6-x9Z27-20" target="FIFBV4x0dCOPi6-x9Z27-16">
+        <mxCell id="FIFBV4x0dCOPi6-x9Z27-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="mGJx9E4KyoJxw8NdclXa-1" source="FIFBV4x0dCOPi6-x9Z27-20" target="FIFBV4x0dCOPi6-x9Z27-16">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="340" y="590" as="sourcePoint" />
+            <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="FIFBV4x0dCOPi6-x9Z27-16" value="Update Displayed &lt;br&gt;Data" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="mGJx9E4KyoJxw8NdclXa-1">
-          <mxGeometry x="280" y="640" width="120" height="60" as="geometry" />
+        <mxCell id="FIFBV4x0dCOPi6-x9Z27-16" value="Data View Updates" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fontSize=10;" vertex="1" parent="mGJx9E4KyoJxw8NdclXa-1">
+          <mxGeometry x="460" y="520" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="FIFBV4x0dCOPi6-x9Z27-20" value="Updates Data" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="mGJx9E4KyoJxw8NdclXa-1">
+        <mxCell id="FIFBV4x0dCOPi6-x9Z27-20" value="Triggers Data Update" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="mGJx9E4KyoJxw8NdclXa-1">
           <mxGeometry x="280" y="520" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
