@@ -223,13 +223,13 @@ namespace BrgyProfileCore.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
                             UserId = 1,
-                            Password = "837EE2E09592A5AE44D06A44D8E5EA6957A40B81F3578A67F2C569C102607ACBE8478A20B61C1D66F613C8FB9AEFDE9226F0CE28F612F2B2E4F6B4093E298ED48WTSCJHWFI6ZH0X38MAO",
+                            Password = "7CA30CD76802442041CB4C3E51AD13FC9110711A67F498FEB752A636489A456B1AF83B93E7A883DCE27BAA167C95146C996B7DDD75383E73ACF59185ABBA4F23XDH8V2IYNZX5TNLGL6D4",
                             Username = "admin"
                         });
                 });

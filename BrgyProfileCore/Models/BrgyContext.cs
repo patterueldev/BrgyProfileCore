@@ -20,7 +20,7 @@ namespace BrgyProfileCore
         public DbSet<Resident> Residents { get; set; }
         public DbSet<Household> Households { get; set; }
         public DbSet<Sitio> Sitio { get; set; }
-        public DbSet<User> User { get; set; }
+        public DbSet<User> Users { get; set; }
         private DBDataSource dataSource
         {
             get

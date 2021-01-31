@@ -16,7 +16,7 @@ namespace BrgyProfileCore.Core
                 if(user != null && user.Trim() != "")
                 {
                     var db = new BrgyContext();
-                    var matchedUser = db.User.Where(u => u.Username == user.Trim() ).ToList().First();
+                    var matchedUser = db.Users.Where(u => u.Username == user.Trim() ).ToList().First();
                     if(matchedUser != null)
                     {
                         return matchedUser;
@@ -29,7 +29,7 @@ namespace BrgyProfileCore.Core
         public static bool LoginUser(string username, string password)
         {
             var db = new BrgyContext();
-            var matchedUser = db.User.Where(u => u.Username == username).ToList().First();
+            var matchedUser = db.Users.Where(u => u.Username == username).ToList().First();
             if (matchedUser != null)
             {
                 var validated = PasswordHasher.Validate(password, matchedUser.Password);
