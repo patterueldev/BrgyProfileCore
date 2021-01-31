@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-31T15:23:09.971Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473" etag="nTU3AnoOvMzLJ__Fabhi" version="14.2.9" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2021-01-31T15:24:43.116Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36 OPR/72.0.3815.473" etag="kb--M6wdfu3GXyopjzx9" version="14.2.9" type="github" pages="4">
   <diagram id="4PTbw8sbLUjb1KWMfwqf" name="Class Diagram">
     <mxGraphModel dx="2021" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1300" math="0" shadow="0">
       <root>
@@ -342,18 +342,27 @@
           <mxGeometry y="146" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-54" value="BrgyStatistics.cs" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="760" y="480" width="240" height="116" as="geometry">
+          <mxGeometry x="760" y="480" width="240" height="206" as="geometry">
             <mxRectangle x="720" y="80" width="130" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-55" value="+ current: User" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-54">
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-55" value="+ db: BrgyContext" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-54">
           <mxGeometry y="26" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-56" value="+ LoginUser(username, password): bool" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-54">
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-56" value="+ AverageResidentPerHousehold: int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-54">
           <mxGeometry y="56" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-57" value="+ LogoutUser()" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-54">
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-57" value="+ AveragePopulationperSitio: int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-54">
           <mxGeometry y="86" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-59" value="+ AverageResident1_18perSitio: int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-54">
+          <mxGeometry y="116" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-60" value="+ AverageResident19_50perSitio: int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-54">
+          <mxGeometry y="146" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6n1Nlt8Wjwd03Qjzw5Ri-61" value="+ AverageResident51_AboveperSitio: int" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="6n1Nlt8Wjwd03Qjzw5Ri-54">
+          <mxGeometry y="176" width="240" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
