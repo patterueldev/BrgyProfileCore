@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="17.9" version="17.9" Modules="simple" RootPath="." Language="en" Id="{449367AB-B17A-4F3F-AF26-230057286B14}">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BHITemplate.html" Value="..\BrgyProfileCore\bin\Debug\netcoreapp3.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BrgyProfileCore.dll" Value="..\BrgyProfileCore\bin\Debug\netcoreapp3.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BrgyProfileCore.exe" Value="..\BrgyProfileCore\bin\Debug\netcoreapp3.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BrgyProfileCore.pdb" Value="..\BrgyProfileCore\bin\Debug\netcoreapp3.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BrgyProfileCore.runtimeconfig.json" Value="..\BrgyProfileCore\bin\Debug\netcoreapp3.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DocumentFormat.OpenXml.dll" Value="..\..\..\..\.nuget\packages\documentformat.openxml\2.11.3\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Faker.Net.Core.3.1.dll" Value="..\..\..\..\.nuget\packages\faker.net\1.4.108\lib\netcoreapp3.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_IronPdf.Assets.Rendering.Universal.dll" Value="..\..\..\..\.nuget\packages\ironpdf.assets.rendering.universal\21.0.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_IronPdf.dll" Value="..\..\..\..\.nuget\packages\ironpdf\2020.12.3\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Data.Sqlite.dll" Value="..\..\..\..\.nuget\packages\microsoft.data.sqlite.core\5.0.2\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll" Value="..\..\..\..\.nuget\packages\microsoft.dotnet.platformabstractions\3.1.6\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll" Value="..\..\..\..\.nuget\packages\microsoft.entityframeworkcore.abstractions\5.0.2\lib\netstandard2.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll" Value="..\..\..\..\.nuget\packages\microsoft.entityframeworkcore.relational\5.0.2\lib\netstandard2.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll" Value="..\..\..\..\.nuget\packages\microsoft.entityframeworkcore.sqlite.core\5.0.2\lib\netstandard2.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.dll" Value="..\..\..\..\.nuget\packages\microsoft.entityframeworkcore\5.0.2\lib\netstandard2.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll" Value="..\..\..\..\.nuget\packages\microsoft.extensions.caching.abstractions\5.0.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Caching.Memory.dll" Value="..\..\..\..\.nuget\packages\microsoft.extensions.caching.memory\5.0.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll" Value="..\..\..\..\.nuget\packages\microsoft.extensions.configuration.abstractions\5.0.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Value="..\..\..\..\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\5.0.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Value="..\..\..\..\.nuget\packages\microsoft.extensions.dependencyinjection\5.0.1\lib\netstandard2.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyModel.dll" Value="..\..\..\..\.nuget\packages\microsoft.extensions.dependencymodel\5.0.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Value="..\..\..\..\.nuget\packages\microsoft.extensions.logging.abstractions\5.0.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.dll" Value="..\..\..\..\.nuget\packages\microsoft.extensions.logging\5.0.0\lib\netstandard2.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Options.dll" Value="..\..\..\..\.nuget\packages\microsoft.extensions.options\5.0.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Primitives.dll" Value="..\..\..\..\.nuget\packages\microsoft.extensions.primitives\5.0.0\lib\netcoreapp3.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_PDFtoPrinter.dll" Value="..\..\..\..\.nuget\packages\pdftoprinter\1.3.2\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_PasswordHashing.dll" Value="..\..\..\..\.nuget\packages\passwordhashing\2.0.1\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_RBITemplate.html" Value="..\BrgyProfileCore\bin\Debug\netcoreapp3.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.batteries_v2.dll" Value="..\..\..\..\.nuget\packages\sqlitepclraw.bundle_e_sqlite3\2.0.4\lib\netcoreapp3.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.core.dll" Value="..\..\..\..\.nuget\packages\sqlitepclraw.core\2.0.4\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.nativelibrary.dll" Value="..\..\..\..\.nuget\packages\sqlitepclraw.bundle_e_sqlite3\2.0.4\lib\netcoreapp3.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.provider.dynamic_cdecl.dll" Value="..\..\..\..\.nuget\packages\sqlitepclraw.provider.dynamic_cdecl\2.0.4\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SpreadsheetLight.dll" Value="..\..\..\..\.nuget\packages\spreadsheetlight\3.5.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Collections.Immutable.dll" Value="..\..\..\..\.nuget\packages\system.collections.immutable\5.0.0\lib\netstandard2.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.ComponentModel.Annotations.dll" Value="..\..\..\..\.nuget\packages\system.componentmodel.annotations\5.0.0\ref\netstandard2.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.HashFunction.Blake2.dll" Value="..\..\..\..\.nuget\packages\system.data.hashfunction.blake2\2.0.0\lib\netstandard1.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.HashFunction.Core.dll" Value="..\..\..\..\.nuget\packages\system.data.hashfunction.core\2.0.0\lib\netstandard1.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.HashFunction.Interfaces.dll" Value="..\..\..\..\.nuget\packages\system.data.hashfunction.interfaces\2.0.0\lib\netstandard1.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Diagnostics.DiagnosticSource.dll" Value="..\..\..\..\.nuget\packages\system.diagnostics.diagnosticsource\5.0.1\lib\netstandard1.3"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Drawing.Common.dll" Value="..\..\..\..\.nuget\packages\system.drawing.common\5.0.0\ref\netcoreapp3.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Text.Encodings.Web.dll" Value="..\..\..\..\.nuget\packages\system.text.encodings.web\5.0.0\lib\netcoreapp3.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Text.Json.dll" Value="..\..\..\..\.nuget\packages\system.text.json\5.0.0\lib\netcoreapp3.0"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BHITemplate.html" Value="BHI-Template.html"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.dll" Value="BrgyProfileCore.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.exe" Value="BrgyProfileCore.exe"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.pdb" Value="BrgyProfileCore.pdb"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.runtimeconfig.json" Value="BrgyProfileCore.runtimeconfig.json"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DocumentFormat.OpenXml.dll" Value="DocumentFormat.OpenXml.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Faker.Net.Core.3.1.dll" Value="Faker.Net.Core.3.1.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_IronPdf.Assets.Rendering.Universal.dll" Value="IronPdf.Assets.Rendering.Universal.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_IronPdf.dll" Value="IronPdf.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Data.Sqlite.dll" Value="Microsoft.Data.Sqlite.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll" Value="Microsoft.DotNet.PlatformAbstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll" Value="Microsoft.EntityFrameworkCore.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll" Value="Microsoft.EntityFrameworkCore.Relational.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll" Value="Microsoft.EntityFrameworkCore.Sqlite.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.dll" Value="Microsoft.EntityFrameworkCore.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll" Value="Microsoft.Extensions.Caching.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Memory.dll" Value="Microsoft.Extensions.Caching.Memory.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll" Value="Microsoft.Extensions.Configuration.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Value="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Value="Microsoft.Extensions.DependencyInjection.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyModel.dll" Value="Microsoft.Extensions.DependencyModel.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Value="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.dll" Value="Microsoft.Extensions.Logging.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll" Value="Microsoft.Extensions.Options.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll" Value="Microsoft.Extensions.Primitives.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_PDFtoPrinter.dll" Value="PDFtoPrinter.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_PasswordHashing.dll" Value="PasswordHashing.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_RBITemplate.html" Value="RBI-Template.html"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.batteries_v2.dll" Value="SQLitePCLRaw.batteries_v2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.core.dll" Value="SQLitePCLRaw.core.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.nativelibrary.dll" Value="SQLitePCLRaw.nativelibrary.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.provider.dynamic_cdecl.dll" Value="SQLitePCLRaw.provider.dynamic_cdecl.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SpreadsheetLight.dll" Value="SpreadsheetLight.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Collections.Immutable.dll" Value="System.Collections.Immutable.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.ComponentModel.Annotations.dll" Value="System.ComponentModel.Annotations.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.HashFunction.Blake2.dll" Value="System.Data.HashFunction.Blake2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.HashFunction.Core.dll" Value="System.Data.HashFunction.Core.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.HashFunction.Interfaces.dll" Value="System.Data.HashFunction.Interfaces.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Diagnostics.DiagnosticSource.dll" Value="System.Diagnostics.DiagnosticSource.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Drawing.Common.dll" Value="System.Drawing.Common.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Text.Encodings.Web.dll" Value="System.Text.Encodings.Web.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Text.Json.dll" Value="System.Text.Json.dll"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="Manufacturer" Value="JPT"/>
+    <ROW Property="ProductCode" Value="1033:{5CF0D42B-52B5-411F-A614-43482AE53A77} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="Brgy Profile"/>
+    <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{5A861C9A-1F3C-4050-95AD-8ECF6D2D93AA}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="BrgyProfileCore_1_Dir" Directory_Parent="APPDIR" DefaultDir="BRGYPR~1|BrgyProfileCore"/>
+    <ROW Directory="BrgyProfileCore_Dir" Directory_Parent="PersonalFolder" DefaultDir="BRGYPR~1|BrgyProfileCore"/>
+    <ROW Directory="PersonalFolder" Directory_Parent="TARGETDIR" DefaultDir="PERSON~1|PersonalFolder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="APPDIR" ComponentId="{3F6B38A4-828D-4F71-9C4F-4664739E53C1}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="BrgyProfileCore_ContentOutput" ComponentId="{2770DE07-26D6-4CB4-97D9-83E2C3AA159D}" Directory_="BrgyProfileCore_1_Dir" Attributes="0" KeyPath="BHITemplate.html" Type="0"/>
+    <ROW Component="BrgyProfileCore_PrimaryOutput" ComponentId="{0358C648-A7C0-45AB-8316-70CFBB46C159}" Directory_="BrgyProfileCore_1_Dir" Attributes="0" KeyPath="BrgyProfileCore.dll"/>
+    <ROW Component="BrgyProfileCore_References" ComponentId="{C6000FBE-8EA0-4948-B07F-53D45BC9B2FA}" Directory_="BrgyProfileCore_1_Dir" Attributes="0" KeyPath="System.Text.Json.dll"/>
+    <ROW Component="BrgyProfileCore_SymbolsOutput" ComponentId="{448A424E-FFA5-43F9-9B69-EB027ABCE2FF}" Directory_="BrgyProfileCore_1_Dir" Attributes="0" KeyPath="BrgyProfileCore.pdb"/>
+    <ROW Component="ProductInformation" ComponentId="{F12E23A2-3E6B-4CE7-B39F-09D87611576D}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="migratedapp.db" ComponentId="{C79930B7-72F4-4123-828B-AAA27254FB7B}" Directory_="BrgyProfileCore_Dir" Attributes="0" KeyPath="migratedapp.db" Type="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="migratedapp.db" Component_="migratedapp.db" FileName="app.db" Attributes="0" SourcePath="..\migrated-app.db" SelfReg="false"/>
+    <ROW File="BrgyProfileCore.dll" Component_="BrgyProfileCore_PrimaryOutput" FileName="BRGYPR~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BrgyProfileCore.dll&gt;" SelfReg="false"/>
+    <ROW File="BrgyProfileCore.runtimeconfig.json" Component_="BrgyProfileCore_PrimaryOutput" FileName="BRGYPR~2.JSO|[|AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.runtimeconfig.json]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BrgyProfileCore.runtimeconfig.json&gt;" SelfReg="false"/>
+    <ROW File="DocumentFormat.OpenXml.dll" Component_="BrgyProfileCore_References" FileName="DOCUME~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DocumentFormat.OpenXml.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DocumentFormat.OpenXml.dll&gt;" SelfReg="false"/>
+    <ROW File="Faker.Net.Core.3.1.dll" Component_="BrgyProfileCore_References" FileName="FAKERN~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Faker.Net.Core.3.1.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Faker.Net.Core.3.1.dll&gt;" SelfReg="false"/>
+    <ROW File="IronPdf.Assets.Rendering.Universal.dll" Component_="BrgyProfileCore_References" FileName="IRONPD~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_IronPdf.Assets.Rendering.Universal.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_IronPdf.Assets.Rendering.Universal.dll&gt;" SelfReg="false"/>
+    <ROW File="IronPdf.dll" Component_="BrgyProfileCore_References" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_IronPdf.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_IronPdf.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Data.Sqlite.dll" Component_="BrgyProfileCore_References" FileName="MICROS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Data.Sqlite.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Data.Sqlite.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.DotNet.PlatformAbstractions.dll" Component_="BrgyProfileCore_References" FileName="MICROS~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.Abstractions.dll" Component_="BrgyProfileCore_References" FileName="MICROS~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.dll" Component_="BrgyProfileCore_References" FileName="MICROS~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.Relational.dll" Component_="BrgyProfileCore_References" FileName="MICROS~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.Sqlite.dll" Component_="BrgyProfileCore_References" FileName="MICROS~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Caching.Abstractions.dll" Component_="BrgyProfileCore_References" FileName="MICROS~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Caching.Memory.dll" Component_="BrgyProfileCore_References" FileName="MICROS~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Memory.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Caching.Memory.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Configuration.Abstractions.dll" Component_="BrgyProfileCore_References" FileName="MICRO~10.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Component_="BrgyProfileCore_References" FileName="MICRO~11.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.dll" Component_="BrgyProfileCore_References" FileName="MICRO~12.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyModel.dll" Component_="BrgyProfileCore_References" FileName="MICRO~13.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyModel.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyModel.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.Abstractions.dll" Component_="BrgyProfileCore_References" FileName="MICRO~14.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.dll" Component_="BrgyProfileCore_References" FileName="MICRO~15.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Options.dll" Component_="BrgyProfileCore_References" FileName="MICRO~16.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Options.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Primitives.dll" Component_="BrgyProfileCore_References" FileName="MICRO~17.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Primitives.dll&gt;" SelfReg="false"/>
+    <ROW File="PasswordHashing.dll" Component_="BrgyProfileCore_References" FileName="PASSWO~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_PasswordHashing.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_PasswordHashing.dll&gt;" SelfReg="false"/>
+    <ROW File="PDFtoPrinter.dll" Component_="BrgyProfileCore_References" FileName="PDFTOP~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_PDFtoPrinter.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_PDFtoPrinter.dll&gt;" SelfReg="false"/>
+    <ROW File="SpreadsheetLight.dll" Component_="BrgyProfileCore_References" FileName="SPREAD~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SpreadsheetLight.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SpreadsheetLight.dll&gt;" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.batteries_v2.dll" Component_="BrgyProfileCore_References" FileName="SQLITE~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.batteries_v2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SQLitePCLRaw.batteries_v2.dll&gt;" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.core.dll" Component_="BrgyProfileCore_References" FileName="SQLITE~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.core.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SQLitePCLRaw.core.dll&gt;" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.nativelibrary.dll" Component_="BrgyProfileCore_References" FileName="SQLITE~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.nativelibrary.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SQLitePCLRaw.nativelibrary.dll&gt;" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.provider.dynamic_cdecl.dll" Component_="BrgyProfileCore_References" FileName="SQLITE~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.provider.dynamic_cdecl.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SQLitePCLRaw.provider.dynamic_cdecl.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Collections.Immutable.dll" Component_="BrgyProfileCore_References" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Collections.Immutable.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Collections.Immutable.dll&gt;" SelfReg="false"/>
+    <ROW File="System.ComponentModel.Annotations.dll" Component_="BrgyProfileCore_References" FileName="SYSTEM~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.ComponentModel.Annotations.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.ComponentModel.Annotations.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Data.HashFunction.Blake2.dll" Component_="BrgyProfileCore_References" FileName="SYSTEM~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.HashFunction.Blake2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.HashFunction.Blake2.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Data.HashFunction.Core.dll" Component_="BrgyProfileCore_References" FileName="SYSTEM~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.HashFunction.Core.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.HashFunction.Core.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Data.HashFunction.Interfaces.dll" Component_="BrgyProfileCore_References" FileName="SYSTEM~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.HashFunction.Interfaces.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.HashFunction.Interfaces.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Diagnostics.DiagnosticSource.dll" Component_="BrgyProfileCore_References" FileName="SYSTEM~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Diagnostics.DiagnosticSource.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Diagnostics.DiagnosticSource.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Drawing.Common.dll" Component_="BrgyProfileCore_References" FileName="SYSTEM~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Drawing.Common.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Drawing.Common.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Text.Encodings.Web.dll" Component_="BrgyProfileCore_References" FileName="SYSTEM~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Text.Encodings.Web.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Text.Encodings.Web.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Text.Json.dll" Component_="BrgyProfileCore_References" FileName="SYSTE~10.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Text.Json.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Text.Json.dll&gt;" SelfReg="false"/>
+    <ROW File="BHITemplate.html" Component_="BrgyProfileCore_ContentOutput" FileName="BHI-TE~2.HTM|[|AI_PROPPATH_FILENAME_PERBUILD_BHITemplate.html]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BHITemplate.html&gt;" SelfReg="false"/>
+    <ROW File="RBITemplate.html" Component_="BrgyProfileCore_ContentOutput" FileName="RBI-TE~2.HTM|[|AI_PROPPATH_FILENAME_PERBUILD_RBITemplate.html]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_RBITemplate.html&gt;" SelfReg="false"/>
+    <ROW File="BrgyProfileCore.exe" Component_="BrgyProfileCore_ContentOutput" FileName="BRGYPR~2.EXE|[|AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.exe]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BrgyProfileCore.exe&gt;" SelfReg="false" DigSign="true"/>
+    <ROW File="BrgyProfileCore.pdb" Component_="BrgyProfileCore_SymbolsOutput" FileName="BRGYPR~2.PDB|[|AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.pdb]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BrgyProfileCore.pdb&gt;" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
+    <ROW Name="AI_APPPATH_PERBUILD_BHITemplate.html" Path="[|AI_PROPPATH_DIR_PERBUILD_BHITemplate.html]\[|AI_PROPPATH_FILENAME_PERBUILD_BHITemplate.html]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_BrgyProfileCore.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_BrgyProfileCore.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_BrgyProfileCore.exe" Path="[|AI_PROPPATH_DIR_PERBUILD_BrgyProfileCore.exe]\[|AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.exe]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_BrgyProfileCore.pdb" Path="[|AI_PROPPATH_DIR_PERBUILD_BrgyProfileCore.pdb]\[|AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.pdb]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_BrgyProfileCore.runtimeconfig.json" Path="[|AI_PROPPATH_DIR_PERBUILD_BrgyProfileCore.runtimeconfig.json]\[|AI_PROPPATH_FILENAME_PERBUILD_BrgyProfileCore.runtimeconfig.json]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DocumentFormat.OpenXml.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DocumentFormat.OpenXml.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DocumentFormat.OpenXml.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Faker.Net.Core.3.1.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Faker.Net.Core.3.1.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Faker.Net.Core.3.1.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_IronPdf.Assets.Rendering.Universal.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_IronPdf.Assets.Rendering.Universal.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_IronPdf.Assets.Rendering.Universal.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_IronPdf.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_IronPdf.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_IronPdf.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Data.Sqlite.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Data.Sqlite.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Data.Sqlite.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Caching.Memory.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Caching.Memory.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Memory.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyModel.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyModel.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyModel.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Options.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Options.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Primitives.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Primitives.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_PDFtoPrinter.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_PDFtoPrinter.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_PDFtoPrinter.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_PasswordHashing.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_PasswordHashing.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_PasswordHashing.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_RBITemplate.html" Path="[|AI_PROPPATH_DIR_PERBUILD_RBITemplate.html]\[|AI_PROPPATH_FILENAME_PERBUILD_RBITemplate.html]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SQLitePCLRaw.batteries_v2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.batteries_v2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.batteries_v2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SQLitePCLRaw.core.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.core.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.core.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SQLitePCLRaw.nativelibrary.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.nativelibrary.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.nativelibrary.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SQLitePCLRaw.provider.dynamic_cdecl.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.provider.dynamic_cdecl.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.provider.dynamic_cdecl.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SpreadsheetLight.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SpreadsheetLight.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SpreadsheetLight.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Collections.Immutable.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Collections.Immutable.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Collections.Immutable.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.ComponentModel.Annotations.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.ComponentModel.Annotations.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.ComponentModel.Annotations.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Data.HashFunction.Blake2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.HashFunction.Blake2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.HashFunction.Blake2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Data.HashFunction.Core.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.HashFunction.Core.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.HashFunction.Core.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Data.HashFunction.Interfaces.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.HashFunction.Interfaces.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.HashFunction.Interfaces.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Diagnostics.DiagnosticSource.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Diagnostics.DiagnosticSource.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Diagnostics.DiagnosticSource.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Drawing.Common.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Drawing.Common.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Drawing.Common.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Text.Encodings.Web.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Text.Encodings.Web.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Text.Encodings.Web.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Text.Json.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Text.Json.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Text.Json.dll]" Type="2" Content="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="migratedapp.db"/>
+    <ROW Feature_="MainFeature" Component_="BrgyProfileCore_PrimaryOutput"/>
+    <ROW Feature_="MainFeature" Component_="BrgyProfileCore_References"/>
+    <ROW Feature_="MainFeature" Component_="BrgyProfileCore_ContentOutput"/>
+    <ROW Feature_="MainFeature" Component_="BrgyProfileCore_SymbolsOutput"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.VsProjectComponent">
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="PrimaryOutput" OutputFile="BrgyProfileCore.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="PrimaryOutput" OutputFile="BrgyProfileCore.runtimeconfig.json"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="DocumentFormat.OpenXml.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Faker.Net.Core.3.1.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="IronPdf.Assets.Rendering.Universal.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="IronPdf.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Data.Sqlite.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.DotNet.PlatformAbstractions.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.EntityFrameworkCore.Abstractions.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.EntityFrameworkCore.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.EntityFrameworkCore.Relational.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.EntityFrameworkCore.Sqlite.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Extensions.Caching.Abstractions.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Extensions.Caching.Memory.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Extensions.Configuration.Abstractions.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Extensions.DependencyInjection.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Extensions.DependencyModel.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Extensions.Logging.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Extensions.Options.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="Microsoft.Extensions.Primitives.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="PasswordHashing.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="PDFtoPrinter.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="SpreadsheetLight.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="SQLitePCLRaw.batteries_v2.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="SQLitePCLRaw.core.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="SQLitePCLRaw.nativelibrary.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="SQLitePCLRaw.provider.dynamic_cdecl.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="System.Collections.Immutable.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="System.ComponentModel.Annotations.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="System.Data.HashFunction.Blake2.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="System.Data.HashFunction.Core.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="System.Data.HashFunction.Interfaces.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="System.Diagnostics.DiagnosticSource.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="System.Drawing.Common.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="System.Text.Encodings.Web.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="References" OutputFile="System.Text.Json.dll"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="ContentOutput" OutputFile="BHITemplate.html"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="ContentOutput" OutputFile="RBITemplate.html"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="ContentOutput" OutputFile="BrgyProfileCore.exe"/>
+    <ROW ProjectId="{73d3f996-34e6-4a97-880e-f3ce6d8e2b7b}" ProjectName="BrgyProfileCore" OutputGroup="SymbolsOutput" OutputFile="BrgyProfileCore.pdb"/>
+  </COMPONENT>
+</DOCUMENT>
