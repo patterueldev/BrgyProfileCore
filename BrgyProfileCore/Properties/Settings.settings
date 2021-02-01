@@ -29,5 +29,8 @@
     <Setting Name="RBI_ValidatedByTitle" Type="System.String" Scope="User">
       <Value Profile="(Default)">Punong Barangay</Value>
     </Setting>
+    <Setting Name="UserLoggedIn" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
