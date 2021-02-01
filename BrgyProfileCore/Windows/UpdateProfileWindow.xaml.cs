@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using BrgyProfileCore.Core;
 namespace BrgyProfileCore.Windows
 {
     /// <summary>
@@ -33,6 +33,11 @@ namespace BrgyProfileCore.Windows
             PreparedByTitleField.Text = settings.RBI_PreparedByTitle;
             CertifiedCorrectTitleField.Text = settings.RBI_CertifiedCorrectedTitle;
             ValidatedByTitleField.Text = settings.RBI_ValidatedByTitle;
+
+            if (BrgySession.current.Role != "Administrator")
+            {
+                manageUsersButton.Visibility = Visibility.Hidden;
+            }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -89,6 +94,12 @@ namespace BrgyProfileCore.Windows
         private void updatePasswordButton_Click(object sender, RoutedEventArgs e)
         {
             var window = new UpdatePasswordWindow();
+            window.ShowDialog();
+        }
+
+        private void manageUsersButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new ManageUsersWindow();
             window.ShowDialog();
         }
     }

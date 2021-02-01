@@ -11,12 +11,15 @@
         <Label Content="Username:" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="newUsernameBox" Margin="10,46,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Padding="0,4,0,4"/>
 
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="passwordBox" Margin="10,103,10,0" VerticalAlignment="Top" Padding="0,4,0,4"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameBox" Margin="10,103,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Padding="0,4,0,4"/>
 
-        <Label Content="Confirm Password:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="confirmPasswordBox" Margin="10,160,10,0" VerticalAlignment="Top" Padding="0,4,0,4"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="passwordBox" Margin="10,160,10,0" VerticalAlignment="Top" Padding="0,4,0,4"/>
 
-        <Button Content="Update" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Padding="15,1,15,1"/>
+        <Label Content="Confirm Password:" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="confirmPasswordBox" Margin="10,217,10,0" VerticalAlignment="Top" Padding="0,4,0,4"/>
+
+        <Button x:Name="saveButton" Content="Update" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Padding="15,1,15,1" Click="saveButton_Click"/>
     </Grid>
 </Window>

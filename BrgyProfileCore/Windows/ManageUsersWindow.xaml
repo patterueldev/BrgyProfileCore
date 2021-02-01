@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BrgyProfileCore.Windows"
         mc:Ignorable="d"
-        Title="ManageUsersWindow" Height="450" Width="800">
+        Title="ManageUsersWindow" Height="450" Width="800" Activated="Window_Activated">
     <Grid Background="#FFD1D1D1">
         <DataGrid x:Name="usersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,35,10,10" IsReadOnly="True" SelectionChanged="usersDataGrid_SelectionChanged">
             <DataGrid.Columns>
@@ -19,11 +19,10 @@
                                             Header="Role" Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="AddUserButton" Content="Add New User" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65"/>
-        <Button x:Name="UpdateUsernameButton" Content="Update Username" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Padding="15,1,15,1"/>
-        <Button x:Name="DeleteUserButton" Content="Delete User" HorizontalAlignment="Left" Margin="271,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Padding="15,1,15,1" Click="DeleteUserButton_Click"/>
+        <Button x:Name="AddUserButton" Content="Add New User" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddUserButton_Click"/>
+        <Button x:Name="EditUserButton" Content="Edit User" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Padding="15,1,15,1" Click="EditUserButton_Click"/>
+        <Button x:Name="DeleteUserButton" Content="Delete User" HorizontalAlignment="Left" Margin="94,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Padding="15,1,15,1" Click="DeleteUserButton_Click"/>
         <TextBox x:Name="SearchTextBox" HorizontalAlignment="Right" Height="20" Margin="0,10,119,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="SearchTextChanged"/>
         <Label Content="Search" HorizontalAlignment="Right" Margin="0,7,244,0" VerticalAlignment="Top"/>
-        <Button x:Name="UpdateUsernameButton_Copy" Content="Update Password" HorizontalAlignment="Left" Margin="142,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.57,0.65" IsEnabled="False" Padding="15,1,15,1"/>
     </Grid>
 </Window>

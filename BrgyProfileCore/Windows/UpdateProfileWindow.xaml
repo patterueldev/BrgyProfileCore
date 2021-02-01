@@ -37,7 +37,7 @@
                     <Label Content="User Accounts"/>
                     <Button x:Name="updateUsernameButton" Content="Update Username" Click="updateUsernameButton_Click"/>
                     <Button x:Name="updatePasswordButton" Content="Update Password" Margin="0,10,0,0" Click="updatePasswordButton_Click"/>
-                    <Button x:Name="manageUsersButton" Content="Manage Users" Margin="0,10,0,0"/>
+                    <Button x:Name="manageUsersButton" Content="Manage Users" Margin="0,10,0,0" Click="manageUsersButton_Click"/>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right" Margin="0,10,10,35" Width="371" Grid.Column="1">
