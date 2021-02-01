@@ -58,7 +58,9 @@ namespace BrgyProfileCore
                 {
                     UserId = 1,
                     Username = "admin",
-                    Password = hashedPassword()
+                    Password = hashedPassword(),
+                    Role = "Administrator",
+                    Name = "Admin"
                 }
             );
         }

@@ -3,14 +3,16 @@ using System;
 using BrgyProfileCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BrgyProfileCore.Migrations
 {
     [DbContext(typeof(BrgyContext))]
-    partial class BrgyContextModelSnapshot : ModelSnapshot
+    [Migration("20210201123506_AddFieldsToUserModel_2")]
+    partial class AddFieldsToUserModel_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

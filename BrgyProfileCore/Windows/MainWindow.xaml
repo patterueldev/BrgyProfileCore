@@ -75,19 +75,21 @@
             </Grid>
         </GroupBox>
         <GroupBox Header="Statistics" Margin="0,10,10,250" HorizontalAlignment="Right" MinWidth="400">
-            <Grid>
-                <StackPanel x:Name="StatisticStackPanel" Margin="10,10,10,10">
-                    <CustomControls:StatisticDetailView x:Name="AverageResidentperHouseholdDetail" FieldHeader="Average # of Residents per Household"/>
-                    <CustomControls:StatisticDetailView x:Name="AveragePopulationperSitioDetail" FieldHeader="Average Population per Sitio"/>
-                    <CustomControls:StatisticDetailView x:Name="AverageResident1_18perSitioDetail" FieldHeader="Average residents between ages 1-18 per Sitio"/>
-                    <CustomControls:StatisticDetailView x:Name="AverageResident19_50perSitioDetail" FieldHeader="Average residents between ages 19-50 per Sitio"/>
-                    <CustomControls:StatisticDetailView x:Name="AverageResident50_AboveperSitioDetail" FieldHeader="Average residents between ages 50 and above per Sitio"/>
-                    <!--
+            <ScrollViewer>
+                <Grid>
+                    <StackPanel x:Name="StatisticStackPanel" Margin="10,10,10,10">
+                        <CustomControls:StatisticDetailView x:Name="AverageResidentperHouseholdDetail" FieldHeader="Average # of Residents per Household"/>
+                        <CustomControls:StatisticDetailView x:Name="AveragePopulationperSitioDetail" FieldHeader="Average Population per Sitio"/>
+                        <CustomControls:StatisticDetailView x:Name="AverageResident1_18perSitioDetail" FieldHeader="Average residents between ages 1-18 per Sitio"/>
+                        <CustomControls:StatisticDetailView x:Name="AverageResident50_AboveperSitioDetail" FieldHeader="Average residents between ages 50 and above per Sitio"/>
+                        <CustomControls:StatisticDetailView x:Name="AverageResident19_50perSitioDetail" FieldHeader="Average residents between ages 19-50 per Sitio"/>
+                        <!--
                     <CustomControls:StatisticDetailView FieldHeader="Average male per Sitio"/>
                     <CustomControls:StatisticDetailView FieldHeader="Average female per Sitio"/>
                     -->
-                </StackPanel>
-            </Grid>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
         </GroupBox>
         <GroupBox Header="Barangay Info" Margin="0,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="235" Width="400">
             <Grid>
