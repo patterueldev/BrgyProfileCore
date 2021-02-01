@@ -29,9 +29,10 @@ namespace BrgyProfileCore.Core
         public static bool LoginUser(string username, string password)
         {
             var db = new BrgyContext();
-            var matchedUser = db.Users.Where(u => u.Username == username).ToList().First();
-            if (matchedUser != null)
+            var matchedUsers = db.Users.Where(u => u.Username == username).ToList();
+            if (matchedUsers.Count == 1)
             {
+                var matchedUser = matchedUsers.First();
                 var validated = PasswordHasher.Validate(password, matchedUser.Password);
                 if (validated)
                 {

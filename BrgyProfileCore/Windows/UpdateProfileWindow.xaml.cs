@@ -85,5 +85,11 @@ namespace BrgyProfileCore.Windows
             var window = new UpdateUsernameWindow();
             window.ShowDialog();
         }
+
+        private void updatePasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new UpdatePasswordWindow();
+            window.ShowDialog();
+        }
     }
 }

@@ -44,10 +44,22 @@ namespace BrgyProfileCore.Windows
             var newUsername = newUsernameBox.Text.Trim();
             var password = passwordBox.Password;
 
+            if(newUsername == currentUsername)
+            {
+                MessageBox.Show("Username is the same as your current one.", "Invalid Username", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
             var db = new BrgyContext();
             var matchedUser = db.Users.Where(u => u.Username == currentUsername).ToList().First();
             if (matchedUser != null)
             {
+                var existingUsers = db.Users.Where(u => u.Username == newUsername).ToList();
+                if(existingUsers.Count > 0)
+                {
+                    MessageBox.Show($"{newUsername} is already used.", "Invalid Username", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    return;
+                }
                 var validated = PasswordHasher.Validate(password, matchedUser.Password);
                 if (validated)
                 {
