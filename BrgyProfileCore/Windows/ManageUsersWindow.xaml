@@ -12,11 +12,11 @@
                 <DataGridTextColumn Binding="{Binding UserId}"
                                             Header="User ID" Width="SizeToHeader"/>
                 <DataGridTextColumn Binding="{Binding Username}"
-                                            Header="Name of Household Member"/>
+                                            Header="Username"/>
                 <DataGridTextColumn Binding="{Binding Name}"
-                                            Header="Name" Width="SizeToHeader"/>
+                                            Header="Name"/>
                 <DataGridTextColumn Binding="{Binding Role}"
-                                            Header="Role" Width="SizeToHeader"/>
+                                            Header="Role"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="AddUserButton" Content="Add New User" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="1.57,0.65" Click="AddUserButton_Click"/>

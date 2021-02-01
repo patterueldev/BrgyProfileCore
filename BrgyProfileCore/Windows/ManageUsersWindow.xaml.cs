@@ -56,7 +56,21 @@ namespace BrgyProfileCore.Windows
 
         private void DeleteUserButton_Click(object sender, RoutedEventArgs e)
         {
+            if (selectedUser == null)
+            {
+                return;
+            }
 
+            var user = selectedUser;
+            MessageBoxResult messageBoxResult = MessageBox.Show($"Delete {user.Name} from the users? This action cannot be undone.", "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                var db = new BrgyContext();
+                db.Remove(user);
+                db.SaveChanges();
+
+                this.refreshList();
+            }
         }
 
         private void SearchTextChanged(object sender, TextChangedEventArgs e)
