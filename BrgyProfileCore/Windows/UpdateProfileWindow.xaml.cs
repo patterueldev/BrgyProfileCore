@@ -79,5 +79,11 @@ namespace BrgyProfileCore.Windows
         {
             MessageBox.Show(message, "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Exclamation);
         }
+
+        private void updateUsernameButton_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new UpdateUsernameWindow();
+            window.ShowDialog();
+        }
     }
 }
