@@ -16,10 +16,10 @@ namespace BrgyProfileCore.Core
                 if(user != null && user.Trim() != "")
                 {
                     var db = new BrgyContext();
-                    var matchedUser = db.Users.Where(u => u.Username == user.Trim() ).ToList().First();
-                    if(matchedUser != null)
+                    var matchedUsers = db.Users.Where(u => u.Username == user.Trim() ).ToList();
+                    if(matchedUsers.Count == 1)
                     {
-                        return matchedUser;
+                        return matchedUsers.First();
                     }
                 }
                 return null;
