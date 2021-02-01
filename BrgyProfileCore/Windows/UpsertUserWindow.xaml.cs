@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using BrgyProfileCore.Core;
 using System.Linq;
 using PasswordHashing;
+using BrgyProfileCore.Core;
 
 namespace BrgyProfileCore.Windows
 {
@@ -20,10 +21,19 @@ namespace BrgyProfileCore.Windows
     /// </summary>
     public partial class UpsertUserWindow : Window
     {
+        BrgyContext db = new BrgyContext();
         User user;
         public UpsertUserWindow()
         {
             InitializeComponent();
+        }
+        public UpsertUserWindow(User user)
+        {
+            InitializeComponent();
+
+            this.user = db.Users.Where(u => u.UserId == user.UserId).ToList().First();
+            newUsernameBox.Text = user.Username;
+            nameBox.Text = user.Name;
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
@@ -45,12 +55,24 @@ namespace BrgyProfileCore.Windows
                 return;
             }
 
-            var db = new BrgyContext();
             var existingUsers = db.Users.Where(u => u.Username == username).ToList();
             if (existingUsers.Count > 0)
             {
-                MessageBox.Show($"{username} is already used.", "Invalid Username", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                return;
+                var willValidate = false;
+                if (this.user == null)
+                {
+                    willValidate = true;
+                }
+                else
+                {
+                    willValidate = existingUsers.First().UserId != this.user.UserId;
+                }
+
+                if (willValidate)
+                {
+                    MessageBox.Show($"{username} is already used.", "Invalid Username", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    return;
+                }
             }
 
             Func<string, string> hashedPassword = (password) =>
@@ -94,7 +116,35 @@ namespace BrgyProfileCore.Windows
             }
             else
             {
+                // Is Editing
+                this.user.Username = username;
+                this.user.Name = name;
 
+                if(password != "" || confirm != "")
+                {
+                    // will update password
+                    if (password == "")
+                    {
+                        MessageBox.Show("Password must not be empty.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
+                    }
+
+                    if (confirm == "")
+                    {
+                        MessageBox.Show("Confirm password must not be empty.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
+                    }
+
+                    if (password != confirm)
+                    {
+                        MessageBox.Show("Passwords don't match!", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        return;
+                    }
+
+                    this.user.Password = hashedPassword(password);
+                }
+
+                db.Update(this.user);
             }
 
             db.SaveChanges();

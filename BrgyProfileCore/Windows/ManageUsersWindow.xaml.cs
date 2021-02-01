@@ -97,7 +97,13 @@ namespace BrgyProfileCore.Windows
 
         private void EditUserButton_Click(object sender, RoutedEventArgs e)
         {
+            if (selectedUser == null) 
+            { 
+                return;
+            }
 
+            var window = new UpsertUserWindow(selectedUser);
+            window.ShowDialog();
         }
     }
 }
