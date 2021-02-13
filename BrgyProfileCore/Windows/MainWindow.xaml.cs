@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace BrgyProfileCore.Windows
 {
@@ -197,6 +198,21 @@ namespace BrgyProfileCore.Windows
                 var window = new LoginWindow();
                 window.mainWindow = this;
                 window.ShowDialog();
+            }
+        }
+
+        private void reportButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = "xls";
+            dialog.Filter = "Spreadsheet Files |*.xls";
+            dialog.AddExtension = true;
+            var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
+            dialog.FileName = $"Report{datesuffix}.xls";
+
+            if (dialog.ShowDialog() == true)
+            {
+                PrintHelper.ExportReportSheet(dialog.FileName);
             }
         }
     }

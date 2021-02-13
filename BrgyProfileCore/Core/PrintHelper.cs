@@ -12,7 +12,7 @@ using PDFtoPrinter;
 
 namespace BrgyProfileCore.Core
 {
-    
+
     static class PrintHelper
     {
         public static List<String> residentHeaders
@@ -21,7 +21,7 @@ namespace BrgyProfileCore.Core
             {
                 return new List<String>(){
                     // A
-                    "Household No.", 
+                    "Household No.",
                     "Family No.",
                     "Line No.",
                     "Name of Household Member",
@@ -35,7 +35,7 @@ namespace BrgyProfileCore.Core
                     "Highest Educational Attainment",
 
                     // K
-                    "Grade/Year Level of School Attendance", 
+                    "Grade/Year Level of School Attendance",
                     "Reason for Dropping Out of School",
                     "Religious Affiliation",
                     "Special Skills",
@@ -375,14 +375,14 @@ namespace BrgyProfileCore.Core
 
             var settings = Properties.Settings.Default;
 
-            var processed = Helpers.ReplaceString(html, 
-                "<!-- sample -->", 
-                "<!-- end sample-->", 
+            var processed = Helpers.ReplaceString(html,
+                "<!-- sample -->",
+                "<!-- end sample-->",
                 tableRowsBuilder.ToString());
 
-            processed = Helpers.ReplaceString(processed, 
-                "<!-- Province Name -->", 
-                "<!-- End Province Name -->", 
+            processed = Helpers.ReplaceString(processed,
+                "<!-- Province Name -->",
+                "<!-- End Province Name -->",
                 settings.Province.ToUpper());
             processed = Helpers.ReplaceString(processed,
                 "<!-- Municipality Name -->",
@@ -436,6 +436,63 @@ namespace BrgyProfileCore.Core
                 var options = new PrintingOptions(printername, pdfPath);
                 printer.Print(options);
             }
+        }
+
+        public static void ExportReportSheet(string filename = "Report.xls")
+        {
+            var sl = new SLDocument();
+            /// By Age
+            sl.RenameWorksheet("Sheet1", "Residents by Age");
+
+            SLStyle style = sl.CreateStyle();
+            style.SetWrapText(true);
+            style.Alignment.Horizontal = DocumentFormat.OpenXml.Spreadsheet.HorizontalAlignmentValues.Center;
+            style.Alignment.Vertical = DocumentFormat.OpenXml.Spreadsheet.VerticalAlignmentValues.Center;
+
+            //// Headers
+
+            ///// NAME HEADER
+            sl.SetCellValue("B1", "Residents by Age");
+            sl.SetCellStyle("B1", style);
+
+            sl.SetCellValue("A2", "0-3 yrs");
+            sl.SetCellStyle("A2", style);
+            sl.SetCellValue("B2", BrgyStatistics.TotalResidentsByAge(0, 3));
+
+            sl.SetCellValue("A3", "4-6 yrs");
+            sl.SetCellStyle("A3", style);
+            sl.SetCellValue("B3", BrgyStatistics.TotalResidentsByAge(4, 6));
+
+            sl.SetCellValue("A4", "7-11 yrs");
+            sl.SetCellStyle("A4", style);
+            sl.SetCellValue("B4", BrgyStatistics.TotalResidentsByAge(7, 11));
+
+            sl.SetCellValue("A5", "12-20 yrs");
+            sl.SetCellStyle("A5", style);
+            sl.SetCellValue("B5", BrgyStatistics.TotalResidentsByAge(12, 20));
+
+            sl.SetCellValue("A6", "21-35 yrs");
+            sl.SetCellStyle("A6", style);
+            sl.SetCellValue("B6", BrgyStatistics.TotalResidentsByAge(21, 35));
+
+            sl.SetCellValue("A7", "36-50 yrs");
+            sl.SetCellStyle("A7", style);
+            sl.SetCellValue("B7", BrgyStatistics.TotalResidentsByAge(36, 50));
+
+            sl.SetCellValue("A8", "51-80 yrs");
+            sl.SetCellStyle("A8", style);
+            sl.SetCellValue("B8", BrgyStatistics.TotalResidentsByAge(51, 80));
+
+            sl.SetCellValue("A9", "81 yrs and above");
+            sl.SetCellStyle("A9", style);
+            sl.SetCellValue("B9", BrgyStatistics.TotalResidentsByAge(81));
+
+            // Create the Chart
+            var chart = sl.CreateChart("Residents by Age", "A1", "B9");
+            sl.InsertChart(chart);
+
+            //Save the excel file
+            sl.SaveAs(filename);
         }
 
         public static string NumberToString(int value)
