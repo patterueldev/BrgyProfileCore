@@ -126,5 +126,26 @@ namespace BrgyProfileCore
                 return Sitio.SitioName;
             }
         }
+
+        public double ParsedIncome
+        {
+            get
+            {
+                if(TotalActualIncomeofEarningMember == null)
+                {
+                    return 0;
+                }
+
+                double income;
+                if(double.TryParse(TotalActualIncomeofEarningMember, out income))
+                {
+                    return income;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
     }
 }

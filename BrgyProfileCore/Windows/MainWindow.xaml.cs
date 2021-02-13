@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace BrgyProfileCore.Windows
 {
@@ -71,16 +72,20 @@ namespace BrgyProfileCore.Windows
         private void Window_Activated(object sender, EventArgs e)
         {
             this.refreshList();
+            BrgyStatistics.RefreshStatistics();
 
             BrgyNameLabel.Content = BrgyProfileCore.Properties.Settings.Default.BrgyName;
             MunicipalityLabel.Content = BrgyProfileCore.Properties.Settings.Default.Municipality;
             ProvinceLabel.Content = BrgyProfileCore.Properties.Settings.Default.Province;
 
-            AverageResidentperHouseholdDetail.FieldValueText = $"{BrgyStatistics.AverageResidentPerHousehold}";
-            AveragePopulationperSitioDetail.FieldValueText = $"{BrgyStatistics.AveragePopulationperSitio}";
-            AverageResident1_18perSitioDetail.FieldValueText = $"{BrgyStatistics.AverageResident1_18perSitio}";
-            AverageResident19_50perSitioDetail.FieldValueText = $"{BrgyStatistics.AverageResident19_50perSitio}";
-            AverageResident50_AboveperSitioDetail.FieldValueText = $"{BrgyStatistics.AverageResident51_AboveperSitio}";
+            ResidentsAge0_3yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(0, 3)}";
+            ResidentsAge4_6yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(4, 6)}";
+            ResidentsAge7_11yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(7, 11)}";
+            ResidentsAge12_20yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(12, 20)}";
+            ResidentsAge21_35yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(21, 35)}";
+            ResidentsAge36_50yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(36, 50)}";
+            ResidentsAge51_80yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(51, 80)}";
+            ResidentsAge81_aboveyrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(81)}";
         }
 
         /// <summary>
@@ -193,6 +198,21 @@ namespace BrgyProfileCore.Windows
                 var window = new LoginWindow();
                 window.mainWindow = this;
                 window.ShowDialog();
+            }
+        }
+
+        private void reportButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = "xls";
+            dialog.Filter = "Spreadsheet Files |*.xls";
+            dialog.AddExtension = true;
+            var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
+            dialog.FileName = $"Report{datesuffix}.xls";
+
+            if (dialog.ShowDialog() == true)
+            {
+                PrintHelper.ExportReportSheet(dialog.FileName);
             }
         }
     }

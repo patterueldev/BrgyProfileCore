@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using SpreadsheetLight;
+using SpreadsheetLight.Charts;
 using System.Windows.Controls;
 using System.IO;
 using System.Reflection;
 using System.Printing;
 using System.Diagnostics;
 using PDFtoPrinter;
-
 namespace BrgyProfileCore.Core
 {
-    
+
     static class PrintHelper
     {
         public static List<String> residentHeaders
@@ -21,7 +21,7 @@ namespace BrgyProfileCore.Core
             {
                 return new List<String>(){
                     // A
-                    "Household No.", 
+                    "Household No.",
                     "Family No.",
                     "Line No.",
                     "Name of Household Member",
@@ -35,7 +35,7 @@ namespace BrgyProfileCore.Core
                     "Highest Educational Attainment",
 
                     // K
-                    "Grade/Year Level of School Attendance", 
+                    "Grade/Year Level of School Attendance",
                     "Reason for Dropping Out of School",
                     "Religious Affiliation",
                     "Special Skills",
@@ -77,13 +77,14 @@ namespace BrgyProfileCore.Core
                 };
             }
         }
-        public static void printResidents(List<Resident> residents, string filename = "Residents.xls")
+        public static void ExportResidentsSheet(List<Resident> residents, string filename = "Residents.xls")
         {
             //Create new Excel WorkBook document. 
             //The default file format is XLSX, but we can override that for legacy support
             var sl = new SLDocument();
-            sl.AddWorksheet("Residents");
-            sl.SelectWorksheet("Residents");
+            sl.RenameWorksheet("Sheet1", "Residents");
+            //sl.AddWorksheet("Residents");
+            //sl.SelectWorksheet("Residents");
 
             //Add data and styles to the new worksheet
             residentHeaders.ForEach(header =>
@@ -171,12 +172,10 @@ namespace BrgyProfileCore.Core
             sl.SaveAs(filename);
         }
 
-        public static void printRBI(List<Resident> residents, string filename = "RBI.xls")
+        public static void ExportRBISheet(List<Resident> residents, string filename = "RBI.xls")
         {
             var sl = new SLDocument();
-            sl.AddWorksheet("Household");
-            sl.SelectWorksheet("Household");
-
+            sl.RenameWorksheet("Sheet1", "Household");
 
             SLStyle style = sl.CreateStyle();
             style.SetWrapText(true);
@@ -376,14 +375,14 @@ namespace BrgyProfileCore.Core
 
             var settings = Properties.Settings.Default;
 
-            var processed = Helpers.ReplaceString(html, 
-                "<!-- sample -->", 
-                "<!-- end sample-->", 
+            var processed = Helpers.ReplaceString(html,
+                "<!-- sample -->",
+                "<!-- end sample-->",
                 tableRowsBuilder.ToString());
 
-            processed = Helpers.ReplaceString(processed, 
-                "<!-- Province Name -->", 
-                "<!-- End Province Name -->", 
+            processed = Helpers.ReplaceString(processed,
+                "<!-- Province Name -->",
+                "<!-- End Province Name -->",
                 settings.Province.ToUpper());
             processed = Helpers.ReplaceString(processed,
                 "<!-- Municipality Name -->",
@@ -437,6 +436,107 @@ namespace BrgyProfileCore.Core
                 var options = new PrintingOptions(printername, pdfPath);
                 printer.Print(options);
             }
+        }
+
+        public static void ExportReportSheet(string filename = "Report.xls")
+        {
+            BrgyStatistics.RefreshStatistics();
+            var sl = new SLDocument();
+
+            // Set Resident By Age Report
+            var residentsByAge = BrgyStatistics.SitioResidentsByAgeReport();
+            SetResidentReport(sl,
+                residentsByAge,
+                "By Age",
+                "Residents by Age");
+
+            // Create another worksheet
+            var residentsByMaritalStatus = BrgyStatistics.SitioResidentsByMaritalStatusReport();
+            SetResidentReport(sl,
+                residentsByMaritalStatus,
+                "By Marital Status",
+                "Residents by Marital Status");
+
+            //Create more worksheet
+            var residentByEducationalAttainment = BrgyStatistics.SitioResidentsByEducationalAttainmentReport();
+            SetResidentReport(sl,
+                residentByEducationalAttainment,
+                "By Educational Attainment",
+                "Residents by Highest Educational Attainment");
+
+            var residentsByReligion = BrgyStatistics.SitioResidentsByReligionReport();
+            SetResidentReport(sl,
+                residentsByReligion,
+                "By Religion",
+                "Residents by Religion");
+
+            var residentsByDisability = BrgyStatistics.SitioResidentsByDisabilityReport();
+            SetResidentReport(sl,
+                residentsByDisability,
+                "By Disability",
+                "Residents by Disability");
+
+            var residentsByMembership = BrgyStatistics.SitioResidentsByMembershipReport();
+            SetResidentReport(sl,
+                residentsByMembership,
+                "By Membership",
+                "Residents by Membership");
+
+            var residentsByIncome = BrgyStatistics.SitioResidentsByIncomeReport();
+            SetResidentReport(sl,
+                residentsByIncome,
+                "By Income",
+                "Residents by Income");
+
+            sl.DeleteWorksheet("Sheet1");
+            sl.SaveAs(filename);
+        }
+        private static void SetResidentReport(SLDocument sl, List<SitioResidentReport> reports, string worksheetName, string header)
+        {
+            SLStyle style = sl.CreateStyle();
+            style.SetWrapText(true);
+            style.Alignment.Horizontal = DocumentFormat.OpenXml.Spreadsheet.HorizontalAlignmentValues.Center;
+            style.Alignment.Vertical = DocumentFormat.OpenXml.Spreadsheet.VerticalAlignmentValues.Center;
+
+            /// By Age
+            sl.AddWorksheet(worksheetName);
+            sl.SelectWorksheet(worksheetName);
+
+            ///// NAME HEADER
+            sl.SetCellValue("A1", header);
+            sl.SetCellStyle("A1", style);
+
+            var rows = 0;
+            var lastCell = "A1";
+            //// Headers
+            reports.ForEach(r =>
+            {
+                var col = reports.IndexOf(r) + 2;
+                var cellColumn = NumberToString(col) + "1";
+                sl.SetCellValue(cellColumn, r.sitio);
+
+                r.ranges.ForEach(rng =>
+                {
+                    var row = r.ranges.IndexOf(rng) + 2;
+                    var cellColumn = NumberToString(col) + row;
+
+                    sl.SetCellValue($"A{row}", rng.rangeTitle);
+                    sl.SetCellStyle($"A{row}", style);
+                    sl.SetCellValue(cellColumn, rng.residents);
+
+                    lastCell = cellColumn;
+                });
+
+                rows = r.ranges.Count();
+            });
+
+            // Create the Chart
+            var options = new SLCreateChartOptions();
+            options.RowsAsDataSeries = false;
+            var chart = sl.CreateChart(worksheetName, "A1", lastCell, options);
+            chart.SetChartType(SpreadsheetLight.Charts.SLColumnChartType.ClusteredColumn);
+            chart.SetChartPosition(rows + 3, 0, rows + 18, reports.Count() * 1 * rows);
+            sl.InsertChart(chart);
         }
 
         public static string NumberToString(int value)

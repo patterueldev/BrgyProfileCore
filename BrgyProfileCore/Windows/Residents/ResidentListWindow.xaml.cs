@@ -295,5 +295,26 @@ namespace BrgyProfileCore.Windows.Residents
                 PrintHelper.PrintResidentsToPDF(residents, "test", true, dialog.SelectedPrinter);
             }
         }
+
+        private void exportXLS_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = "xls";
+            dialog.Filter = "Spreadsheet Files |*.xls";
+            dialog.AddExtension = true;
+            var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
+            dialog.FileName = $"Residents{datesuffix}.xls";
+
+            if (dialog.ShowDialog() == true)
+            {
+                var db = new BrgyContext();
+                var residents = db.Residents
+                .Include(r => r.Household)
+                .Include(r => r.Sitio)
+                .ToList();
+
+                PrintHelper.ExportResidentsSheet(residents, dialog.FileName);
+            }
+        }
     }
 }

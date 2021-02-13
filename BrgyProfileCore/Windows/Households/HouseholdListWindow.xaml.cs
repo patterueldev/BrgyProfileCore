@@ -121,6 +121,7 @@ namespace BrgyProfileCore.Windows.Households
             DeleteHouseholdButton.IsEnabled = idx >= 0;
             printRBIButton.IsEnabled = idx >= 0;
             exportRBIButton.IsEnabled = idx >= 0;
+            exportSheetButton.IsEnabled = idx >= 0;
         }
 
         /// <summary>
@@ -212,6 +213,41 @@ namespace BrgyProfileCore.Windows.Households
                 });
 
                 PrintHelper.PrintHouseholdToPDF(residents, dialog.FileName, false);
+            }
+        }
+
+        private void exportSheetButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedHousehold == null)
+            {
+                return;
+            }
+
+            var household = selectedHousehold;
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = "xls";
+            dialog.Filter = "Spreadsheet Files |*.xls";
+            dialog.AddExtension = true;
+            var datesuffix = DateTime.Now.ToString("_MM-dd_HH-mm-ss");
+            dialog.FileName = $"RBI{datesuffix}.xls";
+
+            if (dialog.ShowDialog() == true)
+            {
+                var db = new BrgyContext();
+                var residents = db.Residents
+                .Include(r => r.Household)
+                .Include(r => r.Sitio)
+                .ToList()
+                .FindAll(resident =>
+                {
+                    if (household == null)
+                    {
+                        return false;
+                    }
+                    return resident.HouseholdId == household.HouseholdId;
+                });
+
+                PrintHelper.ExportRBISheet(residents, dialog.FileName);
             }
         }
     }

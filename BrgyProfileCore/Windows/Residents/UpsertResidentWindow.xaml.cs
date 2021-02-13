@@ -137,6 +137,20 @@ namespace BrgyProfileCore.Windows.Residents
                 return;
             }
 
+            if (!IsNullOrEmpty(resident.TotalActualIncomeofEarningMember))
+            {
+                double income;
+                if (double.TryParse(resident.TotalActualIncomeofEarningMember, out income))
+                {
+                    // success
+                }
+                else
+                {
+                    this.ShowInvalidInputMessage("Total Actual Income of Earning Member is not valid.");
+                    return;
+                }
+
+            }
             var household = (Household)this.HouseholdBox.SelectedItem;
             var sitio = (Sitio)this.SitioBox.SelectedItem;
 
