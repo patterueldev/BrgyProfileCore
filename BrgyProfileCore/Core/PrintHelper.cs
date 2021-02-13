@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using SpreadsheetLight;
+using SpreadsheetLight.Charts;
 using System.Windows.Controls;
 using System.IO;
 using System.Reflection;
 using System.Printing;
 using System.Diagnostics;
 using PDFtoPrinter;
-
 namespace BrgyProfileCore.Core
 {
 
@@ -531,7 +531,9 @@ namespace BrgyProfileCore.Core
             });
 
             // Create the Chart
-            var chart = sl.CreateChart(worksheetName, "A1", lastCell);
+            var options = new SLCreateChartOptions();
+            options.RowsAsDataSeries = false;
+            var chart = sl.CreateChart(worksheetName, "A1", lastCell, options);
             chart.SetChartType(SpreadsheetLight.Charts.SLColumnChartType.ClusteredColumn);
             chart.SetChartPosition(rows + 3, 0, rows + 18, reports.Count() * 1 * rows);
             sl.InsertChart(chart);
