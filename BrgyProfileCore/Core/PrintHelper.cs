@@ -469,6 +469,12 @@ namespace BrgyProfileCore.Core
                 "By Religion",
                 "Residents by Religion");
 
+            var residentsByDisability = BrgyStatistics.SitioResidentsByDisabilityReport();
+            SetResidentReport(sl,
+                residentsByDisability,
+                "By Disability",
+                "Residents by Disability");
+
             sl.DeleteWorksheet("Sheet1");
             sl.SaveAs(filename);
         }

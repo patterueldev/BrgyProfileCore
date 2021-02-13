@@ -337,6 +337,64 @@ namespace BrgyProfileCore.Core
             }
             return reports;
         }
+        public static List<SitioResidentReport> SitioResidentsByDisabilityReport()
+        {
+            var reports = new List<SitioResidentReport>();
+
+            sitio.ForEach(s =>
+            {
+                var ranges = new List<SitioResidentReport.ResidentsRange>();
+                ranges.Add(new SitioResidentReport.ResidentsRange
+                {
+                    rangeTitle = "With Disability",
+                    residents = s.Residents.Where(r => r.Disability != null && r.Disability.Trim() != "").Count()
+                });
+
+                var unspecified = s.Residents.Where(r => r.Disability == null || r.Disability.Trim() == "").Count();
+                if (unspecified > 0)
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = "Without Disability",
+                        residents = unspecified
+                    });
+                }
+
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = s.SitioName,
+                        ranges = ranges
+                    });
+            });
+
+            var unspecified = residents.Where(r => r.Sitio == null).Count();
+            if (unspecified > 0)
+            {
+                var ranges = new List<SitioResidentReport.ResidentsRange>();
+                ranges.Add(new SitioResidentReport.ResidentsRange
+                {
+                    rangeTitle = "With Disability",
+                    residents = residents.Where(r => r.Sitio == null).Where(r => r.Disability != null && r.Disability.Trim() != "").Count()
+                });
+                var unspecifiedStatus = residents.Where(r => r.Sitio == null).Where(r => r.Disability == null || r.Disability.Trim() == "").Count();
+                if (unspecifiedStatus > 0)
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = "Without Disability",
+                        residents = unspecified
+                    });
+                }
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = "Unspecified",
+                        ranges = ranges
+                    });
+            }
+            return reports;
+        }
 
         public static int AverageResidentPerHousehold {
             get {
