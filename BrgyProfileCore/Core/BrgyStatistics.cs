@@ -11,16 +11,16 @@ namespace BrgyProfileCore.Core
         public int max;
     }
 
-    struct SitioAgeReport
+    struct SitioResidentReport
     {
-        public struct AgeRange
+        public struct ResidentsRange
         {
             public string rangeTitle;
             public int residents;
         }
 
         public string sitio;
-        public List<AgeRange> ranges;
+        public List<ResidentsRange> ranges;
     }
     class BrgyStatistics
     {
@@ -47,7 +47,7 @@ namespace BrgyProfileCore.Core
             }
             return s.Residents.Where(r => r.Age >= min && (max == 0 || r.Age <= max)).Count();
         }
-        public static List<SitioAgeReport> SitioResidentsByAgeReport()
+        public static List<SitioResidentReport> SitioResidentsByAgeReport()
         {
             var pairs = new List<MinMaxPair>()
             {
@@ -61,14 +61,14 @@ namespace BrgyProfileCore.Core
                 new MinMaxPair{ min = 81, max = 0 },
             };
 
-            var reports = new List<SitioAgeReport>();
+            var reports = new List<SitioResidentReport>();
 
             sitio.ForEach(s =>
             {
-                var ageRanges = new List<SitioAgeReport.AgeRange>();
+                var ageRanges = new List<SitioResidentReport.ResidentsRange>();
                 foreach (var p in pairs)
                 {
-                    ageRanges.Add(new SitioAgeReport.AgeRange
+                    ageRanges.Add(new SitioResidentReport.ResidentsRange
                     {
                         rangeTitle = p.max > 0 ? $"{p.min} to {p.max} yrs" : $"{p.min} yrs and above",
                         residents = TotalSitioResidentsByAge(s, p.min, p.max)
@@ -76,7 +76,7 @@ namespace BrgyProfileCore.Core
                 }
 
                 reports.Add(
-                    new SitioAgeReport
+                    new SitioResidentReport
                     {
                         sitio = s.SitioName,
                         ranges = ageRanges
@@ -86,17 +86,17 @@ namespace BrgyProfileCore.Core
             var unspecified = residents.Where(r => r.Sitio == null).Count();
             if (unspecified > 0)
             {
-                var ageRanges = new List<SitioAgeReport.AgeRange>();
+                var ageRanges = new List<SitioResidentReport.ResidentsRange>();
                 pairs.ForEach(p =>
                 {
-                    ageRanges.Add(new SitioAgeReport.AgeRange
+                    ageRanges.Add(new SitioResidentReport.ResidentsRange
                     {
                         rangeTitle = p.max > 0 ? $"{p.min} to {p.max} yrs" : $"{p.min} yrs and above",
                         residents = TotalSitioResidentsByAge(null, p.min, p.max)
                     });
                 });
                 reports.Add(
-                    new SitioAgeReport
+                    new SitioResidentReport
                     {
                         sitio = "Unspecified",
                         ranges = ageRanges
@@ -104,6 +104,82 @@ namespace BrgyProfileCore.Core
             }
             return reports;
         }
+        public static List<SitioResidentReport> SitioResidentsByMaritalStatusReport()
+        {
+            var statuses = new List<string>()
+            {
+                "Single",
+                "Married",
+                "Divorced",
+                "Widowed",
+                "Separated",
+            };
+
+            var reports = new List<SitioResidentReport>();
+
+            sitio.ForEach(s =>
+            {
+                var maritalRanges = new List<SitioResidentReport.ResidentsRange>();
+                foreach (var status in statuses)
+                {
+                    maritalRanges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = status,
+                        residents = s.Residents.Where(r => r.MaritalStatus == status).Count()
+                    });
+                }
+
+                var unspecified = s.Residents.Where(r => r.MaritalStatus == "").Count();
+                if (unspecified > 0)
+                {
+                    maritalRanges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = "Unspecified Status",
+                        residents = unspecified
+                    });
+                }
+
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = s.SitioName,
+                        ranges = maritalRanges
+                    });
+            });
+
+            var unspecified = residents.Where(r => r.Sitio == null).Count();
+            if (unspecified > 0)
+            {
+                var maritalRanges = new List<SitioResidentReport.ResidentsRange>();
+                statuses.ForEach(status =>
+                {
+                    maritalRanges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = status,
+                        residents = residents.Where(r => r.Sitio == null).Where(r => r.MaritalStatus == status).Count()
+                    });
+
+
+                });
+                var unspecifiedStatus = residents.Where(r => r.Sitio == null).Where(r => r.MaritalStatus == "").Count();
+                if (unspecifiedStatus > 0)
+                {
+                    maritalRanges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = "Unspecified Status",
+                        residents = unspecified
+                    });
+                }
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = "Unspecified",
+                        ranges = maritalRanges
+                    });
+            }
+            return reports;
+        }
+
         public static int AverageResidentPerHousehold {
             get {
                 var Households = db.Households.Include(h => h.Residents).ToList();
