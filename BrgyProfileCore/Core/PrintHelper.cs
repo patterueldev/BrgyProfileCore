@@ -463,7 +463,7 @@ namespace BrgyProfileCore.Core
                 "By Educational Attainment",
                 "Residents by Highest Educational Attainment");
 
-            sl.DeleteWorkspace("Sheet1");
+            sl.DeleteWorksheet("Sheet1");
             sl.SaveAs(filename);
         }
         private static void SetResidentReport(SLDocument sl, List<SitioResidentReport> reports, string worksheetName, string header)
