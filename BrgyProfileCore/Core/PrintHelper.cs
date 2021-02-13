@@ -117,7 +117,7 @@ namespace BrgyProfileCore.Core
                 sl.SetCellValue($"F{row}", resident.Gender);
                 sl.SetCellValue($"G{row}", resident.MaritalStatus);
                 sl.SetCellValue($"H{row}", resident.DateOfBirth.ToString("MM/dd/yyyy"));
-                sl.SetCellValue($"I{row}", resident.GetAge());
+                sl.SetCellValue($"I{row}", resident.Age);
                 sl.SetCellValue($"J{row}", resident.HighestEducationalAttainment);
 
                 sl.SetCellValue($"K{row}", resident.Grade_YearLevelofSchoolAttendance);
@@ -449,46 +449,34 @@ namespace BrgyProfileCore.Core
             style.Alignment.Horizontal = DocumentFormat.OpenXml.Spreadsheet.HorizontalAlignmentValues.Center;
             style.Alignment.Vertical = DocumentFormat.OpenXml.Spreadsheet.VerticalAlignmentValues.Center;
 
-            //// Headers
-
             ///// NAME HEADER
-            sl.SetCellValue("B1", "Residents by Age");
-            sl.SetCellStyle("B1", style);
+            sl.SetCellValue("A1", "Residents by Age");
+            sl.SetCellStyle("A1", style);
 
-            sl.SetCellValue("A2", "0-3 yrs");
-            sl.SetCellStyle("A2", style);
-            sl.SetCellValue("B2", BrgyStatistics.TotalResidentsByAge(0, 3));
+            var lastCell = "A1";
+            var reports = BrgyStatistics.SitioResidentsByAgeReport();
+            //// Headers
+            reports.ForEach(r =>
+            {
+                var col = reports.IndexOf(r) + 2;
+                var cellColumn = NumberToString(col) + "1";
+                sl.SetCellValue(cellColumn, r.sitio);
 
-            sl.SetCellValue("A3", "4-6 yrs");
-            sl.SetCellStyle("A3", style);
-            sl.SetCellValue("B3", BrgyStatistics.TotalResidentsByAge(4, 6));
+                r.ranges.ForEach(rng =>
+                {
+                    var row = r.ranges.IndexOf(rng) + 2;
+                    var cellColumn = NumberToString(col) + row;
 
-            sl.SetCellValue("A4", "7-11 yrs");
-            sl.SetCellStyle("A4", style);
-            sl.SetCellValue("B4", BrgyStatistics.TotalResidentsByAge(7, 11));
+                    sl.SetCellValue($"A{row}", rng.rangeTitle);
+                    sl.SetCellStyle($"A{row}", style);
+                    sl.SetCellValue(cellColumn, rng.residents);
 
-            sl.SetCellValue("A5", "12-20 yrs");
-            sl.SetCellStyle("A5", style);
-            sl.SetCellValue("B5", BrgyStatistics.TotalResidentsByAge(12, 20));
-
-            sl.SetCellValue("A6", "21-35 yrs");
-            sl.SetCellStyle("A6", style);
-            sl.SetCellValue("B6", BrgyStatistics.TotalResidentsByAge(21, 35));
-
-            sl.SetCellValue("A7", "36-50 yrs");
-            sl.SetCellStyle("A7", style);
-            sl.SetCellValue("B7", BrgyStatistics.TotalResidentsByAge(36, 50));
-
-            sl.SetCellValue("A8", "51-80 yrs");
-            sl.SetCellStyle("A8", style);
-            sl.SetCellValue("B8", BrgyStatistics.TotalResidentsByAge(51, 80));
-
-            sl.SetCellValue("A9", "81 yrs and above");
-            sl.SetCellStyle("A9", style);
-            sl.SetCellValue("B9", BrgyStatistics.TotalResidentsByAge(81));
+                    lastCell = cellColumn;
+                });
+            });
 
             // Create the Chart
-            var chart = sl.CreateChart("Residents by Age", "A1", "B9");
+            var chart = sl.CreateChart("Residents by Age per Sitio", "A1", lastCell);
             sl.InsertChart(chart);
 
             //Save the excel file

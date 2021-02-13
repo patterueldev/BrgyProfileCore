@@ -85,19 +85,22 @@ namespace BrgyProfileCore
             }
         }
 
-        public int GetAge()
+        public int Age
         {
-            if (DateOfBirth != null)
+            get
             {
-                var now = DateTime.Now;
-                int years = DateTime.Now.Year - DateOfBirth.Year;
-                if (now.Month < DateOfBirth.Month || now.Day < DateOfBirth.Day)
+                if (DateOfBirth != null)
                 {
-                    years -= 1;
+                    var now = DateTime.Now;
+                    int years = DateTime.Now.Year - DateOfBirth.Year;
+                    if (now.Month < DateOfBirth.Month || now.Day < DateOfBirth.Day)
+                    {
+                        years -= 1;
+                    }
+                    return years;
                 }
-                return years;
+                return 0;
             }
-            return 0;
         }
 
         public string HouseholdName
