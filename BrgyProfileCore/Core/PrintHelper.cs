@@ -463,6 +463,12 @@ namespace BrgyProfileCore.Core
                 "By Educational Attainment",
                 "Residents by Highest Educational Attainment");
 
+            var residentsByReligion = BrgyStatistics.SitioResidentsByReligionReport();
+            SetResidentReport(sl,
+                residentsByReligion,
+                "By Religion",
+                "Residents by Religion");
+
             sl.DeleteWorksheet("Sheet1");
             sl.SaveAs(filename);
         }

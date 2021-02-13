@@ -258,6 +258,85 @@ namespace BrgyProfileCore.Core
             }
             return reports;
         }
+        public static List<SitioResidentReport> SitioResidentsByReligionReport()
+        {
+            var religions = new List<string>();
+            foreach (var r in residents)
+            {
+                if (r.Religion == null || r.Religion.Trim() == "")
+                {
+                    continue;
+                }
+                if (!religions.Contains(r.Religion))
+                {
+                    religions.Add(r.Religion);
+                }
+            }
+
+            var reports = new List<SitioResidentReport>();
+
+            sitio.ForEach(s =>
+            {
+                var ranges = new List<SitioResidentReport.ResidentsRange>();
+                foreach (var religion in religions)
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = religion,
+                        residents = s.Residents.Where(r => r.Religion == religion).Count()
+                    });
+                }
+
+                var unspecified = s.Residents.Where(r => r.Religion == null || r.Religion.Trim() == "").Count();
+                if (unspecified > 0)
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = "Unspecified Religion",
+                        residents = unspecified
+                    });
+                }
+
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = s.SitioName,
+                        ranges = ranges
+                    });
+            });
+
+            var unspecified = residents.Where(r => r.Sitio == null).Count();
+            if (unspecified > 0)
+            {
+                var ranges = new List<SitioResidentReport.ResidentsRange>();
+                religions.ForEach(religion =>
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = religion,
+                        residents = residents.Where(r => r.Sitio == null).Where(r => r.Religion == religion).Count()
+                    });
+
+
+                });
+                var unspecifiedStatus = residents.Where(r => r.Sitio == null).Where(r => r.Religion == null || r.Religion.Trim() == "").Count();
+                if (unspecifiedStatus > 0)
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = "Unspecified Religion",
+                        residents = unspecified
+                    });
+                }
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = "Unspecified",
+                        ranges = ranges
+                    });
+            }
+            return reports;
+        }
 
         public static int AverageResidentPerHousehold {
             get {
