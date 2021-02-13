@@ -395,6 +395,114 @@ namespace BrgyProfileCore.Core
             }
             return reports;
         }
+        public static List<SitioResidentReport> SitioResidentsByMembershipReport()
+        {
+            var reports = new List<SitioResidentReport>();
+
+            sitio.ForEach(s =>
+            {
+                var ranges = new List<SitioResidentReport.ResidentsRange>();
+                ranges.Add(new SitioResidentReport.ResidentsRange
+                {
+                    rangeTitle = "Indigenous Members",
+                    residents = s.Residents.Where(r => r.IndigenousPeopleMembership != null && r.IndigenousPeopleMembership.Trim() != "").Count()
+                });
+
+                ranges.Add(new SitioResidentReport.ResidentsRange
+                {
+                    rangeTitle = "PhilHealth Members",
+                    residents = s.Residents.Where(r => r.PHICMembershipSponsor != null && r.PHICMembershipSponsor.Trim() != "").Count()
+                });
+
+                ranges.Add(new SitioResidentReport.ResidentsRange
+                {
+                    rangeTitle = "NHTS",
+                    residents = s.Residents.Where(r => r.NHTS != null && r.NHTS.Trim() != "").Count()
+                });
+
+                ranges.Add(new SitioResidentReport.ResidentsRange
+                {
+                    rangeTitle = "4P's",
+                    residents = s.Residents.Where(r => r.Four_Ps != null && r.Four_Ps.Trim() != "").Count()
+                });
+
+                var unspecified = s.Residents.Where(r => {
+                    return ( r.IndigenousPeopleMembership == null || r.IndigenousPeopleMembership.Trim() == "" ) &&
+                            ( r.PHICMembershipSponsor == null || r.PHICMembershipSponsor.Trim() == "") &&
+                            ( r.NHTS == null || r.NHTS.Trim() == "" ) &&
+                            ( r.Four_Ps == null || r.Four_Ps.Trim() == "" );
+                }).Count();
+
+                if (unspecified > 0)
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = "No Membership",
+                        residents = unspecified
+                    });
+                }
+
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = s.SitioName,
+                        ranges = ranges
+                    });
+            });
+
+            var unspecified = residents.Where(r => r.Sitio == null).Count();
+            if (unspecified > 0)
+            {
+                var ranges = new List<SitioResidentReport.ResidentsRange>();
+                ranges.Add(new SitioResidentReport.ResidentsRange
+                {
+                    rangeTitle = "Indigenous Members",
+                    residents = residents.Where(r => r.Sitio == null).Where(r => r.IndigenousPeopleMembership != null && r.IndigenousPeopleMembership.Trim() != "").Count()
+                });
+
+                ranges.Add(new SitioResidentReport.ResidentsRange
+                {
+                    rangeTitle = "PhilHealth Members",
+                    residents = residents.Where(r => r.Sitio == null).Where(r => r.PHICMembershipSponsor != null && r.PHICMembershipSponsor.Trim() != "").Count()
+                });
+
+                ranges.Add(new SitioResidentReport.ResidentsRange
+                {
+                    rangeTitle = "NHTS",
+                    residents = residents.Where(r => r.Sitio == null).Where(r => r.NHTS != null && r.NHTS.Trim() != "").Count()
+                });
+
+                ranges.Add(new SitioResidentReport.ResidentsRange
+                {
+                    rangeTitle = "4P's",
+                    residents = residents.Where(r => r.Sitio == null).Where(r => r.Four_Ps != null && r.Four_Ps.Trim() != "").Count()
+                });
+
+                var unspecifiedMembership = residents.Where(r => r.Sitio == null).Where(r => {
+                    return (r.IndigenousPeopleMembership == null || r.IndigenousPeopleMembership.Trim() == "") &&
+                            (r.PHICMembershipSponsor == null || r.PHICMembershipSponsor.Trim() == "") &&
+                            (r.NHTS == null || r.NHTS.Trim() == "") &&
+                            (r.Four_Ps == null || r.Four_Ps.Trim() == "");
+                }).Count();
+
+                if (unspecifiedMembership > 0)
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = "No Membership",
+                        residents = unspecified
+                    });
+                }
+
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = "Unspecified",
+                        ranges = ranges
+                    });
+            }
+            return reports;
+        }
 
         public static int AverageResidentPerHousehold {
             get {
