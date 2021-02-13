@@ -440,6 +440,7 @@ namespace BrgyProfileCore.Core
 
         public static void ExportReportSheet(string filename = "Report.xls")
         {
+            BrgyStatistics.RefreshStatistics();
             var sl = new SLDocument();
 
             // Set Resident By Age Report
