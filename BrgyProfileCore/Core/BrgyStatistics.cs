@@ -503,6 +503,76 @@ namespace BrgyProfileCore.Core
             }
             return reports;
         }
+        public static List<SitioResidentReport> SitioResidentsByIncomeReport()
+        {
+            var pairs = new List<MinMaxPair>()
+            {
+                new MinMaxPair{ min = 0, max = 10000 },
+                new MinMaxPair{ min = 10001, max = 25000 },
+                new MinMaxPair{ min = 25001, max = 0 },
+            };
+
+            var reports = new List<SitioResidentReport>();
+
+            sitio.ForEach(s =>
+            {
+                var salaryRanges = new List<SitioResidentReport.ResidentsRange>();
+                foreach (var p in pairs)
+                {
+                    var rangeTitle = $"P{p.min - 1} to P{p.max}";
+                    if(p.min == 0)
+                    {
+                        rangeTitle = $"P{p.max} and below";
+                    }
+                    if (p.max == 0)
+                    {
+                        rangeTitle = $"P{p.min - 1} and above";
+                    }
+                    salaryRanges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = rangeTitle,
+                        residents = s.Residents.Where(r => r.ParsedIncome >= p.min && (p.max == 0 || r.ParsedIncome <= p.max)).Count()
+                    });
+                }
+
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = s.SitioName,
+                        ranges = salaryRanges
+                    });
+            });
+
+            var unspecified = residents.Where(r => r.Sitio == null).Count();
+            if (unspecified > 0)
+            {
+                var salaryRanges = new List<SitioResidentReport.ResidentsRange>();
+                foreach (var p in pairs)
+                {
+                    var rangeTitle = $"P{p.min - 1} to P{p.max}";
+                    if (p.min == 0)
+                    {
+                        rangeTitle = $"P{p.max} and below";
+                    }
+                    if (p.max == 0)
+                    {
+                        rangeTitle = $"P{p.min - 1} and above";
+                    }
+                    salaryRanges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = rangeTitle,
+                        residents = residents.Where(r => r.Sitio == null).Where(r => r.ParsedIncome >= p.min && (p.max == 0 || r.ParsedIncome <= p.max)).Count()
+                    });
+                }
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = "Unspecified",
+                        ranges = salaryRanges
+                    });
+            }
+            return reports;
+        }
 
         public static int AverageResidentPerHousehold {
             get {

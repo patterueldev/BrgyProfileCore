@@ -481,6 +481,12 @@ namespace BrgyProfileCore.Core
                 "By Membership",
                 "Residents by Membership");
 
+            var residentsByIncome = BrgyStatistics.SitioResidentsByIncomeReport();
+            SetResidentReport(sl,
+                residentsByIncome,
+                "By Income",
+                "Residents by Income");
+
             sl.DeleteWorksheet("Sheet1");
             sl.SaveAs(filename);
         }

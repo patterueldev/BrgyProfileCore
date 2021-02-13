@@ -126,5 +126,13 @@ namespace BrgyProfileCore
                 return Sitio.SitioName;
             }
         }
+
+        public double ParsedIncome
+        {
+            get
+            {
+                return 0;
+            }
+        }
     }
 }
