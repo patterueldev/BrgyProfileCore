@@ -442,7 +442,7 @@ namespace BrgyProfileCore.Core
         {
             var sl = new SLDocument();
             /// By Age
-            sl.RenameWorksheet("Sheet1", "Residents by Age");
+            sl.RenameWorksheet("Sheet1", "Residents by Age per Sitio");
 
             SLStyle style = sl.CreateStyle();
             style.SetWrapText(true);
@@ -450,9 +450,10 @@ namespace BrgyProfileCore.Core
             style.Alignment.Vertical = DocumentFormat.OpenXml.Spreadsheet.VerticalAlignmentValues.Center;
 
             ///// NAME HEADER
-            sl.SetCellValue("A1", "Residents by Age");
+            sl.SetCellValue("A1", "Residents by Age per Sitio");
             sl.SetCellStyle("A1", style);
 
+            var rows = 0;
             var lastCell = "A1";
             var reports = BrgyStatistics.SitioResidentsByAgeReport();
             //// Headers
@@ -473,11 +474,17 @@ namespace BrgyProfileCore.Core
 
                     lastCell = cellColumn;
                 });
+
+                rows = r.ranges.Count();
             });
 
             // Create the Chart
             var chart = sl.CreateChart("Residents by Age per Sitio", "A1", lastCell);
+            chart.SetChartType(SpreadsheetLight.Charts.SLColumnChartType.ClusteredColumn);
+            chart.SetChartPosition(rows + 3, 0, rows + 18, reports.Count() * 0.5 * rows);
             sl.InsertChart(chart);
+
+            // Create another worksheet
 
             //Save the excel file
             sl.SaveAs(filename);
