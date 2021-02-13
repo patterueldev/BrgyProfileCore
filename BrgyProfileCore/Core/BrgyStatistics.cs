@@ -8,7 +8,16 @@ namespace BrgyProfileCore.Core
     class BrgyStatistics
     {
         private static BrgyContext db = new BrgyContext();
-
+        private static List<Resident> residents = new List<Resident>();
+        
+        public static void RefreshStatistics()
+        {
+            residents = db.Residents.ToList();
+        }
+        public static int TotalResidentsByAge(int min, int max = 0)
+        {
+            return residents.Where(r => r.GetAge() >= min && (max == 0 || r.GetAge() <= max)).Count();
+        }
         public static int AverageResidentPerHousehold {
             get {
                 var Households = db.Households.Include(h => h.Residents).ToList();
@@ -27,66 +36,6 @@ namespace BrgyProfileCore.Core
             {
                 var Sitio = db.Sitio.Include(h => h.Residents).ToList();
                 var totalResidents = Sitio.Select(h => h.Residents.Count).Sum();
-                var totalSitio = Sitio.Count;
-                if (totalSitio == 0)
-                {
-                    return 0;
-                }
-                return totalResidents / totalSitio;
-            }
-        }
-        public static int AverageResident1_18perSitio
-        {
-            get
-            {
-                var Sitio = db.Sitio.Include(h => h.Residents).ToList();
-                var totalResidents = Sitio.Select<Sitio, int>(h =>
-                {
-                    var residents = h.Residents.Where(r => {
-                        return r.Age >= 0 && r.Age <= 18;
-                    }).ToList();
-                    return residents.Count;
-                }).Sum();
-                var totalSitio = Sitio.Count;
-                if (totalSitio == 0)
-                {
-                    return 0;
-                }
-                return totalResidents / totalSitio;
-            }
-        }
-        public static int AverageResident19_50perSitio
-        {
-            get
-            {
-                var Sitio = db.Sitio.Include(h => h.Residents).ToList();
-                var totalResidents = Sitio.Select<Sitio, int>(h =>
-                {
-                    var residents = h.Residents.Where(r => {
-                        return r.Age >= 19 && r.Age <= 50;
-                    }).ToList();
-                    return residents.Count;
-                }).Sum();
-                var totalSitio = Sitio.Count;
-                if (totalSitio == 0)
-                {
-                    return 0;
-                }
-                return totalResidents / totalSitio;
-            }
-        }
-        public static int AverageResident51_AboveperSitio
-        {
-            get
-            {
-                var Sitio = db.Sitio.Include(h => h.Residents).ToList();
-                var totalResidents = Sitio.Select<Sitio, int>(h =>
-                {
-                    var residents = h.Residents.Where(r => {
-                        return r.Age >= 51;
-                    }).ToList();
-                    return residents.Count;
-                }).Sum();
                 var totalSitio = Sitio.Count;
                 if (totalSitio == 0)
                 {

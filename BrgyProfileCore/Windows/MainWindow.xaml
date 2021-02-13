@@ -78,11 +78,14 @@
             <ScrollViewer>
                 <Grid>
                     <StackPanel x:Name="StatisticStackPanel" Margin="10,10,10,10">
-                        <CustomControls:StatisticDetailView x:Name="AverageResidentperHouseholdDetail" FieldHeader="Average # of Residents per Household"/>
-                        <CustomControls:StatisticDetailView x:Name="AveragePopulationperSitioDetail" FieldHeader="Average Population per Sitio"/>
-                        <CustomControls:StatisticDetailView x:Name="AverageResident1_18perSitioDetail" FieldHeader="Average residents between ages 1-18 per Sitio"/>
-                        <CustomControls:StatisticDetailView x:Name="AverageResident50_AboveperSitioDetail" FieldHeader="Average residents between ages 50 and above per Sitio"/>
-                        <CustomControls:StatisticDetailView x:Name="AverageResident19_50perSitioDetail" FieldHeader="Average residents between ages 19-50 per Sitio"/>
+                        <CustomControls:StatisticDetailView x:Name="ResidentsAge0_3yrs" FieldHeader="Residents with Ages 0 - 3 years"/>
+                        <CustomControls:StatisticDetailView x:Name="ResidentsAge4_6yrs" FieldHeader="Residents with Ages 4 - 6 years"/>
+                        <CustomControls:StatisticDetailView x:Name="ResidentsAge7_11yrs" FieldHeader="Residents with Ages 7 - 11 years"/>
+                        <CustomControls:StatisticDetailView x:Name="ResidentsAge12_20yrs" FieldHeader="Residents with Ages 12 - 20 years"/>
+                        <CustomControls:StatisticDetailView x:Name="ResidentsAge21_35yrs" FieldHeader="Residents with Ages 21 - 35 years"/>
+                        <CustomControls:StatisticDetailView x:Name="ResidentsAge36_50yrs" FieldHeader="Residents with Ages 36 - 50 years"/>
+                        <CustomControls:StatisticDetailView x:Name="ResidentsAge51_80yrs" FieldHeader="Residents with Ages 51 - 80 years"/>
+                        <CustomControls:StatisticDetailView x:Name="ResidentsAge81_aboveyrs" FieldHeader="Residents with Ages 81 years and above"/>
                         <!--
                     <CustomControls:StatisticDetailView FieldHeader="Average male per Sitio"/>
                     <CustomControls:StatisticDetailView FieldHeader="Average female per Sitio"/>

@@ -116,7 +116,7 @@ namespace BrgyProfileCore.Core
                 sl.SetCellValue($"F{row}", resident.Gender);
                 sl.SetCellValue($"G{row}", resident.MaritalStatus);
                 sl.SetCellValue($"H{row}", resident.DateOfBirth.ToString("MM/dd/yyyy"));
-                sl.SetCellValue($"I{row}", resident.Age);
+                sl.SetCellValue($"I{row}", resident.GetAge());
                 sl.SetCellValue($"J{row}", resident.HighestEducationalAttainment);
 
                 sl.SetCellValue($"K{row}", resident.Grade_YearLevelofSchoolAttendance);
