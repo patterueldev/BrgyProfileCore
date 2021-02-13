@@ -131,7 +131,20 @@ namespace BrgyProfileCore
         {
             get
             {
-                return 0;
+                if(TotalActualIncomeofEarningMember == null)
+                {
+                    return 0;
+                }
+
+                double income;
+                if(double.TryParse(TotalActualIncomeofEarningMember, out income))
+                {
+                    return income;
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
     }
