@@ -77,13 +77,14 @@ namespace BrgyProfileCore.Core
                 };
             }
         }
-        public static void printResidents(List<Resident> residents, string filename = "Residents.xls")
+        public static void ExportResidentsSheet(List<Resident> residents, string filename = "Residents.xls")
         {
             //Create new Excel WorkBook document. 
             //The default file format is XLSX, but we can override that for legacy support
             var sl = new SLDocument();
-            sl.AddWorksheet("Residents");
-            sl.SelectWorksheet("Residents");
+            sl.RenameWorksheet("Sheet1", "Residents");
+            //sl.AddWorksheet("Residents");
+            //sl.SelectWorksheet("Residents");
 
             //Add data and styles to the new worksheet
             residentHeaders.ForEach(header =>
@@ -171,12 +172,10 @@ namespace BrgyProfileCore.Core
             sl.SaveAs(filename);
         }
 
-        public static void printRBI(List<Resident> residents, string filename = "RBI.xls")
+        public static void ExportRBISheet(List<Resident> residents, string filename = "RBI.xls")
         {
             var sl = new SLDocument();
-            sl.AddWorksheet("Household");
-            sl.SelectWorksheet("Household");
-
+            sl.RenameWorksheet("Sheet1", "Household");
 
             SLStyle style = sl.CreateStyle();
             style.SetWrapText(true);
