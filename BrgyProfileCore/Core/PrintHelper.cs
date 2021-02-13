@@ -443,15 +443,30 @@ namespace BrgyProfileCore.Core
             var sl = new SLDocument();
 
             // Set Resident By Age Report
-            SetResidentByAgeReport(sl);
+            var residentsByAge = BrgyStatistics.SitioResidentsByAgeReport();
+            SetResidentReport(sl,
+                residentsByAge,
+                "By Age",
+                "Residents by Age");
 
             // Create another worksheet
-            SetResidentByMaritalStatusReport(sl);
+            var residentsByMaritalStatus = BrgyStatistics.SitioResidentsByMaritalStatusReport();
+            SetResidentReport(sl,
+                residentsByMaritalStatus,
+                "By Marital Status",
+                "Residents by Marital Status");
 
-            //Save the excel file
+            //Create more worksheet
+            var residentByEducationalAttainment = BrgyStatistics.SitioResidentsByEducationalAttainmentReport();
+            SetResidentReport(sl,
+                residentByEducationalAttainment,
+                "By Educational Attainment",
+                "Residents by Highest Educational Attainment");
+
+            sl.DeleteWorkspace("Sheet1");
             sl.SaveAs(filename);
         }
-        private static void SetResidentByAgeReport(SLDocument sl)
+        private static void SetResidentReport(SLDocument sl, List<SitioResidentReport> reports, string worksheetName, string header)
         {
             SLStyle style = sl.CreateStyle();
             style.SetWrapText(true);
@@ -459,15 +474,15 @@ namespace BrgyProfileCore.Core
             style.Alignment.Vertical = DocumentFormat.OpenXml.Spreadsheet.VerticalAlignmentValues.Center;
 
             /// By Age
-            sl.RenameWorksheet("Sheet1", "By Age");
+            sl.AddWorksheet(worksheetName);
+            sl.SelectWorksheet(worksheetName);
 
             ///// NAME HEADER
-            sl.SetCellValue("A1", "Residents by Age per Sitio");
+            sl.SetCellValue("A1", header);
             sl.SetCellStyle("A1", style);
 
             var rows = 0;
             var lastCell = "A1";
-            var reports = BrgyStatistics.SitioResidentsByAgeReport();
             //// Headers
             reports.ForEach(r =>
             {
@@ -491,55 +506,9 @@ namespace BrgyProfileCore.Core
             });
 
             // Create the Chart
-            var chart = sl.CreateChart("Residents by Age per Sitio", "A1", lastCell);
+            var chart = sl.CreateChart(worksheetName, "A1", lastCell);
             chart.SetChartType(SpreadsheetLight.Charts.SLColumnChartType.ClusteredColumn);
-            chart.SetChartPosition(rows + 3, 0, rows + 18, reports.Count() * 0.5 * rows);
-            sl.InsertChart(chart);
-        }
-        private static void SetResidentByMaritalStatusReport(SLDocument sl)
-        {
-            SLStyle style = sl.CreateStyle();
-            style.SetWrapText(true);
-            style.Alignment.Horizontal = DocumentFormat.OpenXml.Spreadsheet.HorizontalAlignmentValues.Center;
-            style.Alignment.Vertical = DocumentFormat.OpenXml.Spreadsheet.VerticalAlignmentValues.Center;
-
-            /// By Age
-            sl.AddWorksheet("By Marital Status");
-            sl.SelectWorksheet("By Marital Status");
-
-            ///// NAME HEADER
-            sl.SetCellValue("A1", "Residents by Marital Status per Sitio");
-            sl.SetCellStyle("A1", style);
-
-            var rows = 0;
-            var lastCell = "A1";
-            var reports = BrgyStatistics.SitioResidentsByMaritalStatusReport();
-            //// Headers
-            reports.ForEach(r =>
-            {
-                var col = reports.IndexOf(r) + 2;
-                var cellColumn = NumberToString(col) + "1";
-                sl.SetCellValue(cellColumn, r.sitio);
-
-                r.ranges.ForEach(rng =>
-                {
-                    var row = r.ranges.IndexOf(rng) + 2;
-                    var cellColumn = NumberToString(col) + row;
-
-                    sl.SetCellValue($"A{row}", rng.rangeTitle);
-                    sl.SetCellStyle($"A{row}", style);
-                    sl.SetCellValue(cellColumn, rng.residents);
-
-                    lastCell = cellColumn;
-                });
-
-                rows = r.ranges.Count();
-            });
-
-            // Create the Chart
-            var chart = sl.CreateChart("Residents by Marital Status", "A1", lastCell);
-            chart.SetChartType(SpreadsheetLight.Charts.SLColumnChartType.ClusteredColumn);
-            chart.SetChartPosition(rows + 3, 0, rows + 18, reports.Count() * 0.5 * rows);
+            chart.SetChartPosition(rows + 3, 0, rows + 18, reports.Count() * 1 * rows);
             sl.InsertChart(chart);
         }
 

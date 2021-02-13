@@ -179,6 +179,85 @@ namespace BrgyProfileCore.Core
             }
             return reports;
         }
+        public static List<SitioResidentReport> SitioResidentsByEducationalAttainmentReport()
+        {
+            var educationalAttainments = new List<string>();
+            foreach(var r in residents)
+            {
+                if(r.HighestEducationalAttainment == null || r.HighestEducationalAttainment.Trim() == "")
+                {
+                    continue;
+                }
+                if (!educationalAttainments.Contains(r.HighestEducationalAttainment))
+                {
+                    educationalAttainments.Add(r.HighestEducationalAttainment);
+                }
+            }
+
+            var reports = new List<SitioResidentReport>();
+
+            sitio.ForEach(s =>
+            {
+                var ranges = new List<SitioResidentReport.ResidentsRange>();
+                foreach (var attainment in educationalAttainments)
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = attainment,
+                        residents = s.Residents.Where(r => r.HighestEducationalAttainment == attainment).Count()
+                    });
+                }
+
+                var unspecified = s.Residents.Where(r => r.HighestEducationalAttainment == null || r.HighestEducationalAttainment.Trim() == "").Count();
+                if (unspecified > 0)
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = "Unspecified Educational Attainment",
+                        residents = unspecified
+                    });
+                }
+
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = s.SitioName,
+                        ranges = ranges
+                    });
+            });
+
+            var unspecified = residents.Where(r => r.Sitio == null).Count();
+            if (unspecified > 0)
+            {
+                var ranges = new List<SitioResidentReport.ResidentsRange>();
+                educationalAttainments.ForEach(attainment =>
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = attainment,
+                        residents = residents.Where(r => r.Sitio == null).Where(r => r.HighestEducationalAttainment == attainment).Count()
+                    });
+
+
+                });
+                var unspecifiedStatus = residents.Where(r => r.Sitio == null).Where(r => r.HighestEducationalAttainment == null || r.HighestEducationalAttainment.Trim() == "").Count();
+                if (unspecifiedStatus > 0)
+                {
+                    ranges.Add(new SitioResidentReport.ResidentsRange
+                    {
+                        rangeTitle = "Unspecified Educational Attainment",
+                        residents = unspecified
+                    });
+                }
+                reports.Add(
+                    new SitioResidentReport
+                    {
+                        sitio = "Unspecified",
+                        ranges = ranges
+                    });
+            }
+            return reports;
+        }
 
         public static int AverageResidentPerHousehold {
             get {
