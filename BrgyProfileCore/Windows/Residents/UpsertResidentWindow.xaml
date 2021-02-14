@@ -179,7 +179,7 @@
                             <Run Text="*" Foreground="Red"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Religion, Mode=TwoWay}"/>
+                        <ComboBox x:Name="religionBox" Height="23" IsEditable="True" Text="{Binding Religion, Mode=TwoWay}"/>
 
                         <!-- Citizenship -->
                         <Label>
@@ -196,7 +196,7 @@
                             <Run Text="Occupation"></Run>
                             </TextBlock>
                         </Label>
-                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding Occupation, Mode=TwoWay}"/>
+                        <ComboBox x:Name="occupationBox" Height="23" IsEditable="True" Text="{Binding Occupation, Mode=TwoWay}"/>
 
                         <!-- Relationship -->
                         <Label Content="Relationship to HH Head"/>
@@ -204,7 +204,7 @@
 
                         <!-- Highest Educational Attainment -->
                         <Label Content="Highest Educational Attainment"/>
-                        <TextBox Height="23" TextWrapping="Wrap" Text="{Binding HighestEducationalAttainment, Mode=TwoWay}"/>
+                        <ComboBox x:Name="educationalAttainmentBox" Height="23" IsEditable="True" Text="{Binding HighestEducationalAttainment, Mode=TwoWay}"/>
 
                         <!-- Grade/Year Level of School Attendance -->
                         <Label Content="Grade/Year Level of School Attendance"/>

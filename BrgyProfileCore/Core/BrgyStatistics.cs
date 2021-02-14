@@ -181,7 +181,13 @@ namespace BrgyProfileCore.Core
         }
         public static List<SitioResidentReport> SitioResidentsByEducationalAttainmentReport()
         {
-            var educationalAttainments = new List<string>();
+            var educationalAttainments = new List<string>()
+            {
+                "Elementary",
+                "High School",
+                "College"
+            };
+
             foreach(var r in residents)
             {
                 if(r.HighestEducationalAttainment == null || r.HighestEducationalAttainment.Trim() == "")
@@ -260,7 +266,10 @@ namespace BrgyProfileCore.Core
         }
         public static List<SitioResidentReport> SitioResidentsByReligionReport()
         {
-            var religions = new List<string>();
+            var religions = new List<string>()
+            {
+
+            };
             foreach (var r in residents)
             {
                 if (r.Religion == null || r.Religion.Trim() == "")
