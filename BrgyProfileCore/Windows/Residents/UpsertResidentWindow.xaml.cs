@@ -23,16 +23,82 @@ namespace BrgyProfileCore.Windows.Residents
 
         BrgyContext db = new BrgyContext();
 
+        List<string> Religions = new List<string>()
+        {
+            "Roman Catholic",
+            "Iglesia ni Cristo",
+            "Seventh Day Adventist",
+            "Baptist",
+            "Jehova's Witnesses",
+        };
+
+        List<string> EducationalAttainments = new List<string>()
+        {
+            "Elementary",
+            "High School",
+            "College",
+            "Vocational",
+            "Graduate School"
+        };
+
+        List<string> Occupations = new List<string>()
+        {
+
+        };
+        private void LoadReferences()
+        {
+            var residents = db.Residents.ToList();
+            foreach (var r in residents)
+            {
+                if (r.Religion == null || r.Religion.Trim() == "")
+                {
+                    continue;
+                }
+                if (!Religions.Contains(r.Religion))
+                {
+                    Religions.Add(r.Religion);
+                }
+            }
+
+            foreach (var r in residents)
+            {
+                if (r.HighestEducationalAttainment == null || r.HighestEducationalAttainment.Trim() == "")
+                {
+                    continue;
+                }
+                if (!EducationalAttainments.Contains(r.HighestEducationalAttainment))
+                {
+                    EducationalAttainments.Add(r.HighestEducationalAttainment);
+                }
+            }
+
+            foreach (var r in residents)
+            {
+                if (r.Occupation == null || r.Occupation.Trim() == "")
+                {
+                    continue;
+                }
+                if (!Occupations.Contains(r.Occupation))
+                {
+                    Occupations.Add(r.Occupation);
+                }
+            }
+        }
+
         public UpsertResidentWindow()
         {
             InitializeComponent();
+
+            LoadReferences();
+            religionBox.ItemsSource = Religions;
+            educationalAttainmentBox.ItemsSource = EducationalAttainments;
+            occupationBox.ItemsSource = Occupations;
 
             this.resident = new Resident();
             resident.DateOfBirth = new DateTime(2000, 1, 1);
 
             var households = db.Households.Include(h => h.Residents).ToList();
             HouseholdBox.ItemsSource = households;
-
             var sitioList = db.Sitio.Include(s => s.Residents).ToList();
             SitioBox.ItemsSource = sitioList;
 
@@ -42,6 +108,11 @@ namespace BrgyProfileCore.Windows.Residents
         public UpsertResidentWindow(Resident resident)
         {
             InitializeComponent();
+
+            LoadReferences();
+            religionBox.ItemsSource = Religions;
+            educationalAttainmentBox.ItemsSource = EducationalAttainments;
+            occupationBox.ItemsSource = Occupations;
 
             this.resident = db.Residents.First(r => r.ResidentId == resident.ResidentId);
 
