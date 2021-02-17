@@ -91,17 +91,72 @@ namespace BrgyProfileCore.Windows
                 new MinMaxPair{ min = 81, max = 0 },
             };
 
-            var ageHeaderLabel = new Label();
-            ageHeaderLabel.Content = "By Age";
-            ageHeaderLabel.FontSize = 14;
-            ageHeaderLabel.FontWeight = FontWeights.Bold;
-            StatisticStackPanel.Children.Add(ageHeaderLabel);
+            // MARK: Age
+            StatisticStackPanel.Children.Add(StatisticHeaderLabel("By Age"));
             pairs.ForEach(p =>
             {
                 var rangeTitle = p.max > 0 ? $"{p.min} to {p.max} yrs" : $"{p.min} yrs and above";
                 var detailView = new CustomControls.StatisticDetailView();
                 detailView.FieldHeader = rangeTitle;
                 detailView.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(p.min, p.max)}";
+                StatisticStackPanel.Children.Add(detailView);
+            });
+
+            // MARK: Marital Status
+            StatisticStackPanel.Children.Add(StatisticHeaderLabel("By Marital Status"));
+            AddStatisticDetailsForReport(BrgyStatistics.SitioResidentsByMaritalStatusReport());
+
+            // MARK: Educational Attainment Status
+            StatisticStackPanel.Children.Add(StatisticHeaderLabel("By Educational Attainment"));
+            AddStatisticDetailsForReport(BrgyStatistics.SitioResidentsByEducationalAttainmentReport());
+
+            // MARK: Religion
+            StatisticStackPanel.Children.Add(StatisticHeaderLabel("By Religion"));
+            AddStatisticDetailsForReport(BrgyStatistics.SitioResidentsByReligionReport());
+
+            // MARK: Disability
+            StatisticStackPanel.Children.Add(StatisticHeaderLabel("By Disability"));
+            AddStatisticDetailsForReport(BrgyStatistics.SitioResidentsByDisabilityReport());
+
+            // MARK: Membership
+            StatisticStackPanel.Children.Add(StatisticHeaderLabel("By Membership"));
+            AddStatisticDetailsForReport(BrgyStatistics.SitioResidentsByMembershipReport());
+
+            // MARK: Income
+            StatisticStackPanel.Children.Add(StatisticHeaderLabel("By Income"));
+            AddStatisticDetailsForReport(BrgyStatistics.SitioResidentsByIncomeReport());
+        }
+
+        private Label StatisticHeaderLabel(string headerText)
+        {
+            var headerLabel = new Label();
+            headerLabel.Content = headerText;
+            headerLabel.FontSize = 14;
+            headerLabel.FontWeight = FontWeights.Bold;
+            return headerLabel;
+        }
+
+        private void AddStatisticDetailsForReport(List<SitioResidentReport> reports)
+        {
+            var statisticDictionary = new Dictionary<string, int>();
+            reports.ForEach(r =>
+             {
+                 r.ranges.ForEach(r =>
+                 {
+                     if (!statisticDictionary.Keys.Contains(r.rangeTitle))
+                     {
+                         statisticDictionary[r.rangeTitle] = 0;
+                     }
+
+                     statisticDictionary[r.rangeTitle] = statisticDictionary[r.rangeTitle] + r.residents;
+                 });
+             });
+
+            statisticDictionary.Keys.ToList().ForEach(k =>
+            {
+                var detailView = new CustomControls.StatisticDetailView();
+                detailView.FieldHeader = k;
+                detailView.FieldValueText = $"{statisticDictionary[k]}";
                 StatisticStackPanel.Children.Add(detailView);
             });
         }
