@@ -78,14 +78,32 @@ namespace BrgyProfileCore.Windows
             MunicipalityLabel.Content = BrgyProfileCore.Properties.Settings.Default.Municipality;
             ProvinceLabel.Content = BrgyProfileCore.Properties.Settings.Default.Province;
 
-            ResidentsAge0_3yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(0, 3)}";
-            ResidentsAge4_6yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(4, 6)}";
-            ResidentsAge7_11yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(7, 11)}";
-            ResidentsAge12_20yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(12, 20)}";
-            ResidentsAge21_35yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(21, 35)}";
-            ResidentsAge36_50yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(36, 50)}";
-            ResidentsAge51_80yrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(51, 80)}";
-            ResidentsAge81_aboveyrs.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(81)}";
+            StatisticStackPanel.Children.Clear();
+            var pairs = new List<MinMaxPair>()
+            {
+                new MinMaxPair{ min = 0, max = 3 },
+                new MinMaxPair{ min = 4, max = 6 },
+                new MinMaxPair{ min = 7, max = 11 },
+                new MinMaxPair{ min = 12, max = 20 },
+                new MinMaxPair{ min = 21, max = 35 },
+                new MinMaxPair{ min = 36, max = 50 },
+                new MinMaxPair{ min = 51, max = 80 },
+                new MinMaxPair{ min = 81, max = 0 },
+            };
+
+            var ageHeaderLabel = new Label();
+            ageHeaderLabel.Content = "By Age";
+            ageHeaderLabel.FontSize = 14;
+            ageHeaderLabel.FontWeight = FontWeights.Bold;
+            StatisticStackPanel.Children.Add(ageHeaderLabel);
+            pairs.ForEach(p =>
+            {
+                var rangeTitle = p.max > 0 ? $"{p.min} to {p.max} yrs" : $"{p.min} yrs and above";
+                var detailView = new CustomControls.StatisticDetailView();
+                detailView.FieldHeader = rangeTitle;
+                detailView.FieldValueText = $"{BrgyStatistics.TotalResidentsByAge(p.min, p.max)}";
+                StatisticStackPanel.Children.Add(detailView);
+            });
         }
 
         /// <summary>
