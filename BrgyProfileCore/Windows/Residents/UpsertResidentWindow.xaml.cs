@@ -54,7 +54,7 @@ namespace BrgyProfileCore.Windows.Residents
                 {
                     continue;
                 }
-                if (!Religions.Contains(r.Religion))
+                if (!Religions.Select(r => r.ToLower().Trim()).Contains(r.Religion.ToLower().Trim()))
                 {
                     Religions.Add(r.Religion);
                 }
@@ -66,7 +66,7 @@ namespace BrgyProfileCore.Windows.Residents
                 {
                     continue;
                 }
-                if (!EducationalAttainments.Contains(r.HighestEducationalAttainment))
+                if (!EducationalAttainments.Select(ea => ea.ToLower().Trim()).Contains(r.HighestEducationalAttainment.ToLower().Trim()))
                 {
                     EducationalAttainments.Add(r.HighestEducationalAttainment);
                 }
@@ -78,7 +78,7 @@ namespace BrgyProfileCore.Windows.Residents
                 {
                     continue;
                 }
-                if (!Occupations.Contains(r.Occupation))
+                if (!Occupations.Select(o => o.ToLower().Trim()).Contains(r.Occupation.ToLower().Trim()))
                 {
                     Occupations.Add(r.Occupation);
                 }
