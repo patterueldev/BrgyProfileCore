@@ -12,7 +12,6 @@ using System.Windows.Shapes;
 using BrgyProfileCore.Core;
 using System.Linq;
 using PasswordHashing;
-using BrgyProfileCore.Core;
 
 namespace BrgyProfileCore.Windows
 {

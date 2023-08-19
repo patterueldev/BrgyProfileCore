@@ -9,7 +9,7 @@ namespace BrgyProfileCore
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public string PlaceOfBirth { get; set; }
         public string Address { get; set; }
         public string AddressNumber { get; set; }
@@ -92,8 +92,9 @@ namespace BrgyProfileCore
                 if (DateOfBirth != null)
                 {
                     var now = DateTime.Now;
-                    int years = DateTime.Now.Year - DateOfBirth.Year;
-                    if (now.Month < DateOfBirth.Month || now.Day < DateOfBirth.Day)
+                    var dateOfBirth = DateOfBirth.Value;
+                    int years = now.Year - dateOfBirth.Year;
+                    if (now.Month < dateOfBirth.Month || now.Day < dateOfBirth.Day)
                     {
                         years -= 1;
                     }

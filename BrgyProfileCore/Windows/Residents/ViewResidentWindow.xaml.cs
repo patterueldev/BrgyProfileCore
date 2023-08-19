@@ -30,7 +30,8 @@ namespace BrgyProfileCore.Windows.Residents
             LastNameDetailView.FieldValue = NAifNull(resident.LastName);
             if (resident.DateOfBirth != null)
             {
-                DateOfBirthDetailView.FieldValue = resident.DateOfBirth.ToString("MMM dd, yyyy");
+                var dateOfBirth = resident.DateOfBirth.Value;
+                DateOfBirthDetailView.FieldValue = dateOfBirth.ToString("MMM dd, yyyy");
             }
             else
             {

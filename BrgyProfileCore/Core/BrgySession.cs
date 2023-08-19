@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 using PasswordHashing;
 
+#nullable enable
 namespace BrgyProfileCore.Core
 {
     class BrgySession

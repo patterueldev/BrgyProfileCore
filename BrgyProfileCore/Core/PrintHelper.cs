@@ -116,7 +116,7 @@ namespace BrgyProfileCore.Core
 
                 sl.SetCellValue($"F{row}", resident.Gender);
                 sl.SetCellValue($"G{row}", resident.MaritalStatus);
-                sl.SetCellValue($"H{row}", resident.DateOfBirth.ToString("MM/dd/yyyy"));
+                sl.SetCellValue($"H{row}", resident.DateOfBirth.Value.ToString("MM/dd/yyyy"));
                 sl.SetCellValue($"I{row}", resident.Age);
                 sl.SetCellValue($"J{row}", resident.HighestEducationalAttainment);
 
@@ -272,7 +272,7 @@ namespace BrgyProfileCore.Core
                 sl.SetCellValue($"G{row}", resident.AddressSubdivision);
 
                 sl.SetCellValue($"H{row}", resident.PlaceOfBirth);
-                sl.SetCellValue($"I{row}", resident.DateOfBirth.ToString("MM/dd/yyyy"));
+                sl.SetCellValue($"I{row}", resident.DateOfBirth.Value.ToString("MM/dd/yyyy"));
 
                 if (resident.Gender != null && resident.Gender.Trim() != "")
                 {
@@ -289,8 +289,8 @@ namespace BrgyProfileCore.Core
         }
         public static void PrintResidentsToPDF(List<Resident> residents, string filename, bool willprint, string printername = null)
         {
-            var Renderer = new IronPdf.HtmlToPdf();
-            Renderer.PrintOptions.PaperOrientation = IronPdf.PdfPrintOptions.PdfPaperOrientation.Landscape;
+            var renderer = new IronPdf.ChromePdfRenderer();
+            renderer.RenderingOptions.PaperOrientation = IronPdf.Rendering.PdfPaperOrientation.Landscape;
 
             string curDir = Directory.GetCurrentDirectory();
             string myFile = Path.Combine(curDir, "BHI-Template.html");
@@ -305,7 +305,7 @@ namespace BrgyProfileCore.Core
                     <td>{r.FullName}</td>
                     <td>{r.Gender}</td>
                     <td>{r.MaritalStatus}</td>
-                    <td>{r.DateOfBirth.ToString("MM/dd/yyyy")}</td>
+                    <td>{r.DateOfBirth.Value.ToString("MM/dd/yyyy")}</td>
 
                     <td>{r.HighestEducationalAttainment}</td>
                     <td>{r.Religion}</td>
@@ -318,7 +318,7 @@ namespace BrgyProfileCore.Core
                 "<!-- end sample-->",
                 tableRowsBuilder.ToString());
 
-            var PDF = Renderer.RenderHtmlAsPdf(processed);
+            var PDF = renderer.RenderHtmlAsPdf(processed);
 
             if (!willprint)
             {
@@ -339,8 +339,8 @@ namespace BrgyProfileCore.Core
 
         public static void PrintHouseholdToPDF(List<Resident> residents, string filename, bool willprint, string printername = null)
         {
-            var Renderer = new IronPdf.HtmlToPdf();
-            Renderer.PrintOptions.PaperOrientation = IronPdf.PdfPrintOptions.PdfPaperOrientation.Landscape;
+            var renderer = new IronPdf.ChromePdfRenderer();
+            renderer.RenderingOptions.PaperOrientation = IronPdf.Rendering.PdfPaperOrientation.Landscape;
 
             string curDir = Directory.GetCurrentDirectory();
             string myFile = Path.Combine(curDir, "RBI-Template.html");
@@ -362,7 +362,7 @@ namespace BrgyProfileCore.Core
                     <td>{r.AddressSubdivision}</td>
                     
                     <td>{r.PlaceOfBirth}</td>
-                    <td>{r.DateOfBirth.ToString("MM/dd/yyyy")}</td>
+                    <td>{r.DateOfBirth.Value.ToString("MM/dd/yyyy")}</td>
                     <td>{r.Gender}</td>
                     <td>{r.MaritalStatus}</td>
                     <td>{r.Citizenship}</td>
@@ -419,7 +419,7 @@ namespace BrgyProfileCore.Core
                 "<!-- EndValidatedByTitle -->",
                 settings.RBI_ValidatedByTitle);
 
-            var PDF = Renderer.RenderHtmlAsPdf(processed);
+            var PDF = renderer.RenderHtmlAsPdf(processed);
 
             if (!willprint)
             {
